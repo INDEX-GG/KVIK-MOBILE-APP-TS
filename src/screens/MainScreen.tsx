@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, {FC} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import TestComp from '../components/TestComp';
 import MessageScreen from './MessageScreen';
 import PlaceOfferScreen from './PlaceOfferScreen';
 import FavoriteScreen from './FavoriteScreen';
 import AccountScreen from './AccountScreen';
+import SearchScreen from './SearchScreen';
 import Logo from '../assets/LogoIcon.svg';
 import Message from '../assets/Message.svg';
 import Like from '../assets/FavoriteLike.svg';
@@ -12,7 +12,7 @@ import Profile from '../assets/AccountProfile.svg';
 import PlaceOffer from '../assets/AddNewProductIcon.svg';
 
 const buttonsNavigation = [
-  {name: 'MainScreen', component: TestComp, options: {title: 'Поиск'}},
+  {name: 'MainScreen', component: SearchScreen, options: {title: 'Поиск'}},
   {
     name: 'MessageScreen',
     component: MessageScreen,

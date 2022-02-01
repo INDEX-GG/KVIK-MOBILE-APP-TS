@@ -3,6 +3,7 @@ import {Text, View} from 'react-native';
 import {useTypeSelector} from '../hooks/useTypedSelector';
 import {Button} from 'react-native-elements';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import FillButton from '../UI/FillButton';
 
 type RootStackParamList = {
   Home: undefined;
@@ -24,11 +25,8 @@ const TestComp: FC<Props> = ({navigation, route}) => {
 
   return (
     <View>
-      <Text>counter {test.value}</Text>
-      <Button title={'+1'} onPress={handlePress} />
-      <Button title={'+1'} onPress={handlePress} />
-      <Button title={'+1'} onPress={handlePress} />
-      <Button title={'+1'} onPress={handlePress} />
+      <Text style={{fontFamily: 'Ubuntu-Bold'}}>counter {test.value}2</Text>
+      <FillButton title={'123'} onPress={handlePress} />
     </View>
   );
 };
