@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* KVIKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KVIKTests.m */; };
+		04EF6F8130C04C1496D99414 /* Ubuntu-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04E1BA3898844713B02E3D5A /* Ubuntu-Regular.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		6172F2D35A4C3AA820D92908 /* libPods-KVIK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-KVIK.a */; };
-		7EF68E3733C33B6898317E18 /* libPods-KVIK-KVIKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-KVIK-KVIKTests.a */; };
+		2E7DD594E032465DA9F9EDF9 /* Ubuntu-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F68021D1A29B40339D80C3AF /* Ubuntu-Bold.otf */; };
+		3424ECFA4A90372A7C65C820 /* libPods-KVIK-KVIKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D730D0C938A6A39B8C2A12 /* libPods-KVIK-KVIKTests.a */; };
+		5A592E0EE6A967458E28F815 /* libPods-KVIK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EE7BB3B6BF0B7E1184146 /* libPods-KVIK.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		EAD81CF0230F4C76B308E1CD /* Ubuntu-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B7F0C7F1FA104E648E38F5D9 /* Ubuntu-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,20 +33,42 @@
 		00E356EE1AD99517003FC87E /* KVIKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVIKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* KVIKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVIKTests.m; sourceTree = "<group>"; };
+		0435E873055B4F7EB4A6311F /* ubuntu_regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ubuntu_regular.ttf; path = ../src/assets/fonts/ubuntu_regular.ttf; sourceTree = "<group>"; };
+		04E1BA3898844713B02E3D5A /* Ubuntu-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-Regular.otf"; path = "../src/assets/fonts/Ubuntu-Regular.otf"; sourceTree = "<group>"; };
+		0D76AB1BD8FF4CCCA0205E4B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* KVIK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVIK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = KVIK/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = KVIK/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KVIK/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = KVIK/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = KVIK/main.m; sourceTree = "<group>"; };
-		1D0AE47A65C8663E3B452821 /* Pods-KVIK-KVIKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK-KVIKTests.release.xcconfig"; path = "Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests.release.xcconfig"; sourceTree = "<group>"; };
-		6423831EA8574132BED9D8CC /* libPods-KVIK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVIK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C97AB639B58BBB4B15BBE30 /* Pods-KVIK-KVIKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK-KVIKTests.debug.xcconfig"; path = "Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2D384BC453BC4AF8A21A75B1 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		3711231C1EDF4EC7BEE83628 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		4C069F06433D41969EE98691 /* ubuntu_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ubuntu_medium.ttf; path = ../src/assets/fonts/ubuntu_medium.ttf; sourceTree = "<group>"; };
+		504FA72F4BF94BB7996CEAC8 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		54D730D0C938A6A39B8C2A12 /* libPods-KVIK-KVIKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVIK-KVIKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F4C4B462434335A042E0F9 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		5C851C3273F0467BBF4C7239 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		6D2585CA31CC4C2B9227D1B5 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		6E6B5B985249488A8355C3A3 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		7D9326AA9BCF43F8B7310AE3 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = KVIK/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		ABFE59519B596E51CEFDCCC0 /* libPods-KVIK-KVIKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVIK-KVIKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0A881CF5CF3F2B244570E2A /* Pods-KVIK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK.debug.xcconfig"; path = "Target Support Files/Pods-KVIK/Pods-KVIK.debug.xcconfig"; sourceTree = "<group>"; };
-		D00AAFFCFCFDA5787532823F /* Pods-KVIK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK.release.xcconfig"; path = "Target Support Files/Pods-KVIK/Pods-KVIK.release.xcconfig"; sourceTree = "<group>"; };
+		AC5865483D71408AA014D58E /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		ADA81D1DE8A8416B836DCBC2 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		B0AB1D09A7464270AEC9456F /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		B455470E1D0A481ABA745BEB /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		B7F0C7F1FA104E648E38F5D9 /* Ubuntu-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-Medium.otf"; path = "../src/assets/fonts/Ubuntu-Medium.otf"; sourceTree = "<group>"; };
+		BDD37BEFC9E24E4F93A9ECFC /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		C0AD1BC2833D4077BFF5CD14 /* ubuntu_bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = ubuntu_bold.ttf; path = ../src/assets/fonts/ubuntu_bold.ttf; sourceTree = "<group>"; };
+		C74EE7BB3B6BF0B7E1184146 /* libPods-KVIK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVIK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3E9E91F8E790EB00E3FF44E /* Pods-KVIK-KVIKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK-KVIKTests.release.xcconfig"; path = "Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests.release.xcconfig"; sourceTree = "<group>"; };
+		DCC6B77DB12ED0A93E365480 /* Pods-KVIK-KVIKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK-KVIKTests.debug.xcconfig"; path = "Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E06BC26851D247389ADD50F3 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F112F98B15584FCAA1CF231C /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		F3E2A68674412787556B82AE /* Pods-KVIK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK.debug.xcconfig"; path = "Target Support Files/Pods-KVIK/Pods-KVIK.debug.xcconfig"; sourceTree = "<group>"; };
+		F68021D1A29B40339D80C3AF /* Ubuntu-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-Bold.otf"; path = "../src/assets/fonts/Ubuntu-Bold.otf"; sourceTree = "<group>"; };
+		F8B01FBB29628733AC47BCE0 /* Pods-KVIK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK.release.xcconfig"; path = "Target Support Files/Pods-KVIK/Pods-KVIK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EF68E3733C33B6898317E18 /* libPods-KVIK-KVIKTests.a in Frameworks */,
+				3424ECFA4A90372A7C65C820 /* libPods-KVIK-KVIKTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6172F2D35A4C3AA820D92908 /* libPods-KVIK.a in Frameworks */,
+				5A592E0EE6A967458E28F815 /* libPods-KVIK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,14 +121,54 @@
 			name = KVIK;
 			sourceTree = "<group>";
 		};
+		2C6D1DCFB107193F22A022A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3E2A68674412787556B82AE /* Pods-KVIK.debug.xcconfig */,
+				F8B01FBB29628733AC47BCE0 /* Pods-KVIK.release.xcconfig */,
+				DCC6B77DB12ED0A93E365480 /* Pods-KVIK-KVIKTests.debug.xcconfig */,
+				D3E9E91F8E790EB00E3FF44E /* Pods-KVIK-KVIKTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				6423831EA8574132BED9D8CC /* libPods-KVIK.a */,
-				ABFE59519B596E51CEFDCCC0 /* libPods-KVIK-KVIKTests.a */,
+				C74EE7BB3B6BF0B7E1184146 /* libPods-KVIK.a */,
+				54D730D0C938A6A39B8C2A12 /* libPods-KVIK-KVIKTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F0D05FE00F040A0862B0401 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C0AD1BC2833D4077BFF5CD14 /* ubuntu_bold.ttf */,
+				4C069F06433D41969EE98691 /* ubuntu_medium.ttf */,
+				0435E873055B4F7EB4A6311F /* ubuntu_regular.ttf */,
+				F68021D1A29B40339D80C3AF /* Ubuntu-Bold.otf */,
+				B7F0C7F1FA104E648E38F5D9 /* Ubuntu-Medium.otf */,
+				04E1BA3898844713B02E3D5A /* Ubuntu-Regular.otf */,
+				AC5865483D71408AA014D58E /* AntDesign.ttf */,
+				7D9326AA9BCF43F8B7310AE3 /* Entypo.ttf */,
+				5C851C3273F0467BBF4C7239 /* EvilIcons.ttf */,
+				B455470E1D0A481ABA745BEB /* Feather.ttf */,
+				2D384BC453BC4AF8A21A75B1 /* FontAwesome.ttf */,
+				E06BC26851D247389ADD50F3 /* FontAwesome5_Brands.ttf */,
+				ADA81D1DE8A8416B836DCBC2 /* FontAwesome5_Regular.ttf */,
+				BDD37BEFC9E24E4F93A9ECFC /* FontAwesome5_Solid.ttf */,
+				504FA72F4BF94BB7996CEAC8 /* Fontisto.ttf */,
+				58F4C4B462434335A042E0F9 /* Foundation.ttf */,
+				F112F98B15584FCAA1CF231C /* Ionicons.ttf */,
+				6D2585CA31CC4C2B9227D1B5 /* MaterialCommunityIcons.ttf */,
+				6E6B5B985249488A8355C3A3 /* MaterialIcons.ttf */,
+				B0AB1D09A7464270AEC9456F /* Octicons.ttf */,
+				0D76AB1BD8FF4CCCA0205E4B /* SimpleLineIcons.ttf */,
+				3711231C1EDF4EC7BEE83628 /* Zocial.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -121,7 +186,8 @@
 				00E356EF1AD99517003FC87E /* KVIKTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				E233CBF5F47BEE60B243DCF8 /* Pods */,
+				5F0D05FE00F040A0862B0401 /* Resources */,
+				2C6D1DCFB107193F22A022A5 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -137,18 +203,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C0A881CF5CF3F2B244570E2A /* Pods-KVIK.debug.xcconfig */,
-				D00AAFFCFCFDA5787532823F /* Pods-KVIK.release.xcconfig */,
-				6C97AB639B58BBB4B15BBE30 /* Pods-KVIK-KVIKTests.debug.xcconfig */,
-				1D0AE47A65C8663E3B452821 /* Pods-KVIK-KVIKTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,12 +210,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "KVIKTests" */;
 			buildPhases = (
-				A130D646172E58E1D159D8F2 /* [CP] Check Pods Manifest.lock */,
+				2CB8AB3F17B65D125BE47EB6 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				077E01280D4B4AD18B2E1770 /* [CP] Embed Pods Frameworks */,
-				4E62BDF20514810D028A5FBF /* [CP] Copy Pods Resources */,
+				F91044A1F34EFC5E52A62B8D /* [CP] Embed Pods Frameworks */,
+				3A6565CE0FB69853126BFDCD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,14 +231,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "KVIK" */;
 			buildPhases = (
-				3E482C27206C4DEF2FE45063 /* [CP] Check Pods Manifest.lock */,
+				D49DC4C2DA670DE82181B7B6 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				C8AC78B0264D0F9F6F6D630E /* [CP] Embed Pods Frameworks */,
-				ADC9DDC32298B72B3CF5DC8E /* [CP] Copy Pods Resources */,
+				C1E388D649244DA74DA887D9 /* [CP] Embed Pods Frameworks */,
+				8CD0EA77A5E0EC4D11C526E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,6 +299,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				2E7DD594E032465DA9F9EDF9 /* Ubuntu-Bold.otf in Resources */,
+				EAD81CF0230F4C76B308E1CD /* Ubuntu-Medium.otf in Resources */,
+				04EF6F8130C04C1496D99414 /* Ubuntu-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,63 +322,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		077E01280D4B4AD18B2E1770 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3E482C27206C4DEF2FE45063 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KVIK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4E62BDF20514810D028A5FBF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A130D646172E58E1D159D8F2 /* [CP] Check Pods Manifest.lock */ = {
+		2CB8AB3F17B65D125BE47EB6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -343,7 +344,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ADC9DDC32298B72B3CF5DC8E /* [CP] Copy Pods Resources */ = {
+		3A6565CE0FB69853126BFDCD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CD0EA77A5E0EC4D11C526E4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -360,7 +378,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KVIK/Pods-KVIK-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C8AC78B0264D0F9F6F6D630E /* [CP] Embed Pods Frameworks */ = {
+		C1E388D649244DA74DA887D9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -375,6 +393,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KVIK/Pods-KVIK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D49DC4C2DA670DE82181B7B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KVIK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F91044A1F34EFC5E52A62B8D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KVIK-KVIKTests/Pods-KVIK-KVIKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -429,7 +486,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C97AB639B58BBB4B15BBE30 /* Pods-KVIK-KVIKTests.debug.xcconfig */;
+			baseConfigurationReference = DCC6B77DB12ED0A93E365480 /* Pods-KVIK-KVIKTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -456,7 +513,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D0AE47A65C8663E3B452821 /* Pods-KVIK-KVIKTests.release.xcconfig */;
+			baseConfigurationReference = D3E9E91F8E790EB00E3FF44E /* Pods-KVIK-KVIKTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -480,7 +537,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0A881CF5CF3F2B244570E2A /* Pods-KVIK.debug.xcconfig */;
+			baseConfigurationReference = F3E2A68674412787556B82AE /* Pods-KVIK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -506,7 +563,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D00AAFFCFCFDA5787532823F /* Pods-KVIK.release.xcconfig */;
+			baseConfigurationReference = F8B01FBB29628733AC47BCE0 /* Pods-KVIK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
