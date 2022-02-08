@@ -1,7 +1,7 @@
-import {ThemeReducer, ThemeReducerAction} from '../../types/reducersTypes';
+import { ThemeReducer, ThemeReducerAction } from '../../types/reducersTypes';
 
 const defaultValue: ThemeReducer = {
-  theme: 'light',
+  theme: 'dark',
 };
 
 export enum ThemeType {
@@ -11,14 +11,14 @@ export enum ThemeType {
 
 export const themeReducer = (
   state = defaultValue,
-  action: ThemeReducerAction,
+  action: ThemeReducerAction
 ) => {
   switch (action.type) {
     case ThemeType.IS_LIGHT:
-      return {...state, theme: 'light'};
+      return { ...state, theme: 'light' };
     case ThemeType.IS_DARK:
-      return {...state, theme: 'dark'};
+      return { ...state, theme: 'dark' };
     default:
-      return {...state};
+      return { ...state };
   }
 };

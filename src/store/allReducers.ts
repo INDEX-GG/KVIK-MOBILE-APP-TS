@@ -1,5 +1,5 @@
-import {testReduce} from './reducers/testReducer';
-import {themeReducer} from './reducers/themeReducer';
+import { testReduce } from './reducers/testReducer';
+import { themeReducer } from './reducers/themeReducer';
 
 export const allReducers = {
   testReduce,

@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* KVIKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KVIKTests.m */; };
-		04EF6F8130C04C1496D99414 /* Ubuntu-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04E1BA3898844713B02E3D5A /* Ubuntu-Regular.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2E7DD594E032465DA9F9EDF9 /* Ubuntu-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F68021D1A29B40339D80C3AF /* Ubuntu-Bold.otf */; };
 		3424ECFA4A90372A7C65C820 /* libPods-KVIK-KVIKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D730D0C938A6A39B8C2A12 /* libPods-KVIK-KVIKTests.a */; };
 		5A592E0EE6A967458E28F815 /* libPods-KVIK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74EE7BB3B6BF0B7E1184146 /* libPods-KVIK.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		EAD81CF0230F4C76B308E1CD /* Ubuntu-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B7F0C7F1FA104E648E38F5D9 /* Ubuntu-Medium.otf */; };
+		6CD4617C024E40A5B38E0B9B /* Roboto-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 921FB7EE18434AA5B2F16E7B /* Roboto-Bold.otf */; };
+		C1D64934FD444A6E80937FE0 /* Roboto-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEEA572300A146849544D206 /* Roboto-Medium.otf */; };
+		EB29D526F7694DA68342C0AF /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BC7438A3C54E4B378C1762AF /* Roboto-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +69,9 @@
 		F3E2A68674412787556B82AE /* Pods-KVIK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK.debug.xcconfig"; path = "Target Support Files/Pods-KVIK/Pods-KVIK.debug.xcconfig"; sourceTree = "<group>"; };
 		F68021D1A29B40339D80C3AF /* Ubuntu-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Ubuntu-Bold.otf"; path = "../src/assets/fonts/Ubuntu-Bold.otf"; sourceTree = "<group>"; };
 		F8B01FBB29628733AC47BCE0 /* Pods-KVIK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVIK.release.xcconfig"; path = "Target Support Files/Pods-KVIK/Pods-KVIK.release.xcconfig"; sourceTree = "<group>"; };
+		921FB7EE18434AA5B2F16E7B /* Roboto-Bold.otf */ = {isa = PBXFileReference; name = "Roboto-Bold.otf"; path = "../src/assets/fonts/Roboto-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BEEA572300A146849544D206 /* Roboto-Medium.otf */ = {isa = PBXFileReference; name = "Roboto-Medium.otf"; path = "../src/assets/fonts/Roboto-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BC7438A3C54E4B378C1762AF /* Roboto-Regular.otf */ = {isa = PBXFileReference; name = "Roboto-Regular.otf"; path = "../src/assets/fonts/Roboto-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,9 @@
 				B0AB1D09A7464270AEC9456F /* Octicons.ttf */,
 				0D76AB1BD8FF4CCCA0205E4B /* SimpleLineIcons.ttf */,
 				3711231C1EDF4EC7BEE83628 /* Zocial.ttf */,
+				921FB7EE18434AA5B2F16E7B /* Roboto-Bold.otf */,
+				BEEA572300A146849544D206 /* Roboto-Medium.otf */,
+				BC7438A3C54E4B378C1762AF /* Roboto-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -299,9 +305,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				2E7DD594E032465DA9F9EDF9 /* Ubuntu-Bold.otf in Resources */,
-				EAD81CF0230F4C76B308E1CD /* Ubuntu-Medium.otf in Resources */,
-				04EF6F8130C04C1496D99414 /* Ubuntu-Regular.otf in Resources */,
+				6CD4617C024E40A5B38E0B9B /* Roboto-Bold.otf in Resources */,
+				C1D64934FD444A6E80937FE0 /* Roboto-Medium.otf in Resources */,
+				EB29D526F7694DA68342C0AF /* Roboto-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
