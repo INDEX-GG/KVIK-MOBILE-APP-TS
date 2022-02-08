@@ -5,6 +5,7 @@ import { useCurrentTheme } from '../../../hooks/useTheme';
 export const HeaderProfileStyles = () => {
   const fontSize = useAdaptiveFont();
   const { theme } = useCurrentTheme();
+  console.log(123);
   return StyleSheet.create({
     container: {
       display: 'flex',
