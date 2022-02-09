@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MessageScreen from '../MessageScreen';
 import PlaceOfferScreen from '../PlaceOfferScreen';
 import FavoriteScreen from '../FavoriteScreen';
-import AccountScreen from '../AccountScreen';
+import AccountScreen from '../AccountScreen/AccountScreen';
 import SearchScreen from '../SearchScreen/SearchScreen';
 import Logo from '../../assets/LogoIcon.svg';
 import Message from '../../assets/Message.svg';
@@ -13,8 +13,15 @@ import PlaceOffer from '../../assets/AddNewProductIcon.svg';
 import { useCurrentTheme } from '../../hooks/useTheme';
 import { MainScreenStyle } from './styles';
 import HeaderProfile from '../../components/CustomHeaders/HeaderProfile/HeaderProfile';
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
-const buttonsNavigation = [
+interface ButtonsNavigation {
+  name: string;
+  component: React.FC;
+  options?: NativeStackNavigationOptions;
+}
+
+const buttonsNavigation: ButtonsNavigation[] = [
   {
     name: 'MainScreen',
     component: SearchScreen,
@@ -23,24 +30,25 @@ const buttonsNavigation = [
   {
     name: 'MessageScreen',
     component: MessageScreen,
-    options: { title: 'Сообщения' },
+    options: { title: 'Сообщения', headerTitleAlign: 'center' },
   },
   {
     name: 'PlaceOfferScreen',
     component: PlaceOfferScreen,
-    options: { title: 'Разместить' },
+    options: { title: 'Разместить', headerTitleAlign: 'center' },
   },
   {
     name: 'FavoriteScreen',
     component: FavoriteScreen,
-    options: { title: 'Избранное' },
+    options: { title: 'Избранное', headerTitleAlign: 'center' },
   },
   {
     name: 'AccountScreen',
     component: AccountScreen,
     options: {
       title: 'Мой профиль',
-      headerTitle: () => <HeaderProfile />,
+      headerTitleAlign: 'center',
+      header: () => <HeaderProfile />,
     },
   },
 ];

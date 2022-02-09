@@ -9,10 +9,17 @@ export const useRouter = () => {
   const navigator = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const push = (location: string) => {
-    navigator.navigate(location as never, {} as never);
+    return () => {
+      navigator.navigate(location as never, {} as never);
+    };
+  };
+
+  const back = () => {
+    navigator.goBack();
   };
 
   return {
     pushTo: push,
+    pushBack: back,
   };
 };

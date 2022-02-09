@@ -14,11 +14,11 @@ export const useCurrentTheme = () => {
   const themeObject = storeTheme.theme === 'light' ? lightTheme : darkTheme;
   const isDark = storeTheme.theme === 'dark';
 
-  const handleChangeTheme = (theme: string) => {
-    if (theme === ThemeType.IS_DARK) {
+  const handleChangeTheme = () => {
+    if (isDark) {
       dispatch({ type: ThemeType.IS_LIGHT });
     }
-    if (theme === ThemeType.IS_LIGHT) {
+    if (!isDark) {
       dispatch({ type: ThemeType.IS_DARK });
     }
   };

@@ -47,7 +47,7 @@ const CategorySwiper = () => {
   const handlePressIcon = (item: SearchScreenCategory) => {
     return () => {
       console.log(item);
-      pushTo('Details');
+      pushTo('Details')();
     };
   };
 

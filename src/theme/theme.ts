@@ -2,6 +2,9 @@ export const lightTheme = {
   colors: {
     primary: '#00A0AB',
   },
+  color000ToFFF: {
+    color: '#000000',
+  },
   colorBottomTab: {
     color: '#FFFFFF',
   },
@@ -35,6 +38,12 @@ export const lightTheme = {
   colorMainToWhite: {
     color: '#00A0AB',
   },
+  colorPressableTabs: {
+    color: '#000000',
+  },
+  colorGrayToWhite: {
+    color: '#C7C7C7',
+  },
   Button: {
     titleStyle: {
       color: '#FFFFFF',
@@ -57,6 +66,9 @@ export const lightTheme = {
 export const darkTheme = {
   colors: {
     primary: '#00A0AB',
+  },
+  color000ToFFF: {
+    color: '#FFFFFF',
   },
   colorBottomTab: {
     color: '#2C2C2C',
@@ -89,6 +101,12 @@ export const darkTheme = {
     color: '#FFFFFF',
   },
   colorMainToWhite: {
+    color: '#FFFFFF',
+  },
+  colorPressableTabs: {
+    color: '#E9E9E9',
+  },
+  colorGrayToWhite: {
     color: '#FFFFFF',
   },
   Button: {
