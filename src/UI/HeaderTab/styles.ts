@@ -14,6 +14,8 @@ export const HeaderTabStyles = () => {
       position: 'relative',
       height: 56,
       backgroundColor: theme.colorBottomTab.color,
+      marginBottom: 0,
+      paddingBottom: 0,
     },
     back: {
       display: 'flex',

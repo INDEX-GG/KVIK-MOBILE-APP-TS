@@ -27,14 +27,14 @@ export const useBottomSheet = () => {
           height: elementHeight,
         },
       });
-      AnimatedBottomSheet(0);
+      // AnimatedBottomSheet(0);
     };
   };
 
   const handleCloseBottomSheet = () => {
     dispatch({
       type: BottomSheetType.IS_CLOSE,
-      payload: { component: undefined, height: -0 },
+      payload: { height: -220 },
     });
   };
 

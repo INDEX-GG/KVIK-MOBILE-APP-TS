@@ -44,6 +44,9 @@ export const lightTheme = {
   colorGrayToWhite: {
     color: '#C7C7C7',
   },
+  colorDisabledButton: {
+    color: '#A1DCE0',
+  },
   Button: {
     titleStyle: {
       color: '#FFFFFF',
@@ -60,6 +63,7 @@ export const lightTheme = {
     paddingLeft: 8,
     paddingHorizontal: 0,
     fonSize: 14,
+    borderBottomWidth: 0,
   },
 };
 
@@ -108,6 +112,9 @@ export const darkTheme = {
   },
   colorGrayToWhite: {
     color: '#FFFFFF',
+  },
+  colorDisabledButton: {
+    color: '#A1DCE0',
   },
   Button: {
     titleStyle: {

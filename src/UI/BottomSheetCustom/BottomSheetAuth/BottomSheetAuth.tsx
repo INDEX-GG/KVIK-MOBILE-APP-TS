@@ -5,8 +5,10 @@ import FillButton from '../../FillButton/FillButton';
 import { BottomSheetAuthStyles } from './style';
 import { useRouter } from '../../../hooks/useRouter';
 import SocialIcon from '../../../components/AnyScreen/SocialIcon/SocialIcon';
+import { useBottomSheet } from '../../../hooks/useReducerHook/useBottomSheet';
 
 const BottomSheetAuth = () => {
+  const { handleCloseBottomSheet } = useBottomSheet();
   const styles = BottomSheetAuthStyles();
   const { pushTo } = useRouter();
 
@@ -16,14 +18,14 @@ const BottomSheetAuth = () => {
         <FillButton
           customButton={styles.buttonOneWrapper}
           title={'Войти'}
-          onPress={() => console.log(1)}
+          onPress={pushTo('SignInScreen', handleCloseBottomSheet)}
         />
       </View>
       <View style={styles.buttonTwo}>
         <FillButton
           customButton={styles.buttonTwoWrapper}
           title={'Зарегистрироваться'}
-          onPress={() => console.log(1)}
+          onPress={pushTo('RegistrationScreen', handleCloseBottomSheet)}
         />
       </View>
       <View style={styles.iconContainer}>

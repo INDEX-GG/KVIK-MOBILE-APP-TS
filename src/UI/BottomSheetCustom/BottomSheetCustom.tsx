@@ -1,13 +1,15 @@
 import React, { useEffect, useMemo } from 'react';
-import { Animated, Modal, View } from 'react-native';
+import { Animated, View } from 'react-native';
 import { useTypeSelector } from '../../hooks/useTypedSelector';
 import { BottomSheetCustomStyles } from './styles';
 import {
+  GestureEvent,
   gestureHandlerRootHOC,
   PanGestureHandler,
+  PanGestureHandlerEventPayload,
 } from 'react-native-gesture-handler';
 import { useBottomSheet } from '../../hooks/useReducerHook/useBottomSheet';
-import { Overlay } from 'react-native-elements';
+import OverlayModal from '../OverlayModal/OverlayModal';
 
 const BottomSheetCustom = gestureHandlerRootHOC(() => {
   const styles = BottomSheetCustomStyles();
@@ -26,7 +28,9 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
     }
   }, [AnimatedBottomSheet, open]);
 
-  const onGestureEvent = (event: any) => {
+  const onGestureEvent = (
+    event: GestureEvent<PanGestureHandlerEventPayload>
+  ) => {
     if (event.nativeEvent.translationY > 0) {
       bottomSheetPosition.setValue(-event.nativeEvent.translationY);
     }
@@ -39,8 +43,6 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
       AnimatedBottomSheet(0);
     }
   };
-
-  console.log(height);
 
   return open && BottomSheet ? (
     <PanGestureHandler onGestureEvent={onGestureEvent} onEnded={onEnded}>
@@ -55,34 +57,18 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
 const BottomSheetModal = () => {
   const { open, height } = useTypeSelector((state) => state.bottomSheetReducer);
   const { handleCloseBottomSheet, AnimatedBottomSheet } = useBottomSheet();
-  return open ? (
-    <Overlay
-      backdropStyle={{
-        opacity: 0,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'flex-end',
-      }}
-      overlayStyle={{
-        backgroundColor: 'rgba(0, 0, 0, 0)',
-        width: '100%',
-        padding: 0,
-        margin: 0,
-        height: height,
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-      }}
-      onBackdropPress={() => AnimatedBottomSheet(-height)}
-      transparent={true}
-      isVisible={open}
-      fullScreen={true}
-      style={{ zIndex: 0 }}
+
+  return (
+    <OverlayModal
+      visible={open}
+      height={height}
+      onCloseNoFocus={() =>
+        AnimatedBottomSheet(-height - 10, handleCloseBottomSheet)
+      }
     >
       <BottomSheetCustom />
-    </Overlay>
-  ) : null;
+    </OverlayModal>
+  );
 };
 
 export default BottomSheetModal;

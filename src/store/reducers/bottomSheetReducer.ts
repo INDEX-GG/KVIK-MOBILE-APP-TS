@@ -19,7 +19,12 @@ export const bottomSheetReducer = (
     case BottomSheetType.IS_CLOSE:
       return { ...state, open: false, component: undefined };
     case BottomSheetType.IS_OPEN:
-      return { ...state, open: true, component: action.payload.component, height: action.payload.height };
+      return {
+        ...state,
+        open: true,
+        component: action.payload?.component,
+        height: action.payload.height,
+      };
     default:
       return { ...state };
   }

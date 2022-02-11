@@ -18,5 +18,8 @@ export interface BottomSheet {
 
 export interface BottomSheetAction {
   type: BottomSheetType;
-  payload: Omit<BottomSheet, 'open'>;
+  payload: {
+    height: number;
+    component?: React.FC;
+  };
 }

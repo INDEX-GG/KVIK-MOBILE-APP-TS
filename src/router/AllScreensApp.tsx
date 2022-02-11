@@ -11,6 +11,7 @@ import LicenseScreen from '../components/SettingsScreen/LicenseScreen/LicenseScr
 import PrivacyPolicyScreen from '../components/SettingsScreen/PrivacyPolicyScreen/PrivacyPolicyScreen';
 import KvikUseScreen from '../components/SettingsScreen/KvikuseScreen/KvikUseScreen';
 import OfferUseScreen from '../components/SettingsScreen/OfferUseScreen/OfferUseScreen';
+import SignInScreen from '../components/AuthorizationsScreens/SignInScreen/SingInScreen';
 
 interface Screens {
   name: string;
@@ -91,6 +92,22 @@ export const allScreensApp: Screens[] = [
     options: {
       title: 'Оферта на использование услуг',
       header: () => <HeaderTab title="Оферта на использование услуг" />,
+    },
+  },
+  {
+    name: 'SignInScreen',
+    component: SignInScreen,
+    options: {
+      title: 'Вход',
+      header: () => <HeaderTab title="Вход" />,
+    },
+  },
+  {
+    name: 'RegistrationScreen',
+    component: OfferUseScreen,
+    options: {
+      title: 'Регистрация',
+      header: () => <HeaderTab title="Регистрация" />,
     },
   },
 ];

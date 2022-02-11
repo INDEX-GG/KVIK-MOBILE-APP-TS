@@ -10,6 +10,7 @@ const HeaderTab: FC<HeaderTabProps> = ({ title }) => {
   const styles = HeaderTabStyles();
   const { pushBack } = useRouter();
 
+
   return (
     <View style={styles.container}>
       <Pressable style={styles.back} onPress={pushBack}>
