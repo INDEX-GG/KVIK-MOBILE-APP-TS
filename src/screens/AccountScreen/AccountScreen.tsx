@@ -1,22 +1,15 @@
-import React, {useCallback, useMemo, useRef} from 'react';
+import React from 'react';
 import SaveScrollContainer from '../../UI/SaveScrollContainer';
 import RobotoText from '../../UI/RobotoText';
 import { AccountScreenStyles } from './style';
 import { ImageBackground, View } from 'react-native';
 import FillButton from '../../UI/FillButton/FillButton';
-import BottomSheet from '@gorhom/bottom-sheet';
+import { useBottomSheet } from '../../hooks/useReducerHook/useBottomSheet';
+import BottomSheetAuth from '../../UI/BottomSheetCustom/BottomSheetAuth/BottomSheetAuth'
 
 const AccountScreen = () => {
-  const bottomSheetRef = useRef<BottomSheet>(null);
-
-  // variables
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
-
-  // callbacks
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log('handleSheetChanges', index);
-  }, []);
   const styles = AccountScreenStyles();
+  const { handleOpenBottomSheet } = useBottomSheet();
 
   return (
     <SaveScrollContainer paddingDisabled={true}>
@@ -28,7 +21,7 @@ const AccountScreen = () => {
           </RobotoText>
           <FillButton
             title={'Войти или зарегистрироваться'}
-            onPress={() => console.log(1)}
+            onPress={handleOpenBottomSheet(BottomSheetAuth, 220)}
           />
         </View>
         <ImageBackground
@@ -36,19 +29,20 @@ const AccountScreen = () => {
           resizeMode="cover"
           style={styles.img}
         />
-        <BottomSheet
-          ref={bottomSheetRef}
-          index={1}
-          snapPoints={snapPoints}
-          onChange={handleSheetChanges}
-        >
-          <View style={styles.contentContainer}>
-            <Text>Awesome 🎉</Text>
-          </View>
-        </BottomSheet>
+        {/*<BottomSheet*/}
+        {/*  ref={bottomSheetRef}*/}
+        {/*  index={1}*/}
+        {/*  snapPoints={snapPoints}*/}
+        {/*  onChange={handleSheetChanges}*/}
+        {/*  detached*/}
+        {/*>*/}
+        {/*  <View>*/}
+        {/*    <RobotoText weight="b">Awesome 🎉</RobotoText>*/}
+        {/*  </View>*/}
+        {/*</BottomSheet>*/}
       </View>
     </SaveScrollContainer>
   );
 };
 
-export default AccountScreen;
+export default React.memo(AccountScreen);

@@ -1,7 +1,7 @@
-import { testReduce } from './reducers/testReducer';
 import { themeReducer } from './reducers/themeReducer';
+import { bottomSheetReducer } from './reducers/bottomSheetReducer';
 
 export const allReducers = {
-  testReduce,
   themeReducer,
+  bottomSheetReducer,
 };
