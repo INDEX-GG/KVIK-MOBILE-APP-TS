@@ -10,7 +10,7 @@ import ClearSearchResultScreens from '../components/SettingsScreen/ClearSearchRe
 import LicenseScreen from '../components/SettingsScreen/LicenseScreen/LicenseScreen';
 import PrivacyPolicyScreen from '../components/SettingsScreen/PrivacyPolicyScreen/PrivacyPolicyScreen';
 import KvikUseScreen from '../components/SettingsScreen/KvikuseScreen/KvikUseScreen';
-import OfferUseScreen from "../components/OfferUseScreen/OfferUseScreen";
+import OfferUseScreen from '../components/SettingsScreen/OfferUseScreen/OfferUseScreen';
 
 interface Screens {
   name: string;

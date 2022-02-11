@@ -3,7 +3,7 @@ import SaveScrollContainer from '../../../UI/SaveScrollContainer';
 import NavigationSection from '../../../UI/NavigationSection/NavigationSection';
 import { View } from 'react-native';
 import RobotoText from '../../../UI/RobotoText';
-import {SettingsScreenStyles} from "./style";
+import { SettingsScreenStyles } from './style';
 
 const SettingsScreen = () => {
 

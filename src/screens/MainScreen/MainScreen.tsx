@@ -14,6 +14,7 @@ import { useCurrentTheme } from '../../hooks/useTheme';
 import { MainScreenStyle } from './styles';
 import HeaderProfile from '../../components/CustomHeaders/HeaderProfile/HeaderProfile';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import BottomSheetCustom from "../../UI/BottomSheetCustom/BottomSheetCustom";
 
 interface ButtonsNavigation {
   name: string;
