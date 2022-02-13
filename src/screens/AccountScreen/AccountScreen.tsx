@@ -5,7 +5,7 @@ import { AccountScreenStyles } from './style';
 import { ImageBackground, View } from 'react-native';
 import FillButton from '../../UI/FillButton/FillButton';
 import { useBottomSheet } from '../../hooks/useReducerHook/useBottomSheet';
-import BottomSheetAuth from '../../UI/BottomSheetCustom/BottomSheetAuth/BottomSheetAuth'
+import BottomSheetAuth from '../../UI/BottomSheetCustom/BottomSheetAuth/BottomSheetAuth';
 
 const AccountScreen = () => {
   const styles = AccountScreenStyles();
@@ -21,7 +21,7 @@ const AccountScreen = () => {
           </RobotoText>
           <FillButton
             title={'Войти или зарегистрироваться'}
-            onPress={handleOpenBottomSheet(BottomSheetAuth, 220)}
+            onPress={handleOpenBottomSheet(BottomSheetAuth, 230)}
           />
         </View>
         <ImageBackground
@@ -29,17 +29,6 @@ const AccountScreen = () => {
           resizeMode="cover"
           style={styles.img}
         />
-        {/*<BottomSheet*/}
-        {/*  ref={bottomSheetRef}*/}
-        {/*  index={1}*/}
-        {/*  snapPoints={snapPoints}*/}
-        {/*  onChange={handleSheetChanges}*/}
-        {/*  detached*/}
-        {/*>*/}
-        {/*  <View>*/}
-        {/*    <RobotoText weight="b">Awesome 🎉</RobotoText>*/}
-        {/*  </View>*/}
-        {/*</BottomSheet>*/}
       </View>
     </SaveScrollContainer>
   );

@@ -5,12 +5,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useCurrentTheme } from '../hooks/useTheme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { allScreensApp } from '../router/AllScreensApp';
-import BottomSheetModal from '../UI/BottomSheetCustom/BottomSheetCustom';
+import BottomSheetModal from '../UI/BottomSheetCustom/BottomSheetModal';
 
 const MainLayout: FC = () => {
   const Stack = createNativeStackNavigator();
   const { theme } = useCurrentTheme();
-
 
   return (
     <ThemeProvider theme={theme}>

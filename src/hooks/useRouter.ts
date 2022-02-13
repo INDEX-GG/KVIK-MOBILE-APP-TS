@@ -8,8 +8,9 @@ export type RootStackParamList = {
 export const useRouter = () => {
   const navigator = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-  const push = (location: string) => {
+  const push = (location: string, callback?: () => void) => {
     return () => {
+      callback ? callback() : null;
       navigator.navigate(location as never, {} as never);
     };
   };

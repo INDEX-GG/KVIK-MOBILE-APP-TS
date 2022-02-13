@@ -2,15 +2,17 @@ import { BottomSheetType } from '../../store/reducers/bottomSheetReducer';
 import { useTypedDispatch } from '../useTypedDispatch';
 import React, { useRef } from 'react';
 import { Animated } from 'react-native';
+import { useTypeSelector } from '../useTypedSelector';
 
 export const useBottomSheet = () => {
+  const { height } = useTypeSelector((state) => state.bottomSheetReducer);
   const dispatch = useTypedDispatch();
-  const bottom = useRef(new Animated.Value(-220)).current;
+  const bottom = useRef(new Animated.Value(-height)).current;
 
   const AnimatedBottomSheet = (value: number, closeFunction?: () => void) => {
     Animated.timing(bottom, {
       toValue: value,
-      duration: 200,
+      duration: 150,
       useNativeDriver: false,
     }).start(() => (closeFunction ? closeFunction() : null));
   };
@@ -27,14 +29,13 @@ export const useBottomSheet = () => {
           height: elementHeight,
         },
       });
-      AnimatedBottomSheet(0);
     };
   };
 
   const handleCloseBottomSheet = () => {
     dispatch({
       type: BottomSheetType.IS_CLOSE,
-      payload: { component: undefined, height: -0 },
+      payload: { height: -height },
     });
   };
 

@@ -8,6 +8,7 @@ interface ButtonProps {
   onPress: () => void;
   customButton?: StyleProp<ViewStyle>;
   titleStyle?: StyleProp<TextStyle>;
+  disabled?: boolean;
 }
 
 const FillButton: FC<ButtonProps> = ({
@@ -15,16 +16,20 @@ const FillButton: FC<ButtonProps> = ({
   onPress,
   customButton = {},
   titleStyle = {},
+  disabled,
 }) => {
   const styles = FillButtonStyles();
 
   return (
     <Button
+      disabled={disabled}
       type="solid"
       title={title}
       onPress={onPress}
       buttonStyle={[styles.buttonStyle, customButton]}
       titleStyle={[styles.titleStyle, titleStyle]}
+      disabledStyle={styles.disabledButton as {}}
+      disabledTitleStyle={styles.disabledTitleStyle}
     />
   );
 };
