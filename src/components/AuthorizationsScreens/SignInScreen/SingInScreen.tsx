@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import SignInScreenView from './SignInScreenView';
 import { SubmitHandler, useForm, FieldValues } from 'react-hook-form';
 import { SignInSendData } from './types';
@@ -6,11 +6,12 @@ import { SignInSendData } from './types';
 const SingInScreen = () => {
   const { control, handleSubmit, watch } = useForm();
   const [viewPassword, setViewPassword] = useState<boolean>(true);
-  const [disabledButton, setDisabledButton] = useState<boolean>(true);
 
-  useEffect(() => {
-    console.log(watch());
-  }, [watch]);
+  const currentFormData = watch() as SignInSendData;
+  const activeButton = useMemo(
+    () => !!(currentFormData.phone?.length && currentFormData.password?.length),
+    [currentFormData]
+  );
 
   const onSubmit: SubmitHandler<SignInSendData | FieldValues> = (data) => {
     console.log(data);
@@ -26,6 +27,7 @@ const SingInScreen = () => {
 
   return (
     <SignInScreenView
+      activeButton={activeButton}
       passwordData={{
         viewPassword: viewPassword,
         setViewPassword: handleChangeViewPassword,

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Animated, View } from 'react-native';
 import { useTypeSelector } from '../../hooks/useTypedSelector';
 import { BottomSheetCustomStyles } from './styles';
@@ -25,8 +25,10 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
   useEffect(() => {
     if (open) {
       AnimatedBottomSheet(0);
+    } else {
+      AnimatedBottomSheet(-height);
     }
-  }, [AnimatedBottomSheet, open]);
+  }, [AnimatedBottomSheet, height, open]);
 
   const onGestureEvent = (
     event: GestureEvent<PanGestureHandlerEventPayload>
@@ -44,31 +46,14 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
     }
   };
 
-  return open && BottomSheet ? (
+  return (
     <PanGestureHandler onGestureEvent={onGestureEvent} onEnded={onEnded}>
       <Animated.View style={[styles.root, { bottom: bottomSheetPosition }]}>
         <View style={styles.line} />
-        <BottomSheet />
+        {BottomSheet && <BottomSheet />}
       </Animated.View>
     </PanGestureHandler>
-  ) : null;
+  );
 });
 
-const BottomSheetModal = () => {
-  const { open, height } = useTypeSelector((state) => state.bottomSheetReducer);
-  const { handleCloseBottomSheet, AnimatedBottomSheet } = useBottomSheet();
-
-  return (
-    <OverlayModal
-      visible={open}
-      height={height}
-      onCloseNoFocus={() =>
-        AnimatedBottomSheet(-height - 10, handleCloseBottomSheet)
-      }
-    >
-      <BottomSheetCustom />
-    </OverlayModal>
-  );
-};
-
-export default BottomSheetModal;
+export default React.memo(BottomSheetCustom);

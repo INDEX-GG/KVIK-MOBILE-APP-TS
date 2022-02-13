@@ -18,6 +18,7 @@ export const OverlayModalStyles = () => {
       bottom: 0,
       left: 0,
       elevation: 0,
+      zIndex: 1,
     },
   });
 };

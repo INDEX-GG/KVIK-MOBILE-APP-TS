@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import SaveScrollContainer from '../../../UI/SaveScrollContainer';
 import CustomInput from '../../../UI/Inputs/CustomInput/CustomInput';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { SignInScreenStyles } from './style';
 import RobotoText from '../../../UI/RobotoText';
 import FillButton from '../../../UI/FillButton/FillButton';
@@ -18,11 +18,13 @@ interface SignInScreenViewProps {
     control: Control;
     handlePressButton: () => void;
   };
+  activeButton: boolean;
 }
 
 const SignInScreenView: FC<SignInScreenViewProps> = ({
   passwordData,
   formData,
+  activeButton,
 }) => {
   const styles = SignInScreenStyles();
   const { viewPassword, setViewPassword } = passwordData;
@@ -41,7 +43,7 @@ const SignInScreenView: FC<SignInScreenViewProps> = ({
             customChange={PhoneMask}
           />
         </View>
-        <View style={styles.inputTwo}>
+        <ScrollView style={styles.inputTwo} keyboardShouldPersistTaps="always">
           <CustomInput
             passwordInput={viewPassword}
             name="password"
@@ -51,14 +53,14 @@ const SignInScreenView: FC<SignInScreenViewProps> = ({
             onPressIcon={setViewPassword}
             styleIcon={styles.passwordIcon as {}}
           />
-        </View>
+        </ScrollView>
         <View style={styles.textContainer}>
           <RobotoText weight="m" style={styles.resetLink}>
             Забыли пароль?
           </RobotoText>
         </View>
         <FillButton
-          disabled={false}
+          disabled={!activeButton}
           title={'Войти'}
           onPress={handlePressButton}
         />

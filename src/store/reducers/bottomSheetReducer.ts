@@ -2,7 +2,7 @@ import { BottomSheet, BottomSheetAction } from '../../types/reducersTypes';
 
 const defaultValue: BottomSheet = {
   open: false,
-  height: -0,
+  height: 230,
   component: undefined,
 };
 
@@ -17,7 +17,7 @@ export const bottomSheetReducer = (
 ) => {
   switch (action.type) {
     case BottomSheetType.IS_CLOSE:
-      return { ...state, open: false, component: undefined };
+      return { ...state, open: false };
     case BottomSheetType.IS_OPEN:
       return {
         ...state,
