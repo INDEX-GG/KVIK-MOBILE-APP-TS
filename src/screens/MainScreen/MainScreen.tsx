@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import MessageScreen from '../MessageScreen';
 import PlaceOfferScreen from '../PlaceOfferScreen';
 import FavoriteScreen from '../FavoriteScreen';
@@ -13,12 +16,11 @@ import PlaceOffer from '../../assets/AddNewProductIcon.svg';
 import { useCurrentTheme } from '../../hooks/useTheme';
 import { MainScreenStyle } from './styles';
 import HeaderProfile from '../../components/CustomHeaders/HeaderProfile/HeaderProfile';
-import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
 interface ButtonsNavigation {
   name: string;
   component: React.FC;
-  options?: NativeStackNavigationOptions;
+  options?: BottomTabNavigationOptions;
 }
 
 const buttonsNavigation: ButtonsNavigation[] = [
@@ -79,6 +81,7 @@ const MainScreen: FC = () => {
   const Tab = createBottomTabNavigator();
   const styles = MainScreenStyle();
 
+  // @ts-ignore
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -96,7 +99,12 @@ const MainScreen: FC = () => {
       })}
     >
       {buttonsNavigation.map((buttonProps) => (
-        <Tab.Screen key={buttonProps.name} {...buttonProps} />
+        <Tab.Screen
+          key={buttonProps.name}
+          name={buttonProps.name}
+          component={buttonProps.component}
+          options={buttonProps.options}
+        />
       ))}
     </Tab.Navigator>
   );

@@ -52,31 +52,33 @@ const CustomInput: FC<CustomInputProps> = ({
         control={control}
         name={name}
         defaultValue={defaultValue}
-        render={({ field: { value, onChange }, fieldState: { error } }) => (
-          <View>
-            <View style={styles.inputContainer}>
-              <TextInput
-                keyboardType={keyboardType}
-                secureTextEntry={passwordInput}
-                value={value}
-                onChange={(e) => handleChangeInput(e, onChange)}
-                placeholder={placeholder}
-                placeholderTextColor="#C7C7C7"
-                style={styles.input}
-              />
-              {Icon && (
-                <Pressable onPress={onPressIcon} style={[styles.inputIcon]}>
-                  <Icon style={styleIcon} />
-                </Pressable>
+        render={({ field: { value, onChange }, fieldState: { error } }) => {
+          return (
+            <View>
+              <View style={styles.inputContainer}>
+                <TextInput
+                  keyboardType={keyboardType}
+                  secureTextEntry={passwordInput}
+                  value={value}
+                  onChange={(e) => handleChangeInput(e, onChange)}
+                  placeholder={placeholder}
+                  placeholderTextColor="#C7C7C7"
+                  style={styles.input}
+                />
+                {Icon && (
+                  <Pressable onPress={onPressIcon} style={[styles.inputIcon]}>
+                    <Icon style={styleIcon} />
+                  </Pressable>
+                )}
+              </View>
+              {!!error && (
+                <RobotoText weight="r" style={styles.errorMessage}>
+                  {error.message}
+                </RobotoText>
               )}
             </View>
-            {!!error && (
-              <RobotoText weight="r" style={styles.errorMessage}>
-                {error.message}
-              </RobotoText>
-            )}
-          </View>
-        )}
+          );
+        }}
       />
     </View>
   );

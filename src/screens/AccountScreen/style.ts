@@ -3,7 +3,7 @@ import { useCurrentTheme } from '../../hooks/useTheme';
 import { useAdaptiveFont } from '../../hooks/useAdaptiveFont';
 import { useSize } from '../../hooks/useSize';
 
-export const AccountScreenStyles = () => {
+const AccountScreenStyles = () => {
   const { isDark } = useCurrentTheme();
   const fontSize = useAdaptiveFont();
   const { height100vh } = useSize();
@@ -32,3 +32,5 @@ export const AccountScreenStyles = () => {
     },
   });
 };
+
+export const useAccountScreenStyles = () => AccountScreenStyles();

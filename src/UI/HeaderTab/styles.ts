@@ -7,6 +7,9 @@ export const HeaderTabStyles = () => {
   const fontSize = useAdaptiveFont();
 
   return StyleSheet.create({
+    safeContainer: {
+      backgroundColor: theme.colorScreen.backgroundColor,
+    },
     container: {
       display: 'flex',
       justifyContent: 'center',

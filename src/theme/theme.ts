@@ -2,6 +2,9 @@ export const lightTheme = {
   colors: {
     primary: '#00A0AB',
   },
+  color2c2c2cToFff: {
+    color: '#2c2c2c',
+  },
   color000ToFFF: {
     color: '#000000',
   },
@@ -70,6 +73,9 @@ export const lightTheme = {
 export const darkTheme = {
   colors: {
     primary: '#00A0AB',
+  },
+  color2c2c2cToFff: {
+    color: '#ffffff',
   },
   color000ToFFF: {
     color: '#FFFFFF',
