@@ -15,11 +15,14 @@ export const useUserStore = () => {
     getItemStorage('UserId').then((userIdStorage) => {
       if (!userIdStorage) {
         setTimeout(() => {
-          dispatch({ type: UserInfoType.IS_LOGOUT });
+          dispatch({ type: UserInfoType.IS_LOGOUT, payload: {} });
         }, 4000);
       }
       if (userIdStorage) {
-        console.log(userId);
+        // console.log(userId);
+        setTimeout(() => {
+          dispatch({ type: UserInfoType.IS_LOGOUT, payload: {} });
+        }, 4000);
       }
     });
   }, []);

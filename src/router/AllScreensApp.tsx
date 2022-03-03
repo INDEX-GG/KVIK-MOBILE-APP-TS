@@ -12,6 +12,8 @@ import PrivacyPolicyScreen from '../components/SettingsScreen/PrivacyPolicyScree
 import KvikUseScreen from '../components/SettingsScreen/KvikuseScreen/KvikUseScreen';
 import OfferUseScreen from '../components/SettingsScreen/OfferUseScreen/OfferUseScreen';
 import SignInScreen from '../components/AuthorizationsScreens/SignInScreen/SingInScreen';
+import ProductScreen from '../screens/ProductScreen/ProductScreen';
+import ProductHeader from '../components/ProductScreen/ProductHeader/ProductHeader';
 
 interface Screens {
   name: string;
@@ -108,6 +110,14 @@ export const allScreensApp: Screens[] = [
     options: {
       title: 'Регистрация',
       header: () => <HeaderTab title="Регистрация" />,
+    },
+  },
+  {
+    name: 'ProductScreen',
+    component: ProductScreen,
+    options: {
+      title: 'Объявление',
+      header: () => <HeaderTab title="12" rightContent={ProductHeader} />,
     },
   },
 ];

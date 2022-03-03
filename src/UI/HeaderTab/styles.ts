@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { useCurrentTheme } from '../../hooks/useTheme';
 import { useAdaptiveFont } from '../../hooks/useAdaptiveFont';
 
-export const HeaderTabStyles = () => {
+const HeaderTabStyles = () => {
   const { theme } = useCurrentTheme();
   const fontSize = useAdaptiveFont();
 
@@ -37,5 +37,17 @@ export const HeaderTabStyles = () => {
     namePrevTab: {
       marginLeft: 10,
     },
+    content: {
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+    },
+    rightContent: {
+      position: 'absolute',
+      right: 8,
+    }
   });
 };
+
+export const useHeaderTabStyles = () => HeaderTabStyles();

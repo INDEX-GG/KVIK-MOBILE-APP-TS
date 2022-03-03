@@ -35,5 +35,5 @@ export interface UserInfo {
 
 export interface UserModelAction {
   type: UserInfoType;
-  payload?: UserInfo;
+  payload: UserInfo;
 }
