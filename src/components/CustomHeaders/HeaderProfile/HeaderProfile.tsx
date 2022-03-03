@@ -7,6 +7,7 @@ import LightTheme from '../../../assets/LightTheme.svg';
 import SettingsProfile from '../../../assets/SettingProfile.svg';
 import { useCurrentTheme } from '../../../hooks/useTheme';
 import { useRouter } from '../../../hooks/useRouter';
+import SaveAreaTheme from '../../../UI/SaveAreaTheme/SaveAreaTheme';
 
 const HeaderProfile = () => {
   const styles = HeaderProfileStyles();
@@ -14,19 +15,21 @@ const HeaderProfile = () => {
   const { pushTo } = useRouter();
 
   return (
-    <View style={styles.container}>
-      <RobotoText weight="m" style={styles.title}>
-        Мой профиль
-      </RobotoText>
-      <View style={styles.iconContainer}>
-        <Pressable style={styles.themeIcon} onPress={toggleTheme}>
-          {isDark ? <LightTheme /> : <DarkTheme />}
-        </Pressable>
-        <Pressable onPress={pushTo('Settings')}>
-          <SettingsProfile />
-        </Pressable>
+    <SaveAreaTheme>
+      <View style={styles.container}>
+        <RobotoText weight="m" style={styles.title}>
+          Мой профиль
+        </RobotoText>
+        <View style={styles.iconContainer}>
+          <Pressable style={styles.themeIcon} onPress={toggleTheme}>
+            {isDark ? <LightTheme /> : <DarkTheme />}
+          </Pressable>
+          <Pressable onPress={pushTo('Settings')}>
+            <SettingsProfile />
+          </Pressable>
+        </View>
       </View>
-    </View>
+    </SaveAreaTheme>
   );
 };
 

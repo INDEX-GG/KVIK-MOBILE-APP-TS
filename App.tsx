@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import MainLayout from './src/layout/MainLayout';
+import MainLayout from './src/layout/MainLayout/MainLayout';
 import { Provider } from 'react-redux';
 import { store } from './src/store/store';
 

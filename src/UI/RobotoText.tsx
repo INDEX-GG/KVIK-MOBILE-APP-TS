@@ -9,6 +9,8 @@ const generateFontFamily = (weight: 'b' | 'm' | 'r') => {
       return 'Medium';
     case 'r':
       return 'Regular';
+    default:
+      return 'Medium';
   }
 };
 

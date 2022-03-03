@@ -2,9 +2,15 @@ import React, { useMemo, useState } from 'react';
 import SignInScreenView from './SignInScreenView';
 import { SubmitHandler, useForm, FieldValues } from 'react-hook-form';
 import { SignInSendData } from './types';
+import { signIn } from '../../../axios/authorization';
+import { useSecret } from '../../../hooks/useSecret';
+import { stringOnlyNum } from '../../../constants/regExp';
+import { useAsyncStorage } from '../../../hooks/useAsyncStorage';
 
 const SingInScreen = () => {
-  const { control, handleSubmit, watch } = useForm();
+  const { encryptObj } = useSecret();
+  const { setItemStorage } = useAsyncStorage();
+  const { control, handleSubmit, watch, setError } = useForm();
   const [viewPassword, setViewPassword] = useState<boolean>(true);
 
   const currentFormData = watch() as SignInSendData;
@@ -14,7 +20,26 @@ const SingInScreen = () => {
   );
 
   const onSubmit: SubmitHandler<SignInSendData | FieldValues> = (data) => {
-    console.log(data);
+    data.phone = `+${stringOnlyNum(data.phone)}`;
+    const { phone, password } = data;
+    if (phone && password) {
+      const secretData = encryptObj(data);
+      signIn({ phone: secretData.phone, password: secretData.password }).then(
+        (res) => {
+          if (res.isset !== undefined) {
+            setError('password', {
+              type: 'string',
+              message: 'Некоррестные данные',
+            });
+          }
+          if (res.idUser) {
+            setItemStorage('UserId', res.idUser).then(() =>
+              console.log('success')
+            );
+          }
+        }
+      );
+    }
   };
 
   const handleChangeViewPassword = () => {

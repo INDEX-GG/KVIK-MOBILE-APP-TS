@@ -1,5 +1,7 @@
 import React from 'react';
 import { BottomSheetType } from '../store/reducers/bottomSheetReducer';
+import { UserModel } from '../models/UserModel';
+import { UserInfoType } from '../store/reducers/userInfoReducer';
 
 export interface ThemeReducer {
   theme: 'light' | 'dark';
@@ -22,4 +24,16 @@ export interface BottomSheetAction {
     height: number;
     component?: React.FC;
   };
+}
+
+export interface UserInfo {
+  userId?: number | null;
+  isAuth?: boolean;
+  isLoading?: boolean;
+  userInfo?: UserModel | null;
+}
+
+export interface UserModelAction {
+  type: UserInfoType;
+  payload?: UserInfo;
 }

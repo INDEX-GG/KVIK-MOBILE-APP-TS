@@ -26,9 +26,6 @@ export const CustomInputStyles = () => {
     errorMessage: {
       fontSize: fontSize.little,
       color: isDark ? '#FF6565' : '#F44545',
-      position: 'absolute',
-      left: 0,
-      bottom: -18,
     },
     inputContainer: {
       position: 'relative',

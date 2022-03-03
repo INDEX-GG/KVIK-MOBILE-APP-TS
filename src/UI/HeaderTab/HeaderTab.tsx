@@ -5,23 +5,25 @@ import ArrowBack from '../../assets/ArrowLeft.svg';
 import { HeaderTabStyles } from './styles';
 import { useRouter } from '../../hooks/useRouter';
 import { HeaderTabProps } from './types';
+import SaveAreaTheme from '../SaveAreaTheme/SaveAreaTheme';
 
 const HeaderTab: FC<HeaderTabProps> = ({ title }) => {
   const styles = HeaderTabStyles();
   const { pushBack } = useRouter();
 
-
   return (
-    <View style={styles.container}>
-      <Pressable style={styles.back} onPress={pushBack}>
-        <View style={styles.icon}>
-          <ArrowBack />
-        </View>
-      </Pressable>
-      <RobotoText weight="b" style={styles.title}>
-        {title}
-      </RobotoText>
-    </View>
+    <SaveAreaTheme>
+      <View style={styles.container}>
+        <Pressable style={styles.back} onPress={pushBack}>
+          <View style={styles.icon}>
+            <ArrowBack />
+          </View>
+        </Pressable>
+        <RobotoText weight="b" style={styles.title}>
+          {title}
+        </RobotoText>
+      </View>
+    </SaveAreaTheme>
   );
 };
 
