@@ -1,9 +1,7 @@
-import { themeReducer } from './reducers/themeReducer';
-import { bottomSheetReducer } from './reducers/bottomSheetReducer';
-import { userInfoReducer } from './reducers/userInfoReducer';
+import themeReducer from './reducers/themeSlice/themeSlice';
+import homeAdReducer from './reducers/homeAdSlice/homeAdSlice';
 
 export const allReducers = {
   themeReducer,
-  bottomSheetReducer,
-  userInfoReducer,
+  homeAdReducer,
 };

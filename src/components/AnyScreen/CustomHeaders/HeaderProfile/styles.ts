@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { useAdaptiveFont } from '../../../hooks/useAdaptiveFont';
-import { useCurrentTheme } from '../../../hooks/useTheme';
+import { useAdaptiveFont } from '../../../../hooks/useAdaptiveFont';
+import { useCurrentTheme } from '../../../../hooks/useTheme';
 
 export const HeaderProfileStyles = () => {
   const fontSize = useAdaptiveFont();

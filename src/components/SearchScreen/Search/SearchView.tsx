@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native';
 import { Input } from 'react-native-elements';
-import { SearchStyle } from './SearchStyle';
+import { useSearchStyle } from './SearchStyle';
 
 import Glass from '../../../assets/Glass.svg';
 import Filter from '../../../assets/Filters.svg';
@@ -18,7 +18,7 @@ interface SearchViewProps {
 }
 
 const SearchView: FC<SearchViewProps> = ({ search, handleChangeSearch }) => {
-  const styles = SearchStyle();
+  const styles = useSearchStyle();
 
   return (
     <View style={styles.container}>

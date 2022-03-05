@@ -15,7 +15,7 @@ import Profile from '../../assets/AccountProfile.svg';
 import PlaceOffer from '../../assets/AddNewProductIcon.svg';
 import { useCurrentTheme } from '../../hooks/useTheme';
 import { MainScreenStyle } from './styles';
-import HeaderProfile from '../../components/CustomHeaders/HeaderProfile/HeaderProfile';
+import HeaderProfile from '../../components/AnyScreen/CustomHeaders/HeaderProfile/HeaderProfile';
 
 interface ButtonsNavigation {
   name: string;

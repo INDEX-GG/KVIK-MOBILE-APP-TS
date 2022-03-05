@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { useCurrentTheme } from '../hooks/useTheme';
 
 interface SaveScrollContainerProps {
   children: React.ReactChild | React.ReactNode;
   lightColor?: string;
   darkColor?: string;
+  scrollContent?: boolean;
   paddingDisabled?: boolean;
 }
 
@@ -15,6 +16,7 @@ const SaveScrollContainer: FC<SaveScrollContainerProps> = ({
   lightColor,
   darkColor,
   paddingDisabled = false,
+  scrollContent = true,
 }) => {
   const { theme, isDark } = useCurrentTheme();
 
@@ -34,11 +36,18 @@ const SaveScrollContainer: FC<SaveScrollContainerProps> = ({
   };
 
   return (
-    <SafeAreaView
-      style={screenBackground}
-      edges={['top', 'left', 'right', 'bottom']}
-    >
-      <ScrollView style={paddingChildren}>{children}</ScrollView>
+    <SafeAreaView style={screenBackground} edges={['top']}>
+      {scrollContent ? (
+        <ScrollView
+          style={paddingChildren}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        >
+          {children}
+        </ScrollView>
+      ) : (
+        <View style={paddingChildren}>{children}</View>
+      )}
     </SafeAreaView>
   );
 };

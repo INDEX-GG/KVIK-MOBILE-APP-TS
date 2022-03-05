@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Animated, View } from 'react-native';
-import { useTypeSelector } from '../../hooks/useTypedSelector';
+// import { useTypeSelector } from '../../hooks/useTypedSelector';
 import { BottomSheetCustomStyles } from './styles';
 import {
   GestureEvent,
@@ -14,9 +14,9 @@ import OverlayModal from '../OverlayModal/OverlayModal';
 const BottomSheetCustom = gestureHandlerRootHOC(() => {
   const styles = BottomSheetCustomStyles();
 
-  const { open, component, height } = useTypeSelector(
-    (state) => state.bottomSheetReducer
-  );
+  // const { open, component, height } = useTypeSelector(
+  //   (state) => state.bottomSheetReducer
+  // );
   const BottomSheet = useMemo(() => component, [component]);
 
   const { handleCloseBottomSheet, bottomSheetPosition, AnimatedBottomSheet } =

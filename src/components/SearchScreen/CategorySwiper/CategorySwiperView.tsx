@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { FlatList, View } from 'react-native';
 import { CategorySwiperPress, SearchScreenCategory } from './types';
 import CategorySwiperItem from './CategorySwiperItem';
-import { CategorySwiperStyles } from './styles';
+import { useCategorySwiperStyles } from './styles';
 
 interface CategorySwiperViewProps {
   categoryData: SearchScreenCategory[];
@@ -13,7 +13,7 @@ const CategorySwiperView: FC<CategorySwiperViewProps> = ({
   categoryData,
   handlePressIcon,
 }) => {
-  const styles = CategorySwiperStyles();
+  const styles = useCategorySwiperStyles();
 
   return (
     <View style={styles.container}>

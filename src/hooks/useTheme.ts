@@ -1,32 +1,25 @@
-import { useTypeSelector } from './useTypedSelector';
-import { useDispatch } from 'react-redux';
-import { ThemeType } from '../store/reducers/themeReducer';
-import { ThemeReducer } from '../types/reducersTypes';
-import { darkTheme, lightTheme } from '../theme/theme';
+import { useAppSelector } from './useAppSelector';
+import { useMemo } from 'react';
+import { themeSlice } from '../store/reducers/themeSlice/themeSlice';
+import { useAppDispatch } from './useAppDispatch';
 
 export const useCurrentTheme = () => {
-  // Current Theme
-  const storeTheme = useTypeSelector(
-    (state) => state.themeReducer
-  ) as ThemeReducer;
+  const { theme, themeName } = useAppSelector((state) => state.themeReducer);
+  const isDark = useMemo(() => themeName === 'dark', [themeName]);
+  const dispatch = useAppDispatch();
 
-  const dispatch = useDispatch();
-  const themeObject = storeTheme.theme === 'light' ? lightTheme : darkTheme;
-  const isDark = storeTheme.theme === 'dark';
-
-  const handleChangeTheme = () => {
+  const handleToggleTheme = () => {
     if (isDark) {
-      dispatch({ type: ThemeType.IS_LIGHT });
-    }
-    if (!isDark) {
-      dispatch({ type: ThemeType.IS_DARK });
+      dispatch(themeSlice.actions.lightTheme());
+    } else {
+      dispatch(themeSlice.actions.darkTheme());
     }
   };
 
   return {
-    isDark: isDark,
-    themeName: storeTheme.theme,
-    theme: themeObject,
-    toggleTheme: handleChangeTheme,
+    isDark,
+    themeName: themeName,
+    theme: theme,
+    toggleTheme: handleToggleTheme,
   };
 };

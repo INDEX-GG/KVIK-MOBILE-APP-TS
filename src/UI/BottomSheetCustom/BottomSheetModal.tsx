@@ -1,4 +1,4 @@
-import { useTypeSelector } from '../../hooks/useTypedSelector';
+import { useTypeSelector } from '../../hooks/useAppSelector';
 import { useBottomSheet } from '../../hooks/useReducerHook/useBottomSheet';
 import React, { useEffect, useState } from 'react';
 import OverlayModal from '../OverlayModal/OverlayModal';
