@@ -14,7 +14,16 @@ export const useSecret = () => {
     return str;
   };
 
+  const uniqueKeyMap = (value: string, index?: number) => {
+    const count = index ? index : Math.round(Math.random() * 1000000);
+    return CryptoJS.AES.encrypt(
+      value,
+      value + count + Math.floor(Math.random() * 1000000)
+    ).toString();
+  };
+
   return {
+    uniqueKeyMap,
     decryptSting,
     encryptObj,
     CryptoJS,

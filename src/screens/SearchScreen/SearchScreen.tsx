@@ -3,16 +3,28 @@ import Search from '../../components/SearchScreen/Search/Search';
 import SaveScrollContainer from '../../UI/SaveScrollContainer';
 import CategorySwiper from '../../components/SearchScreen/CategorySwiper/CategorySwiper';
 import CardOptions from '../../components/AnyScreen/Card/CardOptions';
-import ScrollCardData from '../../components/ScrollCardData/ScrollCardData';
+import SearchAds from '../../components/SearchScreen/SearchAds/SearchAds';
+import { useSearchScreenStyles } from './style';
+import { ScrollView, View } from 'react-native';
 
 const SearchScreen: FC = () => {
+  const styles = useSearchScreenStyles();
+
   return (
-    <SaveScrollContainer>
-      <Search />
-      <CategorySwiper />
-      <CardOptions>
-        <ScrollCardData />
-      </CardOptions>
+    <SaveScrollContainer paddingDisabled={true} scrollContent={false}>
+      <View style={styles.container}>
+        <Search />
+      </View>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <CategorySwiper />
+        <View style={styles.container}>
+          <CardOptions />
+          <SearchAds />
+        </View>
+      </ScrollView>
     </SaveScrollContainer>
   );
 };

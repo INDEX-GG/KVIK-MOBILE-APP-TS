@@ -31,3 +31,38 @@ export const PhoneMask = (value: string) => {
   return inputOnlyNumber;
 };
 
+export function ToRusDate(date: string) {
+  const adDate = new Date(date),
+    options = {
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    };
+  return adDate.toLocaleString('ru', options as {});
+}
+
+export const stringSlice = (string: string, maxLength: number) => {
+  const isMax = string.length > maxLength;
+  if (isMax) {
+    return `${string.slice(0, maxLength - 3).trim()}...`;
+  }
+  return string;
+};
+
+export function ToRubles(num: string) {
+  const number = +num;
+  return number.toLocaleString('ru-RU', {
+    style: 'currency',
+    currency: 'RUB',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+}
+
+export const parsePhotos = (photos: string | null) => {
+  if (typeof photos === 'string') {
+    return JSON.parse(photos)?.photos;
+  }
+  return [];
+};

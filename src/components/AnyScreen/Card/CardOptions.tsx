@@ -8,10 +8,6 @@ import { ToggleListItem } from '../../../UI/ToggleList/types';
 import ColumnCard from '../../../assets/ColumnCardsView.svg';
 import RowCards from '../../../assets/RowCardsView.svg';
 
-interface CardOptionsProps {
-  children: React.ReactChildren | React.ReactNode;
-}
-
 const sortItems = [
   { title: 'По умолчанию', value: 'sortDefault' },
   { title: 'Сначала новые', value: 'sortNew' },
@@ -24,7 +20,7 @@ const viewData = [
   { id: 2, Icon: RowCards, value: 'cardsRow' },
 ];
 
-const CardOptions: FC<CardOptionsProps> = ({ children }) => {
+const CardOptions: FC = () => {
   const styles = CardStyle().styleCard;
   const [sortList, setSortList] = useState<SortState>({
     title: 'По умолчанию',
@@ -62,7 +58,6 @@ const CardOptions: FC<CardOptionsProps> = ({ children }) => {
           listData={viewData}
         />
       </View>
-      {children}
     </View>
   );
 };

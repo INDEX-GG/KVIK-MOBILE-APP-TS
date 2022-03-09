@@ -7,6 +7,7 @@ export const SearchStyle = () => {
   const styles = StyleSheet.create({
     container: {
       marginTop: 9,
+      marginBottom: 9,
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -41,3 +42,5 @@ export const SearchStyle = () => {
 
   return styles;
 };
+
+export const useSearchStyle = () => SearchStyle();

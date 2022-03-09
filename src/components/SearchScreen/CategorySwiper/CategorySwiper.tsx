@@ -52,12 +52,10 @@ const CategorySwiper = () => {
   };
 
   return (
-    <View>
-      <CategorySwiperView
-        categoryData={category(isDark)}
-        handlePressIcon={handlePressIcon}
-      />
-    </View>
+    <CategorySwiperView
+      categoryData={category(isDark)}
+      handlePressIcon={handlePressIcon}
+    />
   );
 };
 

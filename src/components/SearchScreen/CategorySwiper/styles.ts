@@ -6,7 +6,7 @@ export const CategorySwiperStyles = () => {
 
   return StyleSheet.create({
     container: {
-      marginTop: 12,
+      marginTop: 3,
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -36,3 +36,5 @@ export const CategorySwiperStyles = () => {
     },
   });
 };
+
+export const useCategorySwiperStyles = () => CategorySwiperStyles();

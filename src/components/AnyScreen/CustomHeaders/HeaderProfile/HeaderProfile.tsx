@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Pressable } from 'react-native';
-import RobotoText from '../../../UI/RobotoText';
+import RobotoText from '../../../../UI/RobotoText';
 import { HeaderProfileStyles } from './styles';
-import DarkTheme from '../../../assets/DarkTheme.svg';
-import LightTheme from '../../../assets/LightTheme.svg';
-import SettingsProfile from '../../../assets/SettingProfile.svg';
-import { useCurrentTheme } from '../../../hooks/useTheme';
-import { useRouter } from '../../../hooks/useRouter';
-import SaveAreaTheme from '../../../UI/SaveAreaTheme/SaveAreaTheme';
+import DarkTheme from '../../../../assets/DarkTheme.svg';
+import LightTheme from '../../../../assets/LightTheme.svg';
+import SettingsProfile from '../../../../assets/SettingProfile.svg';
+import { useCurrentTheme } from '../../../../hooks/useTheme';
+import { useRouter } from '../../../../hooks/useRouter';
+import SaveAreaTheme from '../../../../UI/SaveAreaTheme/SaveAreaTheme';
 
 const HeaderProfile = () => {
   const styles = HeaderProfileStyles();

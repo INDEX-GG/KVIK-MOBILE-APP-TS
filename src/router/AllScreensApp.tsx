@@ -1,6 +1,5 @@
 import React from 'react';
 import MainScreen from '../screens/MainScreen/MainScreen';
-import TestComp from '../components/TestComp';
 import SettingsScreen from '../components/SettingsScreen/SettingsScreen/SettingsScreen';
 import HeaderTab from '../UI/HeaderTab/HeaderTab';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
@@ -24,11 +23,6 @@ export const allScreensApp: Screens[] = [
     name: 'Main',
     component: MainScreen,
     options: { title: '', headerShown: false },
-  },
-  {
-    name: 'Details',
-    component: TestComp,
-    options: { title: 'Объявление' },
   },
   {
     name: 'Settings',
