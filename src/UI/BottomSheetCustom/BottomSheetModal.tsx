@@ -1,35 +1,36 @@
-import { useTypeSelector } from '../../hooks/useAppSelector';
-import { useBottomSheet } from '../../hooks/useReducerHook/useBottomSheet';
 import React, { useEffect, useState } from 'react';
-import OverlayModal from '../OverlayModal/OverlayModal';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { useBottomSheet } from '../../hooks/useReducerHook/useBottomSheet';
 import BottomSheetCustom from './BottomSheetCustom';
+import { Modal, Pressable, View } from 'react-native';
+import { useBottomSheetCustomStyles } from './styles';
 
 const BottomSheetModal = () => {
-  const { height, open } = useTypeSelector((state) => state.bottomSheetReducer);
+
+  const styles = useBottomSheetCustomStyles();
+
+  const { open } = useAppSelector((state) => state.bottomSheetReducer);
   const { handleCloseBottomSheet } = useBottomSheet();
   const [innerOpen, setInnerModal] = useState(false);
 
   useEffect(() => {
     if (open) {
       setInnerModal(true);
+    } else {
+      setInnerModal(false);
     }
-
-    if (!open && innerOpen) {
-      setTimeout(() => {
-        setInnerModal(false);
-      }, 150);
-    }
-  }, [innerOpen, open]);
-
+  }, [open]);
 
   return (
-    <OverlayModal
-      visible={innerOpen}
-      height={height}
-      onCloseNoFocus={handleCloseBottomSheet}
-    >
-      <BottomSheetCustom />
-    </OverlayModal>
+    <Modal visible={innerOpen} transparent={true}>
+      <View style={styles.modalWrapper}>
+        <Pressable
+          onPress={handleCloseBottomSheet}
+          style={styles.modalPressable}
+        />
+        <BottomSheetCustom />
+      </View>
+    </Modal>
   );
 };
 

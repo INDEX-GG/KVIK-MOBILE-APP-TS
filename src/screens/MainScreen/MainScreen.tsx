@@ -3,9 +3,9 @@ import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import MessageScreen from '../MessageScreen';
+import MessageScreen from '../MessageScreen/MessageScreen';
 import PlaceOfferScreen from '../PlaceOfferScreen';
-import FavoriteScreen from '../FavoriteScreen';
+import FavoriteScreen from '../FavoriteScreen/FavoriteScreen';
 import AccountScreen from '../AccountScreen/AccountScreen';
 import SearchScreen from '../SearchScreen/SearchScreen';
 import Logo from '../../assets/LogoIcon.svg';
@@ -16,6 +16,8 @@ import PlaceOffer from '../../assets/AddNewProductIcon.svg';
 import { useCurrentTheme } from '../../hooks/useTheme';
 import { MainScreenStyle } from './styles';
 import HeaderProfile from '../../components/AnyScreen/CustomHeaders/HeaderProfile/HeaderProfile';
+import HeaderTab from '../../UI/HeaderTab/HeaderTab';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface ButtonsNavigation {
   name: string;
@@ -32,17 +34,29 @@ const buttonsNavigation: ButtonsNavigation[] = [
   {
     name: 'MessageScreen',
     component: MessageScreen,
-    options: { title: 'Сообщения', headerTitleAlign: 'center' },
+    options: {
+      title: 'Сообщения',
+      headerTitleAlign: 'center',
+      header: () => <HeaderTab title={'Сообщения'} arrow={false} />,
+    },
   },
   {
     name: 'PlaceOfferScreen',
     component: PlaceOfferScreen,
-    options: { title: 'Разместить', headerTitleAlign: 'center' },
+    options: {
+      title: 'Разместить',
+      headerTitleAlign: 'center',
+      header: () => <HeaderTab title={'Разместить'} arrow={false} />,
+    },
   },
   {
     name: 'FavoriteScreen',
     component: FavoriteScreen,
-    options: { title: 'Избранное', headerTitleAlign: 'center' },
+    options: {
+      title: 'Избранное',
+      headerTitleAlign: 'center',
+      header: () => <HeaderTab title={'Избранное'} arrow={false} />,
+    },
   },
   {
     name: 'AccountScreen',

@@ -1,8 +1,8 @@
 import React from 'react';
 import AuthScreen from '../../components/AnyScreen/AuthScreen/AuthScreen';
 
-const AccountScreen = () => {
+const MessageScreen = () => {
   return <AuthScreen />;
 };
 
-export default React.memo(AccountScreen);
+export default MessageScreen;

@@ -1,48 +1,34 @@
-// import { BottomSheetType } from '../../store/reducers/bottomSheetReducer';
-// import { useTypedDispatch } from '../useTypedDispatch';
-// import React, { useRef } from 'react';
-// import { Animated } from 'react-native';
-// import { useTypeSelector } from '../useTypedSelector';
+import { useRef } from 'react';
+import { Animated } from 'react-native';
+import { useAppDispatch } from '../useAppDispatch';
+import { bottomSheetSlice } from '../../store/reducers/bottomSheetSlice/bottomSheetSlice';
 
 export const useBottomSheet = () => {
-  // const { height } = useTypeSelector((state) => state.bottomSheetReducer);
-  // const dispatch = useTypedDispatch();
-  // const bottom = useRef(new Animated.Value(-height)).current;
-  //
-  // const AnimatedBottomSheet = (value: number, closeFunction?: () => void) => {
-  //   Animated.timing(bottom, {
-  //     toValue: value,
-  //     duration: 150,
-  //     useNativeDriver: false,
-  //   }).start(() => (closeFunction ? closeFunction() : null));
-  // };
-  //
-  // const handleOpenBottomSheet = (
-  //   component: React.FC,
-  //   elementHeight: number
-  // ) => {
-  //   return () => {
-  //     dispatch({
-  //       type: BottomSheetType.IS_OPEN,
-  //       payload: {
-  //         component: component,
-  //         height: elementHeight,
-  //       },
-  //     });
-  //   };
-  // };
-  //
-  // const handleCloseBottomSheet = () => {
-  //   dispatch({
-  //     type: BottomSheetType.IS_CLOSE,
-  //     payload: { height: -height },
-  //   });
-  // };
+  const dispatch = useAppDispatch();
+  const bottom = useRef(new Animated.Value(-230)).current;
+
+  const AnimatedBottomSheet = (value: number, closeFunction?: () => void) => {
+    Animated.timing(bottom, {
+      toValue: value,
+      duration: 150,
+      useNativeDriver: false,
+    }).start(() => (closeFunction ? closeFunction() : null));
+  };
+
+  const handleOpenBottomSheet = (elementHeight: number) => {
+    return () => {
+      dispatch(bottomSheetSlice.actions.openBottomSheet(elementHeight));
+    };
+  };
+
+  const handleCloseBottomSheet = () => {
+    dispatch(bottomSheetSlice.actions.closeBottomSheet());
+  };
 
   return {
-    bottomSheetPosition: 200,
-    AnimatedBottomSheet: () => console.log(1),
-    handleOpenBottomSheet: () => console.log(2),
-    handleCloseBottomSheet: () => console.log(3),
+    bottomSheetPosition: bottom,
+    AnimatedBottomSheet: AnimatedBottomSheet,
+    handleOpenBottomSheet: handleOpenBottomSheet,
+    handleCloseBottomSheet: handleCloseBottomSheet,
   };
 };

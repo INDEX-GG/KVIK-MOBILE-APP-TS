@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { useCurrentTheme } from '../../../hooks/useTheme';
 import { useAdaptiveFont } from '../../../hooks/useAdaptiveFont';
-import { useSize } from '../../../hooks/useSize';
 
 const CardAdItemStyles = () => {
   const { theme, isDark } = useCurrentTheme();
@@ -9,7 +8,8 @@ const CardAdItemStyles = () => {
 
   return StyleSheet.create({
     item: {
-      width: '100%',
+      width: '48%',
+      minHeight: 240,
       backgroundColor: theme.colorBottomTab.color,
       marginBottom: 15,
       marginRight: 15,

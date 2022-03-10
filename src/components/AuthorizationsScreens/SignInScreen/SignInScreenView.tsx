@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import SaveScrollContainer from '../../../UI/SaveScrollContainer';
 import CustomInput from '../../../UI/Inputs/CustomInput/CustomInput';
 import { ScrollView, View } from 'react-native';
-import { SignInScreenStyles } from './style';
+import { useSignInScreenStyles } from './style';
 import RobotoText from '../../../UI/RobotoText';
 import FillButton from '../../../UI/FillButton/FillButton';
 import PasswordIcon from '../../../assets/EyePassword.svg';
@@ -26,7 +26,7 @@ const SignInScreenView: FC<SignInScreenViewProps> = ({
   formData,
   activeButton,
 }) => {
-  const styles = SignInScreenStyles();
+  const styles = useSignInScreenStyles();
   const { viewPassword, setViewPassword } = passwordData;
   const { handlePressButton, control } = formData;
 
