@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Overlay } from 'react-native-elements';
 import { OverlayModalStyles } from './style';
+import { Modal } from 'react-native';
 
 interface OverlayModalProps {
   children: React.ReactChildren | React.ReactNode;

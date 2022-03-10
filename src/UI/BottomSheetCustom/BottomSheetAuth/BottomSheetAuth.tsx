@@ -31,7 +31,7 @@ const BottomSheetAuth = () => {
       <View style={styles.iconContainer}>
         <SocialIcon />
       </View>
-      <TouchableOpacity activeOpacity={0.5} onPress={pushTo('LicenseScreen')}>
+      <TouchableOpacity activeOpacity={0.5} onPress={pushTo('LicenseScreen', handleCloseBottomSheet)}>
         <RobotoText weight="r" style={styles.license}>
           При регистрации вы соглашаетесь с{' '}
           <RobotoText weight="r" style={styles.licenseLink}>

@@ -6,11 +6,16 @@ import { signIn } from '../../../axios/authorization';
 import { useSecret } from '../../../hooks/useSecret';
 import { stringOnlyNum } from '../../../constants/regExp';
 import { useAsyncStorage } from '../../../hooks/useAsyncStorage';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { userSlice } from '../../../store/reducers/userSlice/userSlice';
+import { fetchUserLogin } from '../../../store/reducers/userSlice/asyncAction';
 
 const SingInScreen = () => {
+  const dispatch = useAppDispatch();
   const { encryptObj } = useSecret();
   const { setItemStorage } = useAsyncStorage();
   const { control, handleSubmit, watch, setError } = useForm();
+
   const [viewPassword, setViewPassword] = useState<boolean>(true);
 
   const currentFormData = watch() as SignInSendData;
@@ -19,26 +24,29 @@ const SingInScreen = () => {
     [currentFormData]
   );
 
-  const onSubmit: SubmitHandler<SignInSendData | FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<SignInSendData | FieldValues> = async (data) => {
     data.phone = `+${stringOnlyNum(data.phone)}`;
     const { phone, password } = data;
     if (phone && password) {
       const secretData = encryptObj(data);
-      signIn({ phone: secretData.phone, password: secretData.password }).then(
-        (res) => {
-          if (res.isset !== undefined) {
-            setError('password', {
-              type: 'string',
-              message: 'Некоррестные данные',
-            });
-          }
-          if (res.idUser) {
-            setItemStorage('UserId', res.idUser).then(() =>
-              console.log('success')
-            );
-          }
-        }
-      );
+      const test = await dispatch(fetchUserLogin(secretData));
+      console.log(test);
+      // signIn({ phone: secretData.phone, password: secretData.password }).then(
+      //   (res) => {
+      //     console.log(res);
+      //     if (res.isset !== undefined) {
+      //       setError('password', {
+      //         type: 'string',
+      //         message: 'Некоррестные данные',
+      //       });
+      //     }
+      //     if (res.idUser) {
+      //       setItemStorage('UserId', res.idUser).then(() =>
+      //         console.log('success')
+      //       );
+      //     }
+      //   }
+      // );
     }
   };
 
@@ -65,4 +73,4 @@ const SingInScreen = () => {
   );
 };
 
-export default SingInScreen;
+export default React.memo(SingInScreen);

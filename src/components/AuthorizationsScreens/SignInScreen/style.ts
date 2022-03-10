@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { useCurrentTheme } from '../../../hooks/useTheme';
 import { useAdaptiveFont } from '../../../hooks/useAdaptiveFont';
 
-export const SignInScreenStyles = () => {
+const SignInScreenStyles = () => {
   const { theme } = useCurrentTheme();
   const fontSize = useAdaptiveFont();
 
@@ -31,3 +31,5 @@ export const SignInScreenStyles = () => {
     },
   });
 };
+
+export const useSignInScreenStyles = () => SignInScreenStyles();

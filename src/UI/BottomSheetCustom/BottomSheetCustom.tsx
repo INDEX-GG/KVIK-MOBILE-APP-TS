@@ -1,7 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Animated, View } from 'react-native';
-// import { useTypeSelector } from '../../hooks/useTypedSelector';
-import { BottomSheetCustomStyles } from './styles';
+import { useBottomSheetCustomStyles } from './styles';
 import {
   GestureEvent,
   gestureHandlerRootHOC,
@@ -9,26 +8,25 @@ import {
   PanGestureHandlerEventPayload,
 } from 'react-native-gesture-handler';
 import { useBottomSheet } from '../../hooks/useReducerHook/useBottomSheet';
-import OverlayModal from '../OverlayModal/OverlayModal';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import BottomSheetAuth from './BottomSheetAuth/BottomSheetAuth';
 
 const BottomSheetCustom = gestureHandlerRootHOC(() => {
-  const styles = BottomSheetCustomStyles();
+  const styles = useBottomSheetCustomStyles();
 
-  // const { open, component, height } = useTypeSelector(
-  //   (state) => state.bottomSheetReducer
-  // );
-  const BottomSheet = useMemo(() => component, [component]);
+  const { open } = useAppSelector((state) => state.bottomSheetReducer);
 
   const { handleCloseBottomSheet, bottomSheetPosition, AnimatedBottomSheet } =
     useBottomSheet();
 
   useEffect(() => {
     if (open) {
-      AnimatedBottomSheet(0);
-    } else {
-      AnimatedBottomSheet(-height);
+      setTimeout(() => AnimatedBottomSheet(0), 100);
     }
-  }, [AnimatedBottomSheet, height, open]);
+    if (!open) {
+      setTimeout(() => AnimatedBottomSheet(-240), 100);
+    }
+  }, [open]);
 
   const onGestureEvent = (
     event: GestureEvent<PanGestureHandlerEventPayload>
@@ -39,8 +37,8 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
   };
 
   const onEnded = (event: any) => {
-    if (event.nativeEvent.translationY > height / 3) {
-      AnimatedBottomSheet(-height - 10, handleCloseBottomSheet);
+    if (event.nativeEvent.translationY > 230 / 3) {
+      AnimatedBottomSheet(-240, handleCloseBottomSheet);
     } else {
       AnimatedBottomSheet(0);
     }
@@ -50,7 +48,7 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
     <PanGestureHandler onGestureEvent={onGestureEvent} onEnded={onEnded}>
       <Animated.View style={[styles.root, { bottom: bottomSheetPosition }]}>
         <View style={styles.line} />
-        {BottomSheet && <BottomSheet />}
+        <BottomSheetAuth />
       </Animated.View>
     </PanGestureHandler>
   );

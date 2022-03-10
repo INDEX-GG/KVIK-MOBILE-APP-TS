@@ -16,10 +16,8 @@ const SearchAdsStyles = () => {
       flexWrap: 'wrap',
     },
     wrapper: {
+      width: deviceWidth - 30,
       justifyContent: 'space-between',
-    },
-    item: {
-      width: deviceWidth / 2 - 30,
     },
   });
 };

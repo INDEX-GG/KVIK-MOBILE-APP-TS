@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 import { useSize } from '../../hooks/useSize';
 import { useCurrentTheme } from '../../hooks/useTheme';
 
-export const BottomSheetCustomStyles = () => {
-  const { deviceWidth } = useSize();
+const BottomSheetCustomStyles = () => {
+  const { deviceWidth, deviceHeight } = useSize();
   const { isDark } = useCurrentTheme();
 
   return StyleSheet.create({
@@ -38,5 +38,17 @@ export const BottomSheetCustomStyles = () => {
       marginTop: 10,
       borderRadius: 10,
     },
+    modalWrapper: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0)',
+    },
+    modalPressable: {
+      position: 'absolute',
+      width: '100%',
+      height: deviceHeight - 240,
+      zIndex: 1,
+    },
   });
 };
+
+export const useBottomSheetCustomStyles = () => BottomSheetCustomStyles();

@@ -11,7 +11,11 @@ const SearchScreen: FC = () => {
   const styles = useSearchScreenStyles();
 
   return (
-    <SaveScrollContainer paddingDisabled={true} scrollContent={false}>
+    <SaveScrollContainer
+      paddingDisabled={true}
+      saveContent={true}
+      scrollContent={false}
+    >
       <View style={styles.container}>
         <Search />
       </View>
@@ -29,4 +33,4 @@ const SearchScreen: FC = () => {
   );
 };
 
-export default SearchScreen;
+export default React.memo(SearchScreen);

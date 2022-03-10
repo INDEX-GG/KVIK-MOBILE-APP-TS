@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useCurrentTheme } from '../../hooks/useTheme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { allScreensApp } from '../../router/AllScreensApp';
-// import BottomSheetModal from '../../UI/BottomSheetCustom/BottomSheetModal';
+import BottomSheetModal from '../../UI/BottomSheetCustom/BottomSheetModal';
 import LoadingApp from '../../components/AnyScreen/LoadingApp/LoadingApp';
 import { useUserStore } from '../../hooks/useReducerHook/useUserStore';
 
@@ -29,7 +29,7 @@ const MainLayout: FC = () => {
             ))}
           </Stack.Navigator>
           <LoadingApp isLoading={isLoading} />
-          {/*<BottomSheetModal />*/}
+          <BottomSheetModal />
         </NavigationContainer>
       </SafeAreaProvider>
     </ThemeProvider>

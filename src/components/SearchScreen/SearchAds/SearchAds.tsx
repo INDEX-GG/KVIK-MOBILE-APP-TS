@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { FlatList, View, TouchableOpacity } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { useSearchAdsStyles } from './style';
 import { useSearchAds } from './useSearchAds';
 import CardAdItem from '../../AnyScreen/CardAdItem/CardAdItem';
@@ -23,15 +23,7 @@ const SearchAds = () => {
           numColumns={2}
           data={cards}
           renderItem={({ item, index }) => (
-            <TouchableOpacity
-              onPress={() => console.log(item.id)}
-              style={styles.item}
-            >
-              <CardAdItem
-                key={uniqueKeyMap(item.id + '', index)}
-                adItem={item}
-              />
-            </TouchableOpacity>
+            <CardAdItem key={uniqueKeyMap(item.id + '', index)} adItem={item} />
           )}
         />
       ) : null}

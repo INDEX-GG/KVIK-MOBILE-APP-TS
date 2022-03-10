@@ -1,22 +1,6 @@
-import React from 'react';
-import { BottomSheetType } from '../store/reducers/bottomSheetReducer';
 import { IUserModel } from '../models/IUserModel';
 import { UserInfoType } from '../store/reducers/userInfoReducer';
 import { IAdCardModel } from '../models/IAdCardModel';
-
-export interface BottomSheet {
-  open: boolean;
-  component: React.FC | undefined;
-  height: number;
-}
-
-export interface BottomSheetAction {
-  type: BottomSheetType;
-  payload: {
-    height: number;
-    component?: React.FC;
-  };
-}
 
 export interface UserInfo {
   userId?: number | null;

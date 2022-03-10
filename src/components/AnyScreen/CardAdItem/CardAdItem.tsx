@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { IAdCardModel } from '../../../models/IAdCardModel';
 import { useCardAdItemStyles } from './style';
 import RobotoText from '../../../UI/RobotoText';
@@ -7,9 +7,10 @@ import {
   ToRusDate,
   stringSlice,
   ToRubles,
-  parsePhotos,
+  // parsePhotos,
 } from '../../../services/services';
-import CustomSlider from '../CustomSlider/CustomSlider';
+import { useRouter } from '../../../hooks/useRouter';
+// import CustomSlider from '../CustomSlider/CustomSlider';
 
 interface CardAdItemProps {
   adItem: IAdCardModel;
@@ -17,9 +18,10 @@ interface CardAdItemProps {
 
 const CardAdItem: FC<CardAdItemProps> = ({ adItem }) => {
   const styles = useCardAdItemStyles();
+  const { pushTo } = useRouter();
 
   return (
-    <View style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={pushTo('Product')}>
       <View style={styles.img}>
         {/*<CustomSlider photos={parsePhotos(adItem.photo)} />*/}
       </View>
@@ -28,7 +30,7 @@ const CardAdItem: FC<CardAdItemProps> = ({ adItem }) => {
           {ToRubles(adItem.price)}
         </RobotoText>
         <RobotoText weight="r" style={styles.title}>
-          {stringSlice(adItem.title, 27)}
+          {stringSlice(adItem.title, 26)}
         </RobotoText>
         <RobotoText weight="m" style={styles.addressAndPrice}>
           {stringSlice(adItem.address, 32)}
@@ -37,7 +39,7 @@ const CardAdItem: FC<CardAdItemProps> = ({ adItem }) => {
           {ToRusDate(adItem.created_at)}
         </RobotoText>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
