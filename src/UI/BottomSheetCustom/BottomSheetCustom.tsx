@@ -7,7 +7,7 @@ import {
   PanGestureHandler,
   PanGestureHandlerEventPayload,
 } from 'react-native-gesture-handler';
-import { useBottomSheet } from '../../hooks/useReducerHook/useBottomSheet';
+import { useBottomSheetStore } from '../../hooks/useReducerHook/useBottomSheetStore';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import BottomSheetAuth from './BottomSheetAuth/BottomSheetAuth';
 
@@ -17,7 +17,7 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
   const { open } = useAppSelector((state) => state.bottomSheetReducer);
 
   const { handleCloseBottomSheet, bottomSheetPosition, AnimatedBottomSheet } =
-    useBottomSheet();
+    useBottomSheetStore();
 
   useEffect(() => {
     if (open) {

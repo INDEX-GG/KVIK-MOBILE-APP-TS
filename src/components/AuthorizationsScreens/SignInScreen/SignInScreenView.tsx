@@ -35,6 +35,7 @@ const SignInScreenView: FC<SignInScreenViewProps> = ({
       <View style={styles.container}>
         <View style={styles.inputOne}>
           <CustomInput
+            autoFocus={true}
             maxLength={19}
             keyboardType="numeric"
             name="phone"

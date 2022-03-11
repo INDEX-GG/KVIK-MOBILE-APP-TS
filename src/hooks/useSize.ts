@@ -6,7 +6,7 @@ export const useSize = () => {
   const isTablet = width > 600;
   const heightHeader = 56;
   const heightTab = 56;
-  const height100vh = height - heightHeader - heightTab;
+  const height100vh = height - (heightHeader + heightTab);
 
   return {
     heightHeader,

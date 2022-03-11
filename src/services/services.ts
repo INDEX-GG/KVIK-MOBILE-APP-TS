@@ -1,3 +1,5 @@
+import { string } from 'react-native-redash';
+
 export const PhoneMask = (value: string) => {
   let inputOnlyNumber = value.replace(/\D/g, '');
 
@@ -65,4 +67,9 @@ export const parsePhotos = (photos: string | null) => {
     return JSON.parse(photos)?.photos;
   }
   return [];
+};
+
+export const getTypeResponse = (type: string) => {
+  const stringArr = type.split('/');
+  return stringArr[stringArr.length - 1];
 };

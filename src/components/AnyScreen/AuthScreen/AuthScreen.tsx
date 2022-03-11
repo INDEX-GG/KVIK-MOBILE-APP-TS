@@ -4,11 +4,11 @@ import RobotoText from '../../../UI/RobotoText';
 import { useAuthScreenStyles } from './style';
 import { ImageBackground, View } from 'react-native';
 import FillButton from '../../../UI/FillButton/FillButton';
-import { useBottomSheet } from '../../../hooks/useReducerHook/useBottomSheet';
+import { useBottomSheetStore } from '../../../hooks/useReducerHook/useBottomSheetStore';
 
 const AccountScreen = () => {
   const styles = useAuthScreenStyles();
-  const { handleOpenBottomSheet } = useBottomSheet();
+  const { handleOpenBottomSheet } = useBottomSheetStore();
 
   return (
     <SaveScrollContainer paddingDisabled={true} scrollContent={false}>
