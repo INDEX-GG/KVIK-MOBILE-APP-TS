@@ -12,6 +12,8 @@ target 'KVIK' do
     :hermes_enabled => false
   )
 
+  pod 'RNKeychain', :path => '../node_modules/react-native-keychain'
+
   target 'KVIKTests' do
     inherit! :complete
     # Pods for testing

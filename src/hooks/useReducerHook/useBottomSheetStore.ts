@@ -3,7 +3,7 @@ import { Animated } from 'react-native';
 import { useAppDispatch } from '../useAppDispatch';
 import { bottomSheetSlice } from '../../store/reducers/bottomSheetSlice/bottomSheetSlice';
 
-export const useBottomSheet = () => {
+export const useBottomSheetStore = () => {
   const dispatch = useAppDispatch();
   const bottom = useRef(new Animated.Value(-230)).current;
 

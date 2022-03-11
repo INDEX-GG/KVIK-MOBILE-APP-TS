@@ -9,6 +9,7 @@ export interface CustomInputProps {
   placeholder: string;
   defaultValue?: string;
   passwordInput?: boolean;
+  autoFocus?: boolean;
   inputIcon?: React.FC<SvgProps>;
   onPressIcon?: () => void;
   styleIcon?: StyleProp<ViewStyle>;

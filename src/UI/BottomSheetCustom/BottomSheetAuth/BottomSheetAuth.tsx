@@ -5,10 +5,10 @@ import FillButton from '../../FillButton/FillButton';
 import { BottomSheetAuthStyles } from './style';
 import { useRouter } from '../../../hooks/useRouter';
 import SocialIcon from '../../../components/AnyScreen/SocialIcon/SocialIcon';
-import { useBottomSheet } from '../../../hooks/useReducerHook/useBottomSheet';
+import { useBottomSheetStore } from '../../../hooks/useReducerHook/useBottomSheetStore';
 
 const BottomSheetAuth = () => {
-  const { handleCloseBottomSheet } = useBottomSheet();
+  const { handleCloseBottomSheet } = useBottomSheetStore();
   const styles = BottomSheetAuthStyles();
   const { pushTo } = useRouter();
 
