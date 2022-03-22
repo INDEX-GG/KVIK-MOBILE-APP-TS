@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useAppDispatch } from '../useAppDispatch';
 import { fetchUserLogin } from '../../store/reducers/userSlice/asyncAction';
 import { useTokenStore } from './useTokenStore';
+import { useRouter } from '../useRouter';
 
 export const useUserStore = () => {
   const { userId, refreshToken } = useTokenStore();
@@ -10,14 +11,16 @@ export const useUserStore = () => {
     (state) => state.userReducer
   );
   const dispatch = useAppDispatch();
+  const { router } = useRouter();
 
   useEffect(() => {
-    if (isLoading && refreshToken && userId) {
+    if (!isAuth && refreshToken && userId) {
+      console.log('update');
       dispatch(fetchUserLogin({ id: userId, token: refreshToken }));
     }
   }, [userId]);
 
-  console.log(userInfo, 1);
+  console.log(router);
 
   return {
     isAuth,

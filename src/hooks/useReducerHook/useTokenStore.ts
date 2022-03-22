@@ -30,11 +30,15 @@ export const useTokenStore = () => {
     }
   }, [authToken]);
 
+  // dispatch(userSlice.actions.loadingSuccess());
+  // Keychain.resetGenericPassword();
+
   useEffect(() => {
     if (updateUser) {
       Keychain.getGenericPassword().then((keychainData) => {
         // Если хранилище пустое
         if (!keychainData) {
+          console.log(keychainData);
           dispatch(tokenSlice.actions.notAuthUser());
           dispatch(userSlice.actions.loadingSuccess());
           return null;
