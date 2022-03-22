@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IUserModel } from '../../../models/IUserModel';
 import { kvikAxios } from '../../../axios/customAxios';
+import Keychain from 'react-native-keychain';
 
 export interface ISignInReq {
   phone: string;
@@ -26,14 +27,51 @@ export interface ILoginRespSuccess {
   userId: number;
 }
 
+// export const fetchUserSignIn = async (data: ISignInReq) => {
+//   try {
+//     const response = await kvikAxios
+//       .post<ISignInRespSuccess>('mobile/checkUser', data)
+//       .then((userData) => {
+//         const { data: loginData } = userData;
+//         if (loginData.idUser && loginData.jwt_refresh) {
+//           Keychain.setGenericPassword(
+//             `${loginData.idUser}`,
+//             loginData.jwt_refresh
+//           ).then(() => {
+//             useAppDispatch()(tokenSlice.actions.updateUser());
+//             // useAppDispatch()(userSlice.actions.loadingUpdate());
+//           });
+//           return 'user login';
+//         }
+//         return 'Ошибка api mobile/checkUser';
+//       });
+//     return response;
+//   } catch (e) {
+//     console.log(e);
+//     return 'Ошибка api mobile/checkUser';
+//   }
+// };
+
 export const fetchUserSignIn = createAsyncThunk(
-  'user/signIn',
+  'user/login',
   async (data: ISignInReq, thunkAPI) => {
     try {
       const response = await kvikAxios
-        .post<ISignInRespSuccess | ISignInRespFail>('mobile/checkUser', data)
-        .then((userData) => userData);
-      return response.data;
+        .post<ISignInRespSuccess>('mobile/checkUser', data)
+        .then((userData) => {
+          const { data: loginData } = userData;
+          if (loginData.idUser && loginData.jwt_refresh) {
+            Keychain.setGenericPassword(
+              `${loginData.idUser}`,
+              loginData.jwt_refresh
+            ).then(() => {
+              console.log('update');
+            });
+            return 'user login';
+          }
+          return 'Ошибка api mobile/checkUser';
+        });
+      return response;
     } catch (e) {
       return thunkAPI.rejectWithValue('Ошибка api mobile/checkUser');
     }
@@ -56,8 +94,12 @@ export const fetchUserLogin = createAsyncThunk(
           }
         )
         .then((userModel) => userModel);
-      return { userInfo: response.data, userId: data.id };
+      return {
+        userInfo: response.data,
+        userId: data.id,
+      };
     } catch (e) {
+      console.log(e);
       return thunkAPI.rejectWithValue('getUser?new');
     }
   }

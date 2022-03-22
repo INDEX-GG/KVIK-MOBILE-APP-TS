@@ -29,13 +29,15 @@ export const tokenSlice = createSlice({
     notAuthUser(state) {
       state.updateUser = false;
     },
+    updateUser(state) {
+      state.updateUser = true;
+    },
   },
   extraReducers: {
     [fetchRefreshToken.fulfilled.type]: (
       state,
       action: PayloadAction<ITokenSlice>
     ) => {
-      console.log(action.payload);
       state.refreshToken = action.payload.refreshToken;
     },
   },

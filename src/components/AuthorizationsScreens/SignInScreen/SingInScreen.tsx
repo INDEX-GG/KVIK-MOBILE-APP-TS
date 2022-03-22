@@ -2,19 +2,18 @@ import React, { useMemo, useState } from 'react';
 import SignInScreenView from './SignInScreenView';
 import { SubmitHandler, useForm, FieldValues } from 'react-hook-form';
 import { useSecret } from '../../../hooks/useSecret';
-import { useAppDispatch } from '../../../hooks/useAppDispatch';
-import { getTypeResponse } from '../../../services/services';
 import { stringOnlyNum } from '../../../constants/regExp';
-import { FetchType } from '../../../types/fetchTypes';
 import {
   fetchUserSignIn,
   ISignInReq,
 } from '../../../store/reducers/userSlice/asyncAction';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { tokenSlice } from '../../../store/reducers/tokenSlice/tokenSlice';
 
 const SingInScreen = () => {
-  const dispatch = useAppDispatch();
   const { encryptObj } = useSecret();
   const { control, handleSubmit, watch, setError } = useForm();
+  const dispatch = useAppDispatch();
 
   const [viewPassword, setViewPassword] = useState<boolean>(true);
 
@@ -29,14 +28,20 @@ const SingInScreen = () => {
     const { phone, password } = data;
     if (phone && password) {
       const secretData = encryptObj(data);
-      const response = await dispatch(fetchUserSignIn(secretData));
-      const type = getTypeResponse(response.type) as FetchType;
-      if (type === 'rejected') {
-        setError('password', {
-          type: 'string',
-          message: 'Некорректные данные',
-        });
-      }
+      dispatch(fetchUserSignIn(secretData)).then((loginData) => {
+        const response = loginData.payload as unknown as
+          | 'user login'
+          | 'Ошибка api mobile/checkUser';
+        if (response === 'user login') {
+          dispatch(tokenSlice.actions.updateUser());
+        }
+        if (response === 'Ошибка api mobile/checkUser') {
+          setError('password', {
+            type: 'string',
+            message: 'Некорректные данные',
+          });
+        }
+      });
     }
   };
 
