@@ -2,13 +2,12 @@ import React, { FC } from 'react';
 import { View, Modal } from 'react-native';
 import { useLoadingAppStyles } from './style';
 import LogoKvik from '../../../assets/LogoKVIK.svg';
+import { useUserStore } from '../../../hooks/useReducerHook/useUserStore';
 
-interface LoadingAppProps {
-  isLoading: boolean;
-}
-
-const LoadingApp: FC<LoadingAppProps> = ({ isLoading }) => {
+const LoadingApp: FC = () => {
   const styles = useLoadingAppStyles();
+
+  const { isLoading } = useUserStore();
 
   return (
     <Modal visible={isLoading} animationType="fade">
@@ -21,4 +20,4 @@ const LoadingApp: FC<LoadingAppProps> = ({ isLoading }) => {
   );
 };
 
-export default LoadingApp;
+export default React.memo(LoadingApp);

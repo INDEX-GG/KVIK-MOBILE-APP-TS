@@ -21,4 +21,4 @@ const SocialIcon = () => {
   );
 };
 
-export default SocialIcon;
+export default React.memo(SocialIcon);

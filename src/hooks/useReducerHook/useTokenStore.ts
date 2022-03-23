@@ -30,7 +30,6 @@ export const useTokenStore = () => {
     }
   }, [authToken]);
 
-  // dispatch(userSlice.actions.loadingSuccess());
   // Keychain.resetGenericPassword();
 
   useEffect(() => {
