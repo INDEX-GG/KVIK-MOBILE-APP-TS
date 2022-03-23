@@ -2,7 +2,6 @@ import { IUserModel } from '../../../models/IUserModel';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   fetchUserLogin,
-  fetchUserSignIn,
   ILoginRespSuccess,
 } from './asyncAction';
 

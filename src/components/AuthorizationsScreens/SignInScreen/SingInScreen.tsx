@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import SignInScreenView from './SignInScreenView';
 import { SubmitHandler, useForm, FieldValues } from 'react-hook-form';
 import { useSecret } from '../../../hooks/useSecret';
@@ -9,8 +9,12 @@ import {
 } from '../../../store/reducers/userSlice/asyncAction';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { tokenSlice } from '../../../store/reducers/tokenSlice/tokenSlice';
+import { useUserStore } from '../../../hooks/useReducerHook/useUserStore';
+import { useRouter } from '../../../hooks/useRouter';
 
 const SingInScreen = () => {
+  const { userInfo } = useUserStore();
+  const { pushBack } = useRouter();
   const { encryptObj } = useSecret();
   const { control, handleSubmit, watch, setError } = useForm();
   const dispatch = useAppDispatch();
@@ -22,6 +26,12 @@ const SingInScreen = () => {
     () => !!(currentFormData.phone?.length && currentFormData.password?.length),
     [currentFormData]
   );
+
+  useEffect(() => {
+    if (userInfo?.name) {
+      pushBack();
+    }
+  }, [userInfo]);
 
   const onSubmit: SubmitHandler<ISignInReq | FieldValues> = async (data) => {
     data.phone = `+${stringOnlyNum(data.phone)}`;

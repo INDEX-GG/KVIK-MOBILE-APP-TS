@@ -1,5 +1,3 @@
-import { string } from 'react-native-redash';
-
 export const PhoneMask = (value: string) => {
   let inputOnlyNumber = value.replace(/\D/g, '');
 
@@ -44,12 +42,22 @@ export function ToRusDate(date: string) {
   return adDate.toLocaleString('ru', options as {});
 }
 
-export const stringSlice = (string: string, maxLength: number) => {
-  const isMax = string.length > maxLength;
+export function ToRusAccountDate(date: string) {
+  const adDate = new Date(date),
+    options = {
+      month: 'numeric',
+      day: 'numeric',
+      year: 'numeric',
+    };
+  return adDate.toLocaleString('ru', options as {});
+}
+
+export const stringSlice = (str: string, maxLength: number) => {
+  const isMax = str.length > maxLength;
   if (isMax) {
-    return `${string.slice(0, maxLength - 3).trim()}...`;
+    return `${str.slice(0, maxLength - 3).trim()}...`;
   }
-  return string;
+  return str;
 };
 
 export function ToRubles(num: string) {
@@ -72,4 +80,43 @@ export const parsePhotos = (photos: string | null) => {
 export const getTypeResponse = (type: string) => {
   const stringArr = type.split('/');
   return stringArr[stringArr.length - 1];
+};
+
+export const stringToColor = (str: string) => {
+  let hash = 0;
+  let color = '#';
+  let i;
+  let value;
+  let strLength;
+  if (!str) {
+    return color + '00A0AB';
+  }
+  strLength = str.length;
+  for (i = 0; i < strLength; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  for (i = 0; i < 3; i++) {
+    value = (hash >> (i * 8)) & 0xff;
+    color += ('00' + value.toString(12)).substr(-2);
+  }
+  return color;
+};
+
+export const wordAutoEnding = (
+  word: string,
+  number: number,
+  declination: string[],
+  breakpoints: number[],
+  onlyWord?: boolean
+) => {
+  const requiredIndexBreakPoints = breakpoints.findIndex(
+    (bp, i, a) => number >= bp && number < (a[i + 1] || a[i])
+  );
+  const returnValue = onlyWord ? word : number + ' ' + word;
+
+  if (requiredIndexBreakPoints === -1) {
+    return returnValue + declination[declination.length - 1];
+  }
+
+  return returnValue + declination[requiredIndexBreakPoints];
 };
