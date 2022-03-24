@@ -1,14 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
-import SaveScrollContainer from '../../UI/SaveScrollContainer';
 import ProfileTabs from './ProfileTabs/ProfileTabs';
 import ProfileUser from './ProfileUser/ProfileUser';
 import { useUserStore } from '../../hooks/useReducerHook/useUserStore';
+import ScreenScroll from '../AnyScreen/ScreenScroll';
 
 const ProfileScreen = () => {
   const { userInfo } = useUserStore();
   return userInfo ? (
-    <SaveScrollContainer lightColor="#f4f4f4" paddingDisabled={true}>
+    <ScreenScroll>
       <ProfileUser
         name={userInfo.name}
         photo={userInfo.userPhoto}
@@ -18,7 +17,7 @@ const ProfileScreen = () => {
         createdAt={userInfo.createdAt}
       />
       <ProfileTabs />
-    </SaveScrollContainer>
+    </ScreenScroll>
   ) : null;
 };
 

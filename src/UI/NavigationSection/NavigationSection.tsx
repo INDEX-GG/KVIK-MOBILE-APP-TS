@@ -1,20 +1,26 @@
 import React, { FC } from 'react';
 import PressableElement from '../PressableElement';
 import { NavigationSectionStyles } from './style';
-import RobotoText from '../RobotoText';
+import RobotoText, { RobotWeightTypes } from '../RobotoText';
 import { useRouter } from '../../hooks/useRouter';
-import { ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 interface NavigationSectionProps {
   title: string;
   pushName: string;
   customContainer?: ViewStyle;
+  customText?: TextStyle;
+  onCustomPress?: () => void;
+  textWeight?: RobotWeightTypes;
 }
 
 const NavigationSection: FC<NavigationSectionProps> = ({
   title,
   pushName,
   customContainer = {},
+  customText = {},
+  onCustomPress,
+  textWeight = 'm',
 }) => {
   const styles = NavigationSectionStyles();
   const { pushTo } = useRouter();
@@ -23,9 +29,12 @@ const NavigationSection: FC<NavigationSectionProps> = ({
     <PressableElement
       style={[styles.container, customContainer as {}]}
       activeStyles={styles.activeContainer}
-      onPress={pushTo(pushName)}
+      onPress={onCustomPress ? onCustomPress : pushTo(pushName)}
     >
-      <RobotoText weight="m" style={styles.title}>
+      <RobotoText
+        weight={textWeight}
+        style={{ ...styles.title, ...customText }}
+      >
         {title}
       </RobotoText>
     </PressableElement>

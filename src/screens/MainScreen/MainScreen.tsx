@@ -17,7 +17,6 @@ import { useCurrentTheme } from '../../hooks/useTheme';
 import { MainScreenStyle } from './styles';
 import HeaderProfile from '../../components/AnyScreen/CustomHeaders/HeaderProfile/HeaderProfile';
 import HeaderTab from '../../UI/HeaderTab/HeaderTab';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface ButtonsNavigation {
   name: string;

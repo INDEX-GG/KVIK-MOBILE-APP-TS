@@ -26,6 +26,11 @@ export const userSlice = createSlice({
     loadingSuccess(state) {
       state.isLoading = false;
     },
+    userLogout(state) {
+      state.isAuth = false;
+      state.userId = null;
+      state.userInfo = null;
+    },
   },
   extraReducers: {
     [fetchUserLogin.fulfilled.type]: (
