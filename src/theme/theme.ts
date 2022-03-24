@@ -17,6 +17,9 @@ export const lightTheme = {
   colorHeaderTitle: {
     color: '#2C2C2C',
   },
+  screenBackground: {
+    backgroundColor: '#f4f4f4',
+  },
   colorScreen: {
     backgroundColor: '#FFFFFF',
   },
@@ -88,6 +91,9 @@ export const darkTheme = {
   },
   colorHeaderTitle: {
     color: '#FFFFFF',
+  },
+  screenBackground: {
+    backgroundColor: '#151515',
   },
   colorScreen: {
     backgroundColor: '#151515',

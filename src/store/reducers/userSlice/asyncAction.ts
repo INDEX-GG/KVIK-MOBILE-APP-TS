@@ -27,31 +27,6 @@ export interface ILoginRespSuccess {
   userId: number;
 }
 
-// export const fetchUserSignIn = async (data: ISignInReq) => {
-//   try {
-//     const response = await kvikAxios
-//       .post<ISignInRespSuccess>('mobile/checkUser', data)
-//       .then((userData) => {
-//         const { data: loginData } = userData;
-//         if (loginData.idUser && loginData.jwt_refresh) {
-//           Keychain.setGenericPassword(
-//             `${loginData.idUser}`,
-//             loginData.jwt_refresh
-//           ).then(() => {
-//             useAppDispatch()(tokenSlice.actions.updateUser());
-//             // useAppDispatch()(userSlice.actions.loadingUpdate());
-//           });
-//           return 'user login';
-//         }
-//         return 'Ошибка api mobile/checkUser';
-//       });
-//     return response;
-//   } catch (e) {
-//     console.log(e);
-//     return 'Ошибка api mobile/checkUser';
-//   }
-// };
-
 export const fetchUserSignIn = createAsyncThunk(
   'user/login',
   async (data: ISignInReq, thunkAPI) => {

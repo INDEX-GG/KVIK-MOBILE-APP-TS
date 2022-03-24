@@ -32,7 +32,7 @@ const RatingUI: FC<IRatingUIProps> = (props) => {
         {...props}
         starContainerStyle={styles.stars}
         selectedColor="#FFF6A5"
-        defaultRating={defaultRating ? defaultRating : 4}
+        defaultRating={defaultRating ? defaultRating : 0}
         showRating={false}
         count={5}
       />

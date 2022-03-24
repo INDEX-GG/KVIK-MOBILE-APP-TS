@@ -27,7 +27,7 @@ const AvatarUI: FC<IAvatarUIProps> = (props) => {
   }, [title]);
 
   const avatarImage = useMemo(() => {
-    return userPhoto ? { uri: `${IMAGE_SERVER}/${userPhoto}` } : {};
+    return userPhoto ? { uri: `${IMAGE_SERVER}/${userPhoto}` } : '';
   }, [userPhoto]);
 
   console.log(avatarImage);
@@ -36,7 +36,7 @@ const AvatarUI: FC<IAvatarUIProps> = (props) => {
     <Avatar
       size={80}
       {...props}
-      source={avatarImage}
+      source={avatarImage as {}}
       title={avatarTitle}
       containerStyle={containerStyle}
       rounded

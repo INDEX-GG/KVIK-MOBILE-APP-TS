@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import NavigationSection from '../../../UI/NavigationSection/NavigationSection';
 import ProfileTabEmail from './ProfileTabEmail/ProfileTabEmail';
 import ProfileTabSocial from './ProfileTabSocial/ProfileTabSocial';
+import { View } from 'react-native';
+import ProfileTabLogout from './ProfileTabLogout/ProfileTabLogout';
 
 const ProfileTabs = () => {
-
   return (
     <View>
       <NavigationSection
@@ -38,10 +38,7 @@ const ProfileTabs = () => {
         title={'Удалить аккаунт'}
         pushName={'ClearSearchResultScreen'}
       />
-      <NavigationSection
-        title={'ВЫЙТИ'}
-        pushName={'ClearSearchResultScreen'}
-      />
+      <ProfileTabLogout />
     </View>
   );
 };

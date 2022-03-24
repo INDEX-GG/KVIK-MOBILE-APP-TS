@@ -1,6 +1,12 @@
 import React, { FC } from 'react';
 import { Text, TextProps } from 'react-native-elements';
 
+export type RobotWeightTypes = 'b' | 'm' | 'r';
+
+interface IRobotTextProps {
+  weight: RobotWeightTypes;
+}
+
 const generateFontFamily = (weight: 'b' | 'm' | 'r') => {
   switch (weight) {
     case 'b':
@@ -14,7 +20,7 @@ const generateFontFamily = (weight: 'b' | 'm' | 'r') => {
   }
 };
 
-const RobotoText: FC<TextProps & { weight: 'b' | 'm' | 'r' }> = (props) => {
+const RobotoText: FC<TextProps & IRobotTextProps> = (props) => {
   const { children, weight, style } = props;
   const textStyle = style as {};
   const fontFamily = `Roboto-${generateFontFamily(weight)}`;
