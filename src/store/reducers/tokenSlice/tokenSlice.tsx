@@ -32,6 +32,12 @@ export const tokenSlice = createSlice({
     updateUser(state) {
       state.updateUser = true;
     },
+    tokenResetData(state) {
+      state.updateUser = false;
+      state.userId = 0;
+      state.authToken = '';
+      state.refreshToken = '';
+    },
   },
   extraReducers: {
     [fetchRefreshToken.fulfilled.type]: (

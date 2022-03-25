@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IAdCardModel } from '../../../models/IAdCardModel';
-import { kvikAxios } from '../../../axios/customAxios';
+import { kvikAxios } from '../../../http/customAxios';
 
 export const fetchHomeAd = createAsyncThunk(
   'homeAds/data',

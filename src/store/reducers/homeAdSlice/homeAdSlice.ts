@@ -5,7 +5,7 @@ import { IAdCardModel } from '../../../models/IAdCardModel';
 
 const initialState: IHomeAds = {
   page: 1,
-  page_limit: 100,
+  page_limit: 24,
   sort: 'default',
   user_id: 0,
   region_excludes: '',

@@ -31,7 +31,37 @@ export const PhoneMask = (value: string) => {
   return inputOnlyNumber;
 };
 
-export function ToRusDate(date: string) {
+// Если функция будет расширяться, то перенести в отдельный файл
+export const dynamicPhotosArr = (
+  photos: string[] | undefined,
+  id: number,
+  size: 'n' | 'm' | 's' | 'x' = 'n',
+  maxLengthArray: 'none' | number = 'none',
+  server: 1 = 1,
+  path: 'po' | 'av' = 'po'
+) => {
+  try {
+    if (Array.isArray(photos)) {
+      if (photos.length > 1) {
+        const newPhotos = photos.map((photo, index) => {
+          if (typeof maxLengthArray === 'number') {
+            if (index + 1 > maxLengthArray) {
+              return '';
+            }
+          }
+          return `/${server}/${path}/${id}/${size}/${photo}`;
+        });
+        return newPhotos.filter((photo) => photo);
+      }
+      return [`/${server}/${path}/${id}/${size}/${photos[0]}`];
+    }
+    return [];
+  } catch (e) {
+    return [];
+  }
+};
+
+export const ToRusDate = (date: string) => {
   const adDate = new Date(date),
     options = {
       month: 'long',
@@ -40,9 +70,9 @@ export function ToRusDate(date: string) {
       minute: 'numeric',
     };
   return adDate.toLocaleString('ru', options as {});
-}
+};
 
-export function ToRusAccountDate(date: string) {
+export const ToRusAccountDate = (date: string) => {
   const adDate = new Date(date),
     options = {
       month: 'numeric',
@@ -50,7 +80,7 @@ export function ToRusAccountDate(date: string) {
       year: 'numeric',
     };
   return adDate.toLocaleString('ru', options as {});
-}
+};
 
 export const stringSlice = (str: string, maxLength: number) => {
   const isMax = str.length > maxLength;
@@ -60,7 +90,7 @@ export const stringSlice = (str: string, maxLength: number) => {
   return str;
 };
 
-export function ToRubles(num: string) {
+export const ToRubles = (num: string) => {
   const number = +num;
   return number.toLocaleString('ru-RU', {
     style: 'currency',
@@ -68,7 +98,7 @@ export function ToRubles(num: string) {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
-}
+};
 
 export const parsePhotos = (photos: string | null) => {
   if (typeof photos === 'string') {
