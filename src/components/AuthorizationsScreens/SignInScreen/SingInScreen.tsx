@@ -16,7 +16,9 @@ const SingInScreen = () => {
   const { userInfo } = useUserStore();
   const { pushBack } = useRouter();
   const { encryptObj } = useSecret();
-  const { control, handleSubmit, watch, setError } = useForm();
+  const { control, handleSubmit, watch, setError, reset } = useForm<
+    ISignInReq | FieldValues
+  >();
   const dispatch = useAppDispatch();
 
   const [viewPassword, setViewPassword] = useState<boolean>(true);
@@ -30,6 +32,10 @@ const SingInScreen = () => {
   useEffect(() => {
     if (userInfo?.name) {
       pushBack();
+      reset({
+        phone: '',
+        password: '',
+      });
     }
   }, [userInfo]);
 

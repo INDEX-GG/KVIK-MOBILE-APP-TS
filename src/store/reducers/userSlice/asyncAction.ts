@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IUserModel } from '../../../models/IUserModel';
-import { kvikAxios } from '../../../axios/customAxios';
+import { kvikAxios } from '../../../http/customAxios';
 import Keychain from 'react-native-keychain';
 
 export interface ISignInReq {

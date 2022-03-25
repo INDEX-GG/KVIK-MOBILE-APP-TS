@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { IAdCardModel } from '../../../models/IAdCardModel';
 import { useCardAdItemStyles } from './style';
-import RobotoText from '../../../UI/RobotoText';
-import {
-  ToRusDate,
-  stringSlice,
-  ToRubles,
-  // parsePhotos,
-} from '../../../services/services';
 import { useRouter } from '../../../hooks/useRouter';
-// import CustomSlider from '../CustomSlider/CustomSlider';
+import CardAdAddress from './CardAdAddress/CardAdAddress';
+import CardAdDate from './CardAdDate/CardAdDate';
+import CardAdPrice from './CardAdPrice/CardAdPrice';
+import CardAdTitle from './CardAdTitle/CardAdTitle';
+import CardAdPhoto from './CardAdPhoto/CardAdPhoto';
+import CustomSlider from '../CustomSwiper/CustomSwiper';
+import { parsePhotos } from '../../../services/services';
+// import CustomSwiper from '../CustomSwiper/CustomSwiper';
 
 interface CardAdItemProps {
   adItem: IAdCardModel;
@@ -21,25 +21,15 @@ const CardAdItem: FC<CardAdItemProps> = ({ adItem }) => {
   const { pushTo } = useRouter();
 
   return (
-    <TouchableOpacity style={styles.item} onPress={pushTo('Product')}>
-      <View style={styles.img}>
-        {/*<CustomSlider photos={parsePhotos(adItem.photo)} />*/}
-      </View>
+    <View style={styles.item}>
+      <CardAdPhoto photos={adItem.post_photo_v2} adId={adItem.id} />
       <View style={styles.text}>
-        <RobotoText weight="b" style={styles.price}>
-          {ToRubles(adItem.price)}
-        </RobotoText>
-        <RobotoText weight="r" style={styles.title}>
-          {stringSlice(adItem.title, 26)}
-        </RobotoText>
-        <RobotoText weight="m" style={styles.addressAndPrice}>
-          {stringSlice(adItem.address, 32)}
-        </RobotoText>
-        <RobotoText weight="b" style={styles.addressAndPrice}>
-          {ToRusDate(adItem.created_at)}
-        </RobotoText>
+        <CardAdPrice price={adItem.price} />
+        <CardAdTitle title={adItem.title} />
+        <CardAdAddress address={adItem.address} />
+        <CardAdDate date={adItem.created_at} />
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

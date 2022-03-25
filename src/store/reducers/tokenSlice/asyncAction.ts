@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { kvikAxios } from '../../../axios/customAxios';
+import { kvikAxios } from '../../../http/customAxios';
 
 export interface IRefreshToken {
   authToken: string;

@@ -11,6 +11,7 @@ export interface IAdCardModel {
   old_price: string | null;
   phone: string | null;
   photo: string | null;
+  post_photo_v2: string[];
   price: string;
   rating: number;
   reviewed: number;

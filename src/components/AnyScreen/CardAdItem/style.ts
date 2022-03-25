@@ -1,10 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { useCurrentTheme } from '../../../hooks/useTheme';
-import { useAdaptiveFont } from '../../../hooks/useAdaptiveFont';
 
 const CardAdItemStyles = () => {
   const { theme, isDark } = useCurrentTheme();
-  const fontSize = useAdaptiveFont();
 
   return StyleSheet.create({
     item: {
@@ -31,26 +29,6 @@ const CardAdItemStyles = () => {
     },
     text: {
       padding: 4,
-    },
-    price: {
-      color: theme.color2c2c2cToFff.color,
-      fontSize: fontSize.Msm,
-      fontWeight: 'bold',
-      lineHeight: 21,
-      marginBottom: 4,
-    },
-    title: {
-      color: theme.color2c2c2cToFff.color,
-      fontSize: fontSize.sm,
-      fontWeight: 'normal',
-      lineHeight: 14,
-      marginBottom: 4,
-    },
-    addressAndPrice: {
-      color: theme.colorBottomTabIcon.color,
-      fontSize: fontSize.t,
-      fontWeight: 'normal',
-      lineHeight: 12,
     },
   });
 };

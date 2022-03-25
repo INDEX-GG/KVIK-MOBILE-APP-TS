@@ -3,12 +3,14 @@ import NavigationSection from '../../../../UI/NavigationSection/NavigationSectio
 import { useAppDispatch } from '../../../../hooks/useAppDispatch';
 import { userSlice } from '../../../../store/reducers/userSlice/userSlice';
 import * as Keychain from 'react-native-keychain';
+import { tokenSlice } from '../../../../store/reducers/tokenSlice/tokenSlice';
 
 const ProfileTabLogout = () => {
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {
     Keychain.resetGenericPassword().then(() => {
+      dispatch(tokenSlice.actions.tokenResetData());
       dispatch(userSlice.actions.userLogout());
     });
   };
