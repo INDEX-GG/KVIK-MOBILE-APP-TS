@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import RobotoText from '../../../../UI/RobotoText';
-import { stringSlice } from '../../../../services/services';
 import { useCardAdAddressStyles } from './style';
+import { useSize } from '../../../../hooks/useSize';
 
 interface ICardAdAddressProps {
   address: string;
@@ -9,10 +9,11 @@ interface ICardAdAddressProps {
 
 const CardAdAddress: FC<ICardAdAddressProps> = ({ address }) => {
   const styles = useCardAdAddressStyles();
+  const { wordSlice } = useSize();
 
   return (
     <RobotoText weight="m" style={styles.address}>
-      {stringSlice(address, 32)}
+      {wordSlice(address, 48)}
     </RobotoText>
   );
 };

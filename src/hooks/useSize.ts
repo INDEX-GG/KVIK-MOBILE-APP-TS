@@ -8,12 +8,24 @@ export const useSize = () => {
   const heightTab = 56;
   const height100vh = height - (heightHeader + heightTab);
 
+  const wordSlice = (str: string, itemWidthPercent: number) => {
+    const itemOnePecent = width / 100;
+    const itemPixelInPercent =
+      Math.floor(itemOnePecent * itemWidthPercent) - 38;
+    const itemMaxWord = Math.floor(itemPixelInPercent / 4) - 9;
+    if (str.length > itemMaxWord) {
+      return `${str.slice(0, itemMaxWord)}...`;
+    }
+    return str;
+  };
+
   return {
-    heightHeader,
+    isTablet,
     heightTab,
+    wordSlice,
+    heightHeader,
     deviceWidth: width,
     deviceHeight: height,
-    height100vh: height100vh,
-    isTablet,
+    height100vh,
   };
 };
