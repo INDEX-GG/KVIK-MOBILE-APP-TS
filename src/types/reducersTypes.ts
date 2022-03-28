@@ -1,5 +1,4 @@
 import { IUserModel } from '../models/IUserModel';
-import { UserInfoType } from '../store/reducers/userInfoReducer';
 import { IAdCardModel } from '../models/IAdCardModel';
 
 export interface UserInfo {
@@ -7,11 +6,6 @@ export interface UserInfo {
   isAuth?: boolean;
   isLoading?: boolean;
   userInfo?: IUserModel | null;
-}
-
-export interface UserModelAction {
-  type: UserInfoType;
-  payload?: UserInfo;
 }
 
 export interface IHomeAds {

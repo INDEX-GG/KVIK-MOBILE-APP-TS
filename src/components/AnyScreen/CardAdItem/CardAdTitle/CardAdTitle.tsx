@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { useCardAdTitleStyles } from './style';
-import { stringSlice } from '../../../../services/services';
 import RobotoText from '../../../../UI/RobotoText';
+// import { useSize } from '../../../../hooks/useSize';
+import { stringSlice } from '../../../../services/services';
 
 interface ICardAdTitleProps {
   title: string;
@@ -9,9 +10,10 @@ interface ICardAdTitleProps {
 
 const CardAdTitle: FC<ICardAdTitleProps> = ({ title }) => {
   const styles = useCardAdTitleStyles();
+  // const { wordSlice } = useSize();
 
   return (
-    <RobotoText weight="r" style={styles.title}>
+    <RobotoText weight="b" style={styles.title}>
       {stringSlice(title, 26)}
     </RobotoText>
   );

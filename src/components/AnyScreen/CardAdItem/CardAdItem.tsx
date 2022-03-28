@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, Pressable } from 'react-native';
 import { IAdCardModel } from '../../../models/IAdCardModel';
 import { useCardAdItemStyles } from './style';
 import { useRouter } from '../../../hooks/useRouter';
@@ -8,9 +8,7 @@ import CardAdDate from './CardAdDate/CardAdDate';
 import CardAdPrice from './CardAdPrice/CardAdPrice';
 import CardAdTitle from './CardAdTitle/CardAdTitle';
 import CardAdPhoto from './CardAdPhoto/CardAdPhoto';
-import CustomSlider from '../CustomSwiper/CustomSwiper';
-import { parsePhotos } from '../../../services/services';
-// import CustomSwiper from '../CustomSwiper/CustomSwiper';
+import CardAdLike from './CardAdLike/CardAdLike';
 
 interface CardAdItemProps {
   adItem: IAdCardModel;
@@ -20,15 +18,24 @@ const CardAdItem: FC<CardAdItemProps> = ({ adItem }) => {
   const styles = useCardAdItemStyles();
   const { pushTo } = useRouter();
 
+  const handlePressAd = () => {
+    pushTo('LocationSearch')();
+  };
+
   return (
     <View style={styles.item}>
-      <CardAdPhoto photos={adItem.post_photo_v2} adId={adItem.id} />
-      <View style={styles.text}>
+      <CardAdLike />
+      <CardAdPhoto
+        photos={adItem.post_photo_v2}
+        adId={adItem.id}
+        onPress={handlePressAd}
+      />
+      <Pressable style={styles.text} onPress={handlePressAd}>
         <CardAdPrice price={adItem.price} />
         <CardAdTitle title={adItem.title} />
         <CardAdAddress address={adItem.address} />
         <CardAdDate date={adItem.created_at} />
-      </View>
+      </Pressable>
     </View>
   );
 };

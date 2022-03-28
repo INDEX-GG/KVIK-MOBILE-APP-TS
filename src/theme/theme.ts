@@ -69,7 +69,6 @@ export const lightTheme = {
     paddingLeft: 8,
     paddingHorizontal: 0,
     fonSize: 14,
-    borderBottomWidth: 0,
   },
 };
 

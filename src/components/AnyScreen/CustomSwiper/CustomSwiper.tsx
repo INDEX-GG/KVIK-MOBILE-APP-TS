@@ -4,12 +4,21 @@ import Swiper from 'react-native-swiper';
 import SliderSlide from './SwiperSlide/SwiperSlide';
 import { useDevice } from '../../../hooks/useDevice';
 import { useCustomSwiperStyles } from './style';
+import { Pressable } from 'react-native';
 
 interface ICustomSwiperProps {
   photos: string[];
+  remainingPhotosCount: number;
+  visibleLastSlide: boolean;
+  onPressSlide?: () => void;
 }
 
-const CustomSwiper: FC<ICustomSwiperProps> = ({ photos }) => {
+const CustomSwiper: FC<ICustomSwiperProps> = ({
+  photos,
+  remainingPhotosCount,
+  visibleLastSlide,
+  onPressSlide,
+}) => {
   const styles = useCustomSwiperStyles();
   const isPhotos = useMemo(() => photos?.length, [photos]);
 
@@ -29,8 +38,16 @@ const CustomSwiper: FC<ICustomSwiperProps> = ({ photos }) => {
         paginationStyle={styles.pagination}
       >
         {isPhotos
-          ? photos.map((photo) => (
-              <SliderSlide key={uniqueKeyMap(photo)} photo={photo} />
+          ? photos.map((photo, index) => (
+              <Pressable key={uniqueKeyMap(photo)} onPress={onPressSlide}>
+                <SliderSlide
+                  photo={photo}
+                  slideIndex={index}
+                  lastSlideIndex={photos.length}
+                  remainingPhotosCount={remainingPhotosCount}
+                  visibleLastSlide={visibleLastSlide}
+                />
+              </Pressable>
             ))
           : null}
       </Swiper>

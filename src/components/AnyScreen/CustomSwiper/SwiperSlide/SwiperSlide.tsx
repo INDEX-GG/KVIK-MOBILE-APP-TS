@@ -1,16 +1,32 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { useSwiperSlideStyles } from './style';
 import { IMAGE_SERVER } from '../../../../constants/constants';
 import FastImage from 'react-native-fast-image';
 import { View } from 'react-native';
-import RobotoText from '../../../../UI/RobotoText';
+import SwiperLastSlide from '../SwiperLastSlide/SwiperLastSlide';
 
 interface ISliderSlide {
   photo: string;
+  slideIndex: number;
+  lastSlideIndex: number;
+  remainingPhotosCount: number;
+  visibleLastSlide: boolean;
 }
 
-const SwiperSlide: FC<ISliderSlide> = ({ photo }) => {
+const SwiperSlide: FC<ISliderSlide> = ({
+  photo,
+  slideIndex,
+  lastSlideIndex,
+  remainingPhotosCount,
+  visibleLastSlide,
+}) => {
   const styles = useSwiperSlideStyles();
+  const isLastSlide = useMemo(() => {
+    if (!visibleLastSlide) {
+      return false;
+    }
+    return slideIndex === lastSlideIndex - 1 && remainingPhotosCount;
+  }, [slideIndex, lastSlideIndex]);
 
   return (
     <View style={styles.container}>
@@ -22,7 +38,9 @@ const SwiperSlide: FC<ISliderSlide> = ({ photo }) => {
         }}
         resizeMode={FastImage.resizeMode.cover}
       />
-      <View style={styles.lastSlide} />
+      {isLastSlide ? (
+        <SwiperLastSlide remainingPhotosCount={remainingPhotosCount} />
+      ) : null}
     </View>
   );
 };

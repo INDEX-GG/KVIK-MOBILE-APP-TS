@@ -5,6 +5,10 @@ const CardAdPhotoStyles = () => {
     img: {
       width: '100%',
       height: 163,
+      borderRadius: 8,
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      overflow: 'hidden',
     },
   });
 };

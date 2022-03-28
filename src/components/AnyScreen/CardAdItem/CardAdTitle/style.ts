@@ -10,7 +10,7 @@ const CardAdTitleStyles = () => {
     title: {
       color: theme.color2c2c2cToFff.color,
       fontSize: fontSize.sm,
-      fontWeight: 'normal',
+      fontWeight: 'bold',
       lineHeight: 14,
       marginBottom: 4,
     },

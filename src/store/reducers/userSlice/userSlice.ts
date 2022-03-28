@@ -1,9 +1,6 @@
 import { IUserModel } from '../../../models/IUserModel';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {
-  fetchUserLogin,
-  ILoginRespSuccess,
-} from './asyncAction';
+import { fetchUserLogin, ILoginRespSuccess } from './asyncAction';
 
 interface IUserSlice {
   userId: number | null;

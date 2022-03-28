@@ -7,18 +7,32 @@ import CustomSwiper from '../../CustomSwiper/CustomSwiper';
 interface ICardAdPhotoProps {
   photos: string[];
   adId: number;
+  onPress: () => void;
 }
 
-const CardAdPhoto: FC<ICardAdPhotoProps> = ({ photos, adId }) => {
+const CardAdPhoto: FC<ICardAdPhotoProps> = ({ photos, adId, onPress }) => {
+  const styles = useCardAdPhotoStyles();
+
   const photosArr = useMemo(
     () => dynamicPhotosArr(photos, adId, 's', 5),
     [adId]
   );
-  const styles = useCardAdPhotoStyles();
+
+  const remainingPhotosCount = useMemo(() => {
+    if (Array.isArray(photos) && Array.isArray(photosArr)) {
+      return photos.length - photosArr.length;
+    }
+    return 0;
+  }, [photos, photosArr]);
 
   return (
     <View style={styles.img}>
-      <CustomSwiper photos={photosArr} />
+      <CustomSwiper
+        photos={photosArr}
+        remainingPhotosCount={remainingPhotosCount}
+        visibleLastSlide={true}
+        onPressSlide={onPress}
+      />
     </View>
   );
 };
