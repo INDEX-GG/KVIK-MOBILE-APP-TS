@@ -20,6 +20,7 @@ const ToggleList: FC<ToggleListProps> = ({
         data={listData}
         renderItem={({ item, index }) => (
           <ToggleListItem
+            key={item.id}
             item={item}
             onPress={onPress}
             styleArr={[

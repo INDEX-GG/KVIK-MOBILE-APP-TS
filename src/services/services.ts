@@ -150,3 +150,32 @@ export const wordAutoEnding = (
 
   return returnValue + declination[requiredIndexBreakPoints];
 };
+
+export const regionExcludesAds = (
+  adsLength: number,
+  regionIncludes: string,
+  regionExcludes: string,
+  limit: number,
+  page: number
+) => {
+  if (adsLength === limit) {
+    return {
+      regionIncludes: regionIncludes,
+      regionExcludes: regionExcludes,
+      page: page + 1,
+    };
+  }
+  if (adsLength < limit) {
+    const searchNameArray = regionIncludes.split('$');
+
+    const data = {
+      page: 1,
+      regionIncludes: searchNameArray
+        .splice(0, searchNameArray.length - 1)
+        .join('$'),
+      regionExcludes: regionIncludes,
+    };
+
+    return data;
+  }
+};
