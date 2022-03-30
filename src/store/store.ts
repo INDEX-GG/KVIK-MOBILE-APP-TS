@@ -1,5 +1,4 @@
 import { allReducers } from './allReducers';
-
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers(allReducers);
@@ -7,6 +6,8 @@ const rootReducer = combineReducers(allReducers);
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
+    devTools: true,
+    // enhancers: [devToolsEnhancer({ realtime: true })],
   });
 };
 

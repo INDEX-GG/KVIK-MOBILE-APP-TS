@@ -4,7 +4,7 @@ import { useSearchAdsList } from './useSearcAdsList';
 
 const SearchAdsList = () => {
   const { fetchMoreAds, cards } = useSearchAdsList();
-  return <CardsAdList onEndReached={fetchMoreAds} data={cards} />;
+  return <CardsAdList onEndReached={() => fetchMoreAds(false)} data={cards} />;
 };
 
 export default React.memo(SearchAdsList);

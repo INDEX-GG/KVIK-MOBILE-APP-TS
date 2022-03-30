@@ -35,7 +35,7 @@ const CardAdItem: FC<CardAdItemProps> = ({ adItem }) => {
         />
       ) : (
         <View>
-          <Text>23</Text>
+          <Text>Фото не найденно</Text>
         </View>
       )}
       <Pressable style={styles.text} onPress={handlePressAd}>
