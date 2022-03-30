@@ -16,6 +16,6 @@ export interface IHomeAds {
   region_excludes: string;
   region_includes: string;
   cards: IAdCardModel[];
-  isLoading: boolean;
+  isLoadingAds: boolean;
   error: string;
 }

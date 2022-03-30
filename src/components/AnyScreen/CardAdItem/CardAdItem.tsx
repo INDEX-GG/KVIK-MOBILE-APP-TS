@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { View, Pressable } from 'react-native';
+import React, { FC, useMemo } from 'react';
+import { View, Pressable, Text } from 'react-native';
 import { IAdCardModel } from '../../../models/IAdCardModel';
 import { useCardAdItemStyles } from './style';
 import { useRouter } from '../../../hooks/useRouter';
@@ -18,6 +18,8 @@ const CardAdItem: FC<CardAdItemProps> = ({ adItem }) => {
   const styles = useCardAdItemStyles();
   const { pushTo } = useRouter();
 
+  const isPhoto = useMemo(() => !!adItem?.post_photo_v2, [adItem]);
+
   const handlePressAd = () => {
     pushTo('LocationSearch')();
   };
@@ -25,11 +27,17 @@ const CardAdItem: FC<CardAdItemProps> = ({ adItem }) => {
   return (
     <View style={styles.item}>
       <CardAdLike />
-      <CardAdPhoto
-        photos={adItem.post_photo_v2}
-        adId={adItem.id}
-        onPress={handlePressAd}
-      />
+      {isPhoto ? (
+        <CardAdPhoto
+          photos={adItem.post_photo_v2}
+          adId={adItem.id}
+          onPress={handlePressAd}
+        />
+      ) : (
+        <View>
+          <Text>23</Text>
+        </View>
+      )}
       <Pressable style={styles.text} onPress={handlePressAd}>
         <CardAdPrice price={adItem.price} />
         <CardAdTitle title={adItem.title} />

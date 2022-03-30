@@ -30,8 +30,6 @@ const AvatarUI: FC<IAvatarUIProps> = (props) => {
     return userPhoto ? { uri: `${IMAGE_SERVER}/${userPhoto}` } : '';
   }, [userPhoto]);
 
-  console.log(avatarImage);
-
   return (
     <Avatar
       size={80}

@@ -24,6 +24,7 @@ const DropDown: FC<DropDownProps> = ({ children, open, setOpen, data }) => {
           data={data}
           renderItem={({ item }) => (
             <PressableElement
+              key={item.title}
               activeStyles={styles.itemActive}
               style={styles.item}
               onPress={setOpen({ open: false, ...item })}

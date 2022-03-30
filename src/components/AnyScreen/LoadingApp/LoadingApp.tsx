@@ -10,7 +10,7 @@ const LoadingApp: FC = () => {
   const { isLoading } = useUserStore();
 
   return (
-    <Modal visible={isLoading} animationType="fade">
+    <Modal visible={false} animationType="fade">
       <View style={styles.container}>
         <View style={styles.logo}>
           <LogoKvik style={styles.icon as {}} />

@@ -26,6 +26,7 @@ const CategorySwiperView: FC<CategorySwiperViewProps> = ({
         renderItem={({ item, index }) => {
           return (
             <CategorySwiperItem
+              key={item.title}
               item={item}
               index={index}
               dataLength={categoryData.length}
