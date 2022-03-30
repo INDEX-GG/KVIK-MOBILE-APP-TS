@@ -10,7 +10,7 @@ interface IChangeUser {
 }
 
 interface IFetchHomeAdFulfilled {
-  card: IAdCardModel[];
+  cards: IAdCardModel[];
   regionIncludes: string;
   regionExcludes: string;
   page: number;
@@ -56,7 +56,7 @@ export const homeAdSlice = createSlice({
       state.page = action.payload.page;
       state.region_includes = action.payload.regionIncludes;
       state.region_excludes = action.payload.regionExcludes;
-      state.cards = [...state.cards, ...action.payload.card];
+      state.cards = [...state.cards, ...action.payload.cards];
     },
     [fetchHomeAd.pending.type]: (state) => {
       state.isLoadingAds = true;

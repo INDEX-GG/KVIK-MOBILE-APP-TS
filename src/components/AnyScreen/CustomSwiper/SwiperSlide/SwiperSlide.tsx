@@ -4,6 +4,7 @@ import { IMAGE_SERVER } from '../../../../constants/constants';
 import FastImage from 'react-native-fast-image';
 import { View } from 'react-native';
 import SwiperLastSlide from '../SwiperLastSlide/SwiperLastSlide';
+import ImageUI from '../../../../UI/ImageUI/ImageUI';
 
 interface ISliderSlide {
   photo: string;
@@ -30,14 +31,7 @@ const SwiperSlide: FC<ISliderSlide> = ({
 
   return (
     <View style={styles.container}>
-      <FastImage
-        style={styles.image}
-        source={{
-          uri: IMAGE_SERVER + photo,
-          priority: FastImage.priority.normal,
-        }}
-        resizeMode={FastImage.resizeMode.cover}
-      />
+      <ImageUI photo={photo} />
       {isLastSlide ? (
         <SwiperLastSlide remainingPhotosCount={remainingPhotosCount} />
       ) : null}

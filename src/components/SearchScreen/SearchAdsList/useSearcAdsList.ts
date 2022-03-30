@@ -14,24 +14,27 @@ export const useSearchAdsList = () => {
     region_includes,
     sort,
     user_id,
+    isLoadingAds
   } = useAppSelector((state) => state.homeAdReducer);
   const dispatch = useAppDispatch();
   const { userId, userInfo, isLoading, isAuth } = useAppSelector(
     (state) => state.userReducer
   );
 
-  const fetchMoreAds = () => {
-    if (cards.length) {
-      dispatch(
-        fetchHomeAd({
-          page,
-          page_limit,
-          region_excludes,
-          region_includes,
-          sort,
-          user_id,
-        })
-      );
+  const fetchMoreAds = (loading: boolean = false) => {
+    if (cards.length || loading) {
+      if (!isLoadingAds) {
+        dispatch(
+          fetchHomeAd({
+            page,
+            page_limit,
+            region_excludes,
+            region_includes,
+            sort,
+            user_id,
+          })
+        );
+      }
     }
   };
 
@@ -62,10 +65,10 @@ export const useSearchAdsList = () => {
   );
 
   useEffect(() => {
-    if (page === 1 && region_includes && region_excludes.length) {
-      console.log(region_includes, region_excludes + '1');
+    if (region_includes && region_excludes && page === 1) {
+      fetchMoreAds(true);
     }
-  }, [region_includes, region_excludes, page]);
+  }, [region_excludes, region_includes]);
 
   useEffect(() => {
     // Загрузка
@@ -79,7 +82,6 @@ export const useSearchAdsList = () => {
         user_id: userId,
         searchName: userInfo.location.searchName,
       });
-      console.log(123);
       fetchStartAds({
         userId: response.payload.user_id,
         regionIncludes: response.payload.region_includes,

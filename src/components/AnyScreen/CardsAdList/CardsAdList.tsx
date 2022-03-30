@@ -5,6 +5,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import CardAdItem from '../CardAdItem/CardAdItem';
 import { useCardAdListStyles } from './style';
 import { IAdCardModel } from '../../../models/IAdCardModel';
+import LoaderSpinner from '../LoaderSpinner/LoaderSpinner';
 
 const CardsAdList: FC<Omit<FlatListProps<IAdCardModel>, 'renderItem'>> = (
   props
@@ -35,16 +36,18 @@ const CardsAdList: FC<Omit<FlatListProps<IAdCardModel>, 'renderItem'>> = (
   return (
     <FlatList
       ListHeaderComponent={SearchHeader}
-      windowSize={15}
-      initialNumToRender={40}
-      maxToRenderPerBatch={50}
-      updateCellsBatchingPeriod={50}
+      ListFooterComponent={LoaderSpinner}
+      windowSize={21}
+      initialNumToRender={10}
+      maxToRenderPerBatch={100}
+      updateCellsBatchingPeriod={40}
       numColumns={2}
       columnWrapperStyle={styles.wrapper}
       contentContainerStyle={styles.container}
+      removeClippedSubviews={true}
       keyExtractor={keyExtractor}
       getItemLayout={getItemLayout}
-      onEndReachedThreshold={0.5}
+      onEndReachedThreshold={5}
       {...props}
       renderItem={renderItem}
     />
