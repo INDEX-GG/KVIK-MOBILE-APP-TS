@@ -44,10 +44,11 @@ const CardsAdList: FC<Omit<FlatListProps<IAdCardModel>, 'renderItem'>> = (
       numColumns={2}
       columnWrapperStyle={styles.wrapper}
       contentContainerStyle={styles.container}
-      removeClippedSubviews={true}
+      ListHeaderComponentStyle={styles.headerComponentStyle}
       keyExtractor={keyExtractor}
       getItemLayout={getItemLayout}
       onEndReachedThreshold={5}
+      removeClippedSubviews={false}
       {...props}
       renderItem={renderItem}
     />

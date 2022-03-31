@@ -12,6 +12,7 @@ import KvikUseScreen from '../components/SettingsScreen/KvikuseScreen/KvikUseScr
 import OfferUseScreen from '../components/SettingsScreen/OfferUseScreen/OfferUseScreen';
 import SignInScreen from '../components/AuthorizationsScreens/SignInScreen/SingInScreen';
 import ProductScreen from '../screens/ProductScreen/ProductScreen';
+import PlaceOfferNewAd from '../components/PlaceOfferScreen/PlaceOfferNewAd/PlaceOfferNewAd';
 
 interface Screens {
   name: string;
@@ -24,6 +25,14 @@ export const allScreensApp: Screens[] = [
     name: 'Main',
     component: MainScreen,
     options: { title: '', headerShown: false },
+  },
+  {
+    name: 'PlaceOfferNewAd',
+    component: PlaceOfferNewAd,
+    options: {
+      title: 'Новое объявление',
+      header: () => <HeaderTab title={'Новое объявление'} />,
+    },
   },
   {
     name: 'Product',

@@ -4,8 +4,7 @@ import { useUserStore } from '../../hooks/useReducerHook/useUserStore';
 import ProfileScreen from '../../components/ProfileScreen/ProfileScreen';
 
 const AccountScreen = () => {
-  const { isAuth, userInfo } = useUserStore();
-  console.log(userInfo);
+  const { isAuth } = useUserStore();
   return isAuth ? <ProfileScreen /> : <AuthScreen />;
 };
 

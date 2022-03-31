@@ -163,6 +163,7 @@ export const regionExcludesAds = (
       regionIncludes: regionIncludes,
       regionExcludes: regionExcludes,
       page: page + 1,
+      isUpdateAds: false,
     };
   }
   if (adsLength < limit) {
@@ -174,6 +175,7 @@ export const regionExcludesAds = (
         .splice(0, searchNameArray.length - 1)
         .join('$'),
       regionExcludes: regionIncludes,
+      isUpdateAds: true,
     };
 
     return data;
