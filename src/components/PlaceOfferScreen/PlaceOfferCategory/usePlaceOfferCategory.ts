@@ -1,16 +1,41 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { kvikAxiosV2 } from '../../../http/customAxios';
 import {
   IPlaceOfferCategoryItem,
   IPlaceOfferCategoryModel,
 } from '../../../models/IPlaceOfferCategoryModel';
-import CardAdItem from '../../AnyScreen/CardAdItem/CardAdItem';
+import RealEstateIcon from '../../../assets/RealEstateIcon.svg';
+import AutoIcon from '../../../assets/AutoIcon.svg';
+import ConsumerElectronicIcon from '../../../assets/ConsumerElectronicsIcon.svg';
+import WorkIcon from '../../../assets/WorkIcon.svg';
+import BusinessIcon from '../../../assets/BusinessIcon.svg';
+import ForHomeIcon from '../../../assets/ForHomeIcon.svg';
+import AnimalIcon from '../../../assets/AnimalIcon.svg';
+import PersonalItemIcon from '../../../assets/PersonalItemIcon.svg';
+import ServicesIcon from '../../../assets/ServicesIcon.svg';
+import HobbyIcon from '../../../assets/HobbyIcon.svg';
 
 export const usePlaceOfferCategory = () => {
   const [category, setCategory] = useState<IPlaceOfferCategoryItem[]>();
 
   const keyExtractor = useCallback(
     (item, index) => `${item.alias}${item.name}${index}`,
+    []
+  );
+
+  const iconsCategory = useMemo(
+    () => [
+      RealEstateIcon,
+      AutoIcon,
+      ConsumerElectronicIcon,
+      ForHomeIcon,
+      WorkIcon,
+      AnimalIcon,
+      ServicesIcon,
+      PersonalItemIcon,
+      BusinessIcon,
+      HobbyIcon,
+    ],
     []
   );
 
@@ -35,6 +60,7 @@ export const usePlaceOfferCategory = () => {
 
   return {
     category,
+    iconsCategory,
     keyExtractor,
     getItemLayout,
   };

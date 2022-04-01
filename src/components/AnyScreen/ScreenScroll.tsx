@@ -1,22 +1,27 @@
 import React, { FC } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { useCurrentTheme } from '../../hooks/useTheme';
 
 interface IScreenScrollProps {
   children: React.ReactChild | React.ReactNode;
+  scroll?: boolean;
 }
 
-const ScreenScroll: FC<IScreenScrollProps> = ({ children }) => {
+const ScreenScroll: FC<IScreenScrollProps> = ({ scroll = true, children }) => {
   const { theme } = useCurrentTheme();
+  const Container = scroll ? ScrollView : View;
 
   return (
-    <ScrollView
-      style={{ backgroundColor: theme.screenBackground.backgroundColor }}
+    <Container
+      style={{
+        backgroundColor: theme.screenBackground.backgroundColor,
+        flex: 1,
+      }}
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}
     >
       {children}
-    </ScrollView>
+    </Container>
   );
 };
 

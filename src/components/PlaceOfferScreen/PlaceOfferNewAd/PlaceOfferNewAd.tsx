@@ -7,7 +7,7 @@ const PlaceOfferNewAd = () => {
   const methods = useForm();
 
   return (
-    <ScreenScroll>
+    <ScreenScroll scroll={false}>
       <FormProvider {...methods}>
         <PlaceOfferCategory />
       </FormProvider>

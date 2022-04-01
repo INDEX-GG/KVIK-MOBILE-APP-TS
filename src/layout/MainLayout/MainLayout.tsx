@@ -15,7 +15,7 @@ const MainLayout: FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaProvider>
-        <NavigationContainer>
+        <NavigationContainer independent>
           <Stack.Navigator>
             {allScreensApp.map((screen) => (
               <Stack.Screen

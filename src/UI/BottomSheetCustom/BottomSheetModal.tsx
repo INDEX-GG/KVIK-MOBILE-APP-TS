@@ -6,7 +6,6 @@ import { Modal, Pressable, View } from 'react-native';
 import { useBottomSheetCustomStyles } from './styles';
 
 const BottomSheetModal = () => {
-
   const styles = useBottomSheetCustomStyles();
 
   const { open } = useAppSelector((state) => state.bottomSheetReducer);
