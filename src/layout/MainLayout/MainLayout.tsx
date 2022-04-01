@@ -7,6 +7,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { allScreensApp } from '../../router/AllScreensApp';
 import BottomSheetModal from '../../UI/BottomSheetCustom/BottomSheetModal';
 import LoadingApp from '../../components/AnyScreen/LoadingApp/LoadingApp';
+import BottomSheetAuth from '../../UI/BottomSheetCustom/BottomSheetAuth/BottomSheetAuth';
 
 const MainLayout: FC = () => {
   const Stack = createNativeStackNavigator();
@@ -15,7 +16,7 @@ const MainLayout: FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaProvider>
-        <NavigationContainer>
+        <NavigationContainer independent>
           <Stack.Navigator>
             {allScreensApp.map((screen) => (
               <Stack.Screen
