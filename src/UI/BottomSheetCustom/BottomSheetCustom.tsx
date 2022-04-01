@@ -9,13 +9,13 @@ import {
 } from 'react-native-gesture-handler';
 import { useBottomSheetStore } from '../../hooks/useReducerHook/useBottomSheetStore';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import BottomSheetAuth from './BottomSheetAuth/BottomSheetAuth';
+import BottomSheetContent from './BottomSheetContent';
 
 const BottomSheetCustom = gestureHandlerRootHOC(() => {
   const styles = useBottomSheetCustomStyles();
-
-  const { open } = useAppSelector((state) => state.bottomSheetReducer);
-
+  const { open, height, componentName, componentData } = useAppSelector(
+    (state) => state.bottomSheetReducer
+  );
   const { handleCloseBottomSheet, bottomSheetPosition, AnimatedBottomSheet } =
     useBottomSheetStore();
 
@@ -24,7 +24,7 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
       setTimeout(() => AnimatedBottomSheet(0), 100);
     }
     if (!open) {
-      setTimeout(() => AnimatedBottomSheet(-240), 100);
+      setTimeout(() => AnimatedBottomSheet(-height - 10), 100);
     }
   }, [open]);
 
@@ -37,8 +37,8 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
   };
 
   const onEnded = (event: any) => {
-    if (event.nativeEvent.translationY > 230 / 3) {
-      AnimatedBottomSheet(-240, handleCloseBottomSheet);
+    if (event.nativeEvent.translationY > height / 3) {
+      AnimatedBottomSheet(-height - 10, handleCloseBottomSheet);
     } else {
       AnimatedBottomSheet(0);
     }
@@ -46,9 +46,14 @@ const BottomSheetCustom = gestureHandlerRootHOC(() => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent} onEnded={onEnded}>
-      <Animated.View style={[styles.root, { bottom: bottomSheetPosition }]}>
+      <Animated.View
+        style={[styles.root, { bottom: bottomSheetPosition, height: height }]}
+      >
         <View style={styles.line} />
-        <BottomSheetAuth />
+        <BottomSheetContent
+          componentName={componentName}
+          componentData={componentData}
+        />
       </Animated.View>
     </PanGestureHandler>
   );

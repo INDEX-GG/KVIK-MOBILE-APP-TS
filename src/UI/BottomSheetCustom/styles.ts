@@ -3,7 +3,7 @@ import { useSize } from '../../hooks/useSize';
 import { useCurrentTheme } from '../../hooks/useTheme';
 
 const BottomSheetCustomStyles = () => {
-  const { deviceWidth, deviceHeight } = useSize();
+  const { deviceHeight } = useSize();
   const { isDark } = useCurrentTheme();
 
   return StyleSheet.create({
@@ -12,11 +12,10 @@ const BottomSheetCustomStyles = () => {
       left: 0,
       right: 0,
       zIndex: 9999,
-      width: deviceWidth,
+      width: '100%',
       backgroundColor: isDark ? '#151515' : '#FFFFFF',
       borderTopLeftRadius: 22,
       borderTopRightRadius: 22,
-      height: 230,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',

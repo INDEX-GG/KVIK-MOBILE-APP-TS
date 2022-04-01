@@ -1,28 +1,43 @@
 import { useRef } from 'react';
 import { Animated } from 'react-native';
 import { useAppDispatch } from '../useAppDispatch';
-import { bottomSheetSlice } from '../../store/reducers/bottomSheetSlice/bottomSheetSlice';
+import {
+  BottomSheetComponentName,
+  bottomSheetSlice,
+} from '../../store/reducers/bottomSheetSlice/bottomSheetSlice';
+import { useAppSelector } from '../useAppSelector';
 
 export const useBottomSheetStore = () => {
+  const { height } = useAppSelector((state) => state.bottomSheetReducer);
   const dispatch = useAppDispatch();
-  const bottom = useRef(new Animated.Value(-230)).current;
+  const bottom = useRef(new Animated.Value(-height)).current;
 
   const AnimatedBottomSheet = (value: number, closeFunction?: () => void) => {
     Animated.timing(bottom, {
       toValue: value,
-      duration: 150,
+      duration: 200,
       useNativeDriver: false,
     }).start(() => (closeFunction ? closeFunction() : null));
   };
 
-  const handleOpenBottomSheet = (elementHeight: number) => {
+  const handleOpenBottomSheet = (
+    elementHeight: number,
+    componentName: BottomSheetComponentName,
+    componentData: Object = {}
+  ) => {
     return () => {
-      dispatch(bottomSheetSlice.actions.openBottomSheet(elementHeight));
+      dispatch(
+        bottomSheetSlice.actions.openBottomSheet({
+          height: elementHeight,
+          componentName: componentName,
+          componentData: componentData,
+        })
+      );
     };
   };
 
   const handleCloseBottomSheet = () => {
-    dispatch(bottomSheetSlice.actions.closeBottomSheet());
+    dispatch(bottomSheetSlice.actions.closeBottomSheet(-height));
   };
 
   return {

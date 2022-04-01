@@ -2,13 +2,10 @@ import React, { useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { usePlaceOfferCategory } from './usePlaceOfferCategory';
 import PlaceOfferCategoryItem from './PlaceOfferCategoryItem/PlaceOfferCategoryItem';
-import PlaceOfferBottomSheet from '../PlaceOfferBottomSheet/PlaceOfferBottomSheet';
 
 const PlaceOfferCategory = () => {
   const { category, keyExtractor, getItemLayout, iconsCategory } =
     usePlaceOfferCategory();
-
-  console.log(category);
 
   const renderItem = useCallback(
     ({ item, index }) => (
@@ -16,6 +13,7 @@ const PlaceOfferCategory = () => {
         key={item.alias}
         name={item.name}
         alias={item.alias}
+        children={item.children}
         icon={iconsCategory[index]}
       />
     ),
@@ -23,15 +21,12 @@ const PlaceOfferCategory = () => {
   );
 
   return (
-    <>
-      <FlatList
-        data={category}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        getItemLayout={getItemLayout}
-      />
-      {/*<PlaceOfferBottomSheet />*/}
-    </>
+    <FlatList
+      data={category}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+      getItemLayout={getItemLayout}
+    />
   );
 };
 

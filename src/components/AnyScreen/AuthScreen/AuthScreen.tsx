@@ -19,7 +19,7 @@ const AccountScreen = () => {
         </RobotoText>
         <FillButton
           title={'Войти или зарегистрироваться'}
-          onPress={handleOpenBottomSheet(0)}
+          onPress={handleOpenBottomSheet(230, 'LoginBottomSheet')}
         />
       </View>
       <View style={styles.imgContainer}>

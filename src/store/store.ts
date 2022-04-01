@@ -7,7 +7,6 @@ export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     devTools: true,
-    // enhancers: [devToolsEnhancer({ realtime: true })],
   });
 };
 
