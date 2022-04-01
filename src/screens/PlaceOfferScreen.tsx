@@ -1,13 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { useUserStore } from '../hooks/useReducerHook/useUserStore';
+import AuthScreen from '../components/AnyScreen/AuthScreen/AuthScreen';
+import PlaceOffer from '../components/PlaceOfferScreen/PlaceOfferScreen';
 
 const PlaceOfferScreen = () => {
-  return (
-    <View>
-      <Text>Подача объявлений</Text>
-    </View>
-  );
+  const { isAuth } = useUserStore();
+  return isAuth ? <PlaceOffer /> : <AuthScreen />;
 };
 
-export default PlaceOfferScreen;
+export default React.memo(PlaceOfferScreen);

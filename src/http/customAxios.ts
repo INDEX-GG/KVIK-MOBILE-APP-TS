@@ -4,3 +4,7 @@ import { HOST } from '../constants/constants';
 export const kvikAxios = axios.create({
   baseURL: `${HOST}/api`,
 });
+
+export const kvikAxiosV2 = axios.create({
+  baseURL: `${HOST}/`,
+});

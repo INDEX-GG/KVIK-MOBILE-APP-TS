@@ -14,11 +14,3 @@ export interface SortStateFunction {
   value?: string;
   open?: boolean;
 }
-
-export interface SortListState {
-  sortData: {
-    sort: SortState;
-    setSort: (sort: SortStateFunction) => () => void;
-  };
-  sortItems: DropDownItem[];
-}

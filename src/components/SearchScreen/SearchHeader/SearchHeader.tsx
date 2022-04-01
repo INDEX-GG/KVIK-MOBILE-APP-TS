@@ -1,14 +1,18 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import CategorySwiper from '../CategorySwiper/CategorySwiper';
-import CardOptions from '../../AnyScreen/Card/CardOptions';
+import CardAdSort from '../../AnyScreen/CardAdSort/CardAdSort';
+import { useAppSelector } from '../../../hooks/useAppSelector';
 
 const SearchHeader = () => {
+  const { sort } = useAppSelector((state) => state.homeAdReducer);
+
   return (
     <>
       <CategorySwiper />
       <View style={styles.container}>
-        <CardOptions />
+        {/*<CardOptions />*/}
+        <CardAdSort sortTitle={sort.title} />
       </View>
     </>
   );
@@ -16,7 +20,11 @@ const SearchHeader = () => {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 25,
+    marginBottom: 15,
     paddingHorizontal: 15,
+    position: 'relative',
+    zIndex: 100,
   },
 });
 

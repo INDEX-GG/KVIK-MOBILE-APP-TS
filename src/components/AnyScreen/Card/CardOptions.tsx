@@ -22,22 +22,11 @@ const viewData = [
 
 const CardOptions: FC = () => {
   const styles = CardStyle().styleCard;
-  const [sortList, setSortList] = useState<SortState>({
-    title: 'По умолчанию',
-    value: 'sortDefault',
-    open: false,
-  });
   const [view, setView] = useState<ToggleListItem>({
     id: 1,
     Icon: ColumnCard,
     value: 'cardsColumn',
   });
-
-  const handleChangeSortData = (sort: SortStateFunction) => {
-    return () => {
-      setSortList((prevState) => ({ ...prevState, ...sort }));
-    };
-  };
 
   const handleChangeView = (item: ToggleListItem) => {
     return () => {
@@ -48,10 +37,7 @@ const CardOptions: FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <CardSort
-          sortItems={sortItems}
-          sortData={{ sort: sortList, setSort: handleChangeSortData }}
-        />
+        <CardSort />
         <CardView
           activeElement={view}
           setView={handleChangeView}

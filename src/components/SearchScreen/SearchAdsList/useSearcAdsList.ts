@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { fetchHomeAd } from '../../../store/reducers/homeAdSlice/asyncAction';
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { homeAdSlice } from '../../../store/reducers/homeAdSlice/homeAdSlice';
-import { ADS_LIMIT } from '../../../constants/constants';
+import { ADS_LIMIT, DEFAULT_REGION } from '../../../constants/constants';
 
 export const useSearchAdsList = () => {
   const {
@@ -14,7 +14,8 @@ export const useSearchAdsList = () => {
     region_includes,
     sort,
     user_id,
-    isLoadingAds
+    isUpdateAds,
+    isLoadingAds,
   } = useAppSelector((state) => state.homeAdReducer);
   const dispatch = useAppDispatch();
   const { userId, userInfo, isLoading, isAuth } = useAppSelector(
@@ -30,7 +31,7 @@ export const useSearchAdsList = () => {
             page_limit,
             region_excludes,
             region_includes,
-            sort,
+            sort: sort.value,
             user_id,
           })
         );
@@ -65,10 +66,16 @@ export const useSearchAdsList = () => {
   );
 
   useEffect(() => {
-    if (region_includes && region_excludes && page === 1) {
+    if (isUpdateAds) {
+      // if (
+      //   (region_includes && region_excludes && page === 1) ||
+      //   (sort.value && page === 1)
+      // ) {
+      //   fetchMoreAds(true);
+      // }
       fetchMoreAds(true);
     }
-  }, [region_excludes, region_includes]);
+  }, [isUpdateAds]);
 
   useEffect(() => {
     // Загрузка
@@ -89,10 +96,9 @@ export const useSearchAdsList = () => {
     }
     // Неавторизованный пользователь
     if (!isLoading && !isAuth) {
-      const searchName = 'RU$RU-MOW$Москва';
       const response = changeUserStore({
         user_id: 0,
-        searchName: searchName,
+        searchName: DEFAULT_REGION,
       });
       fetchStartAds({
         userId: response.payload.user_id,
