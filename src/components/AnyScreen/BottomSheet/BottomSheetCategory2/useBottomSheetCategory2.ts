@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 
-export const useBottomSheetCategory = () => {
+export const useBottomSheetCategory2 = () => {
   const keyExtractor = useCallback(
-    (item, index) => `${item.alias}${item.name}${index}`,
+    (item, index) => `${item.alisa}${index}`,
     []
   );
 

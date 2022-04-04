@@ -4,7 +4,13 @@ import PlaceOfferCategory from '../PlaceOfferCategory/PlaceOfferCategory';
 import { FormProvider, useForm } from 'react-hook-form';
 
 const PlaceOfferNewAd = () => {
-  const methods = useForm();
+  const methods = useForm({
+    defaultValues: {
+      category1: undefined,
+      category2: undefined,
+      category3: undefined,
+    },
+  });
 
   return (
     <ScreenScroll scroll={false}>

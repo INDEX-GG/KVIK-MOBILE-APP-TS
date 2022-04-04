@@ -1,3 +1,7 @@
+export const checkArray = (arr: any[]) => {
+  return Array.isArray(arr) && arr?.length;
+};
+
 export const PhoneMask = (value: string) => {
   let inputOnlyNumber = value.replace(/\D/g, '');
 

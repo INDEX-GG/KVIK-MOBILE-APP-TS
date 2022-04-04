@@ -1,11 +1,20 @@
 import React, { useCallback } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { usePlaceOfferCategory } from './usePlaceOfferCategory';
 import PlaceOfferCategoryItem from './PlaceOfferCategoryItem/PlaceOfferCategoryItem';
+import BottomSheetModalLocal from '../../../UI/BottomSheetLocalUI/BottomSheetModalLocal';
+import BottomSheetCategory from '../../AnyScreen/BottomSheet/BottomSheetCategory/BottomSheetCategory';
 
 const PlaceOfferCategory = () => {
-  const { category, keyExtractor, getItemLayout, iconsCategory } =
-    usePlaceOfferCategory();
+  const {
+    category,
+    currentCategory,
+    keyExtractor,
+    getItemLayout,
+    iconsCategory,
+    bottomSheetLength,
+    handleChangeCurrentCategory,
+  } = usePlaceOfferCategory();
 
   const renderItem = useCallback(
     ({ item, index }) => (
@@ -15,18 +24,30 @@ const PlaceOfferCategory = () => {
         alias={item.alias}
         children={item.children}
         icon={iconsCategory[index]}
+        handleChangeCurrentCategory={handleChangeCurrentCategory}
       />
     ),
     []
   );
 
   return (
-    <FlatList
-      data={category}
-      renderItem={renderItem}
-      keyExtractor={keyExtractor}
-      getItemLayout={getItemLayout}
-    />
+    <View>
+      <FlatList
+        data={category}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        getItemLayout={getItemLayout}
+      />
+      {currentCategory ? (
+        <BottomSheetModalLocal
+          open={!!currentCategory.length}
+          height={bottomSheetLength(currentCategory.length, 55)}
+          onClose={handleChangeCurrentCategory(false)}
+        >
+          <BottomSheetCategory category={currentCategory} />
+        </BottomSheetModalLocal>
+      ) : null}
+    </View>
   );
 };
 

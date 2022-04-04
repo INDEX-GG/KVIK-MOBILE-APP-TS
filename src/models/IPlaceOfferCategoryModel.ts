@@ -13,6 +13,7 @@ export interface IPlaceOfferCategoryItem {
   search_name?: string;
   additional_fields: [] | any[];
   children: [] | IPlaceOfferCategoryItem[];
+  title?: string[];
 }
 
 export interface IPlaceOfferCategoryModel {
