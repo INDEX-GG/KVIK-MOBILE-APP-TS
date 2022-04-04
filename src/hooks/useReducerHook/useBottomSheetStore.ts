@@ -29,8 +29,8 @@ export const useBottomSheetStore = () => {
       dispatch(
         bottomSheetSlice.actions.openBottomSheet({
           height: elementHeight,
-          componentName: componentName,
-          componentData: componentData,
+          componentName,
+          componentData,
         })
       );
     };

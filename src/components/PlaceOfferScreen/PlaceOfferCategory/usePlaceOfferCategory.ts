@@ -14,14 +14,47 @@ import AnimalIcon from '../../../assets/AnimalIcon.svg';
 import PersonalItemIcon from '../../../assets/PersonalItemIcon.svg';
 import ServicesIcon from '../../../assets/ServicesIcon.svg';
 import HobbyIcon from '../../../assets/HobbyIcon.svg';
+import { useSize } from '../../../hooks/useSize';
+import { useFormContext } from 'react-hook-form';
 
 export const usePlaceOfferCategory = () => {
+  const { deviceHeight } = useSize();
+  const { setValue } = useFormContext();
+  const [currentCategory, setCurrentCategory] = useState<
+    IPlaceOfferCategoryItem[] | false
+  >(false);
   const [category, setCategory] = useState<IPlaceOfferCategoryItem[]>();
+
+  const handleChangeCurrentCategory = (
+    state: IPlaceOfferCategoryItem[] | false
+  ) => {
+    return () => {
+      setCurrentCategory(state);
+      if (!state) {
+        setValue('category1', undefined);
+        setValue('category2', undefined);
+        setValue('category3', undefined);
+      }
+    };
+  };
 
   const keyExtractor = useCallback(
     (item, index) => `${item.alias}${item.name}${index}`,
     []
   );
+
+  const bottomSheetLength = (allElement: number, sizeOneElement: number) => {
+    const height = allElement * sizeOneElement;
+    const maxHeight = deviceHeight - 200;
+    const minHeight = 140;
+    if (height > maxHeight) {
+      return maxHeight;
+    }
+    if (height < minHeight) {
+      return minHeight;
+    }
+    return height;
+  };
 
   const iconsCategory = useMemo(
     () => [
@@ -63,5 +96,8 @@ export const usePlaceOfferCategory = () => {
     iconsCategory,
     keyExtractor,
     getItemLayout,
+    currentCategory,
+    bottomSheetLength,
+    handleChangeCurrentCategory,
   };
 };
