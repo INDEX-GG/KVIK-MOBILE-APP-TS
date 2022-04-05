@@ -11,18 +11,20 @@ const BottomSheetCategory2Item: FC<
   const styles = useBottomSheetCategory2ItemStyles();
   const { control } = useFormContext();
 
+  const textStyle = (value: string, innerAlias: string) => {
+    if (value === innerAlias) {
+      return { ...styles.itemText, ...styles.itemActive };
+    }
+    return styles.itemText;
+  };
+
   return (
     <Controller
       name="category3"
       control={control}
-      render={({ field: { onChange } }) => (
+      render={({ field: { onChange, value } }) => (
         <Pressable style={styles.item} onPress={() => onChange(alias)}>
-          <RobotoText
-            weight="b"
-            style={{
-              ...styles.itemText,
-            }}
-          >
+          <RobotoText weight="b" style={textStyle(value, alias)}>
             {name}
           </RobotoText>
         </Pressable>

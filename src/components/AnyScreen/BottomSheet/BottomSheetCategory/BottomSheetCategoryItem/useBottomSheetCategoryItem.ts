@@ -21,14 +21,24 @@ export const useBottomSheetCategoryItem = (
 
   const handleChangeCategory = (
     children: IPlaceOfferCategoryItem[],
-    onChange: (alias: string | undefined) => void
+    onChange: (alias: string | undefined) => void,
+    value: string
   ) => {
     return () => {
-      onChange(alias);
       if (!children.length) {
+        onChange(alias);
         setValue('category3', '');
+        setSelectCategory({ name: alias, data: children });
         return;
       }
+      if (value === alias) {
+        setValue('category3', undefined);
+        setValue('category2', undefined);
+        setSelectCategory({ name: '', data: null });
+        return;
+      }
+      onChange(alias);
+      setValue('category3', undefined);
       setSelectCategory({ name: alias, data: children });
     };
   };

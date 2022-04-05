@@ -15,6 +15,9 @@ const BottomSheetCategory2ItemStyles = () => {
       fontWeight: '500',
       color: isDark ? '#FFFFFF' : '#151515',
     },
+    itemActive: {
+      color: '#00A0AB',
+    },
   });
 };
 

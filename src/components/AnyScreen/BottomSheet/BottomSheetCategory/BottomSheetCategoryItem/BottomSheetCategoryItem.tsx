@@ -32,8 +32,6 @@ const BottomSheetCategoryItem: FC<IPlaceOfferCategoryItem> = (props) => {
     [selectCategory]
   );
 
-  console.log(isVisibleCategory2);
-
   return (
     <View style={styles.container}>
       <Controller
@@ -42,7 +40,7 @@ const BottomSheetCategoryItem: FC<IPlaceOfferCategoryItem> = (props) => {
         render={({ field: { value, onChange } }) => (
           <Pressable
             style={styles.item}
-            onPress={handleChangeCategory(children, onChange)}
+            onPress={handleChangeCategory(children, onChange, value)}
           >
             <View style={styles.innerWrapper}>
               <RobotoText
