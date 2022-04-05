@@ -14,8 +14,6 @@ const BottomSheetCategory: FC<IBottomSheetCategoryProps> = ({ category }) => {
 
   const isCategory = useMemo(() => checkArray(category), [category]);
 
-  console.log(category);
-
   const renderItem = useCallback(
     ({ item }) => (
       <BottomSheetCategoryItem
