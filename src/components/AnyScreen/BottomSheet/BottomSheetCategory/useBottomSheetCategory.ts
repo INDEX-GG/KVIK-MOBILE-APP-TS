@@ -1,10 +1,14 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
+import { IPlaceOfferCategoryItem } from '../../../../models/IPlaceOfferCategoryModel';
+import { checkArray } from '../../../../services/services';
 
-export const useBottomSheetCategory = () => {
+export const useBottomSheetCategory = (category: IPlaceOfferCategoryItem[]) => {
   const keyExtractor = useCallback(
     (item, index) => `${item.alias}${item.name}${index}`,
     []
   );
+
+  const isCategory = useMemo(() => checkArray(category), [category]);
 
   const getItemLayout = useCallback(
     (data, index) => ({
@@ -16,6 +20,7 @@ export const useBottomSheetCategory = () => {
   );
 
   return {
+    isCategory,
     keyExtractor,
     getItemLayout,
   };

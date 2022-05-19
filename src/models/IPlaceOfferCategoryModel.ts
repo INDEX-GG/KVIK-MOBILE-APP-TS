@@ -1,17 +1,10 @@
-export type PlaceOfferAdditionalFields = 'text_list' | 'number' | 'check_list';
-
-export interface IPlaceOfferAdditionalFields {
-  alias: string;
-  title: string;
-  type: string;
-  default_value?: null | string | number;
-}
+import { IAdditionalFieldsItem } from './IAdditionalFieldsModel';
 
 export interface IPlaceOfferCategoryItem {
   name: string;
   alias: string;
   search_name?: string;
-  additional_fields: [] | any[];
+  additional_fields: [] | IAdditionalFieldsItem[];
   children: [] | IPlaceOfferCategoryItem[];
   title?: string[];
 }

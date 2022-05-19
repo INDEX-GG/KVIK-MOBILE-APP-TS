@@ -40,10 +40,16 @@ export const useBottomSheetStore = () => {
     dispatch(bottomSheetSlice.actions.closeBottomSheet(-height));
   };
 
+  const handleAddHeightBottomSheet = (moreHeight: number) => {
+    // dispatch(bottomSheetSlice.actions.addMoreHeight(moreHeight));
+    AnimatedBottomSheet(moreHeight);
+  };
+
   return {
     bottomSheetPosition: bottom,
     AnimatedBottomSheet: AnimatedBottomSheet,
     handleOpenBottomSheet: handleOpenBottomSheet,
     handleCloseBottomSheet: handleCloseBottomSheet,
+    handleAddHeightBottomSheet,
   };
 };

@@ -1,8 +1,7 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useCallback } from 'react';
 import { FlatList } from 'react-native-gesture-handler';
 import { IPlaceOfferCategoryItem } from '../../../../models/IPlaceOfferCategoryModel';
 import BottomSheetCategoryItem from './BottomSheetCategoryItem/BottomSheetCategoryItem';
-import { checkArray } from '../../../../services/services';
 import { useBottomSheetCategory } from './useBottomSheetCategory';
 
 interface IBottomSheetCategoryProps {
@@ -10,9 +9,8 @@ interface IBottomSheetCategoryProps {
 }
 
 const BottomSheetCategory: FC<IBottomSheetCategoryProps> = ({ category }) => {
-  const { keyExtractor, getItemLayout } = useBottomSheetCategory();
-
-  const isCategory = useMemo(() => checkArray(category), [category]);
+  const { keyExtractor, getItemLayout, isCategory } =
+    useBottomSheetCategory(category);
 
   const renderItem = useCallback(
     ({ item }) => (

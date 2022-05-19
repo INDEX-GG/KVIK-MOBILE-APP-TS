@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { View, Pressable } from 'react-native';
 import RobotoText from '../RobotoText';
 import ArrowBack from '../../assets/ArrowLeft.svg';
@@ -7,9 +7,21 @@ import { useRouter } from '../../hooks/useRouter';
 import { HeaderTabProps } from './types';
 import SaveAreaTheme from '../SaveAreaTheme/SaveAreaTheme';
 
-const HeaderTab: FC<HeaderTabProps> = ({ title, arrow = true }) => {
+const HeaderTab: FC<HeaderTabProps> = ({
+  title,
+  arrow = true,
+  resultKey,
+  dynamicFunction,
+}) => {
   const styles = HeaderTabStyles();
   const { pushBack } = useRouter();
+  const resultFunc = dynamicFunction ? dynamicFunction() : undefined;
+  const tabTitle = useMemo(() => {
+    if (resultFunc && resultKey) {
+      return resultFunc[resultKey];
+    }
+    return title;
+  }, [resultFunc, title, resultKey]);
 
   return (
     <SaveAreaTheme>
@@ -22,7 +34,7 @@ const HeaderTab: FC<HeaderTabProps> = ({ title, arrow = true }) => {
           </Pressable>
         )}
         <RobotoText weight="b" style={styles.title}>
-          {title}
+          {tabTitle}
         </RobotoText>
       </View>
     </SaveAreaTheme>

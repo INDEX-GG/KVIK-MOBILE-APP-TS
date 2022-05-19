@@ -2,6 +2,14 @@ export const checkArray = (arr: any[]) => {
   return Array.isArray(arr) && arr?.length;
 };
 
+export const checkTypeOf = (data: any, type: any, similarity: boolean) => {
+  if (similarity) {
+    return typeof data === type;
+  } else {
+    return typeof data !== type;
+  }
+};
+
 export const PhoneMask = (value: string) => {
   let inputOnlyNumber = value.replace(/\D/g, '');
 
@@ -184,4 +192,21 @@ export const regionExcludesAds = (
 
     return data;
   }
+};
+
+export const bottomSheetCategoryLength = (
+  allElement: number,
+  sizeOneElement: number,
+  deviceHeight: number
+) => {
+  const height = allElement * sizeOneElement;
+  const maxHeight = deviceHeight - 150;
+  const minHeight = 140;
+  if (height > maxHeight) {
+    return maxHeight;
+  }
+  if (height < minHeight) {
+    return minHeight;
+  }
+  return height;
 };

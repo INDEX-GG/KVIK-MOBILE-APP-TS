@@ -13,6 +13,8 @@ import OfferUseScreen from '../components/SettingsScreen/OfferUseScreen/OfferUse
 import SignInScreen from '../components/AuthorizationsScreens/SignInScreen/SingInScreen';
 import ProductScreen from '../screens/ProductScreen/ProductScreen';
 import PlaceOfferNewAd from '../components/PlaceOfferScreen/PlaceOfferNewAd/PlaceOfferNewAd';
+import PlaceOfferAdditionalFields from '../components/PlaceOfferScreen/PlaceOfferAdditionalFields/PlaceOfferAdditionalFields';
+import { usePlaceOfferStore } from '../hooks/useReducerHook/usePlaceOfferStore';
 
 interface Screens {
   name: string;
@@ -25,6 +27,20 @@ export const allScreensApp: Screens[] = [
     name: 'Main',
     component: MainScreen,
     options: { title: '', headerShown: false },
+  },
+  {
+    name: 'PlaceOfferAdditionalFields',
+    component: PlaceOfferAdditionalFields,
+    options: {
+      title: 'Дополнительные поля',
+      header: () => (
+        <HeaderTab
+          title={'Новое объявление'}
+          resultKey="aliasName"
+          dynamicFunction={usePlaceOfferStore}
+        />
+      ),
+    },
   },
   {
     name: 'PlaceOfferNewAd',

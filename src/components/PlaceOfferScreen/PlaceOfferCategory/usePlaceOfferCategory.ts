@@ -16,45 +16,20 @@ import ServicesIcon from '../../../assets/ServicesIcon.svg';
 import HobbyIcon from '../../../assets/HobbyIcon.svg';
 import { useSize } from '../../../hooks/useSize';
 import { useFormContext } from 'react-hook-form';
+import { bottomSheetCategoryLength } from '../../../services/services';
+import { usePlaceOfferStore } from '../../../hooks/useReducerHook/usePlaceOfferStore';
+import { useRouter } from '../../../hooks/useRouter';
 
 export const usePlaceOfferCategory = () => {
   const { deviceHeight } = useSize();
-  const { setValue } = useFormContext();
+  const { handleSelectCategory } = usePlaceOfferStore();
+  const { pushTo } = useRouter();
+  const { setValue, reset, watch } = useFormContext();
+  const formValues = watch() as IFormStatePlaceOfferCategory;
+  const [category, setCategory] = useState<IPlaceOfferCategoryItem[]>();
   const [currentCategory, setCurrentCategory] = useState<
     IPlaceOfferCategoryItem[] | false
   >(false);
-  const [category, setCategory] = useState<IPlaceOfferCategoryItem[]>();
-
-  const handleChangeCurrentCategory = (
-    state: IPlaceOfferCategoryItem[] | false
-  ) => {
-    return () => {
-      setCurrentCategory(state);
-      if (!state) {
-        setValue('category1', undefined);
-        setValue('category2', undefined);
-        setValue('category3', undefined);
-      }
-    };
-  };
-
-  const keyExtractor = useCallback(
-    (item, index) => `${item.alias}${item.name}${index}`,
-    []
-  );
-
-  const bottomSheetLength = (allElement: number, sizeOneElement: number) => {
-    const height = allElement * sizeOneElement;
-    const maxHeight = deviceHeight - 200;
-    const minHeight = 140;
-    if (height > maxHeight) {
-      return maxHeight;
-    }
-    if (height < minHeight) {
-      return minHeight;
-    }
-    return height;
-  };
 
   const iconsCategory = useMemo(
     () => [
@@ -72,6 +47,44 @@ export const usePlaceOfferCategory = () => {
     []
   );
 
+  const handleResetForm = () => {
+    reset({
+      category1: undefined,
+      category2: undefined,
+      category3: undefined,
+      category1Length: undefined,
+      category2Length: undefined,
+      additionalFields: null,
+    } as IFormStatePlaceOfferCategory);
+  };
+
+  const handleChangeCurrentCategory = (
+    state: IPlaceOfferCategoryItem[] | false
+  ) => {
+    return () => {
+      setCurrentCategory(state);
+      if (!state) {
+        handleResetForm();
+      }
+    };
+  };
+
+  const category2Length = useMemo(() => {
+    if (formValues?.category2Length) {
+      return formValues.category2Length;
+    }
+    return 0;
+  }, [formValues]);
+
+  const keyExtractor = useCallback(
+    (item, index) => `${item.alias}${item.name}${index}`,
+    []
+  );
+
+  const bottomSheetLength = (allElement: number, sizeOneElement: number) => {
+    return bottomSheetCategoryLength(allElement, sizeOneElement, deviceHeight);
+  };
+
   const getItemLayout = useCallback(
     (data, index) => ({
       length: 50,
@@ -81,20 +94,40 @@ export const usePlaceOfferCategory = () => {
     []
   );
 
+  const handleSuccessSelectCategory = () => {
+    handleResetForm();
+    setCurrentCategory(false);
+    pushTo('PlaceOfferAdditionalFields')();
+  };
+
   useEffect(() => {
     try {
       kvikAxiosV2
         .get<IPlaceOfferCategoryModel>('placeOfferJson/new_catalog.json')
-        .then((jsonData) => setCategory(jsonData.data.category));
+        .then((jsonData) => {
+          setCategory(jsonData.data.category);
+          setValue('category1Length', jsonData.data.category?.length);
+        });
     } catch (e) {
       console.log(e);
     }
   }, []);
 
+  useEffect(() => {
+    if (currentCategory) {
+      handleSelectCategory(
+        formValues,
+        currentCategory,
+        handleSuccessSelectCategory
+      );
+    }
+  }, [formValues]);
+
   return {
     category,
     iconsCategory,
     keyExtractor,
+    category2Length,
     getItemLayout,
     currentCategory,
     bottomSheetLength,
