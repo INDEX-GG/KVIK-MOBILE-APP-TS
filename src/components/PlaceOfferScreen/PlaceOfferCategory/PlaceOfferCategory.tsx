@@ -13,7 +13,7 @@ const PlaceOfferCategory = () => {
     category2Length,
     getItemLayout,
     iconsCategory,
-    bottomSheetLength,
+    bottomSheetHeight,
     handleChangeCurrentCategory,
   } = usePlaceOfferCategory();
 
@@ -42,7 +42,7 @@ const PlaceOfferCategory = () => {
       {currentCategory ? (
         <BottomSheetModalLocal
           open={!!currentCategory.length}
-          height={bottomSheetLength(
+          height={bottomSheetHeight(
             currentCategory.length + category2Length,
             55
           )}

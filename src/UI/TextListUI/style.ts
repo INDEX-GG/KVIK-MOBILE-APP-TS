@@ -1,9 +1,14 @@
 import { StyleSheet } from 'react-native';
+import { useCurrentTheme } from '../../hooks/useTheme';
 
 const TextListUIStyles = () => {
+  const {
+    isDark,
+  } = useCurrentTheme();
+
   return StyleSheet.create({
     container: {
-      backgroundColor: '#2C2C2C',
+      backgroundColor: isDark ? '#2C2C2C' : '',
       marginBottom: 15,
       paddingVertical: 15,
       paddingHorizontal: 20,
@@ -15,11 +20,14 @@ const TextListUIStyles = () => {
     containerList: {
       width: '100%',
     },
+    arrowDefault: {
+      transform: [{rotate: '0deg'}],
+    },
     containerActive: {
       backgroundColor: '#00A0AB',
     },
     text: {
-      color: '#FFFFFF',
+      color: isDark ? '#FFFFFF' : '#151515',
       fontSize: 16,
       fontWeight: 'normal',
       lineHeight: 19,

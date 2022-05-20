@@ -6,6 +6,8 @@ export const usePlaceOfferAdditionalFields = () => {
   const { additionFields } = usePlaceOfferStore();
   const methods = useForm();
 
+  console.log(methods.watch());
+
   const isAdditionFieldsArray = useMemo(() => {
     return Array.isArray(additionFields) && additionFields.length;
   }, [additionFields]);

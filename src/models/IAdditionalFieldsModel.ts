@@ -5,11 +5,20 @@ export type PlaceOfferAdditionalFields =
   | 'text';
 
 
+export interface IAdditionalFieldsFetchJSON {
+  alias: string;
+  children?: IAdditionalFieldsFetchJSON;
+  name: string;
+  value: string;
+}
+
 export interface ITextListAdditionalFields {
   text_list_search_type?: number;
   text_list_filter_type?: number;
   text_list_rendering_type?: number;
   text_list_values: string[];
+  dependencies?: string[];
+  json?: string;
 }
 
 export interface IAdditionalFieldsItem {

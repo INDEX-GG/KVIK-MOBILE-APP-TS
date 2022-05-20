@@ -1,3 +1,4 @@
+// @ts-ignore
 import { IAdditionalFieldsItem } from './IAdditionalFieldsModel';
 
 export interface IPlaceOfferCategoryItem {
