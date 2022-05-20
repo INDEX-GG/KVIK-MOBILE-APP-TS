@@ -41,6 +41,9 @@ export const bottomSheetSlice = createSlice({
       state.componentName = '';
       state.componentData = {};
     },
+    addMoreHeight(state, action: PayloadAction<number>) {
+      state.height += action.payload;
+    },
   },
 });
 

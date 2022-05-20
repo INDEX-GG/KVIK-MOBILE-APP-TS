@@ -4,22 +4,18 @@ import { usePlaceOfferCategory } from './usePlaceOfferCategory';
 import PlaceOfferCategoryItem from './PlaceOfferCategoryItem/PlaceOfferCategoryItem';
 import BottomSheetModalLocal from '../../../UI/BottomSheetLocalUI/BottomSheetModalLocal';
 import BottomSheetCategory from '../../AnyScreen/BottomSheet/BottomSheetCategory/BottomSheetCategory';
-import { useFormContext } from 'react-hook-form';
 
 const PlaceOfferCategory = () => {
   const {
     category,
     currentCategory,
     keyExtractor,
+    category2Length,
     getItemLayout,
     iconsCategory,
     bottomSheetLength,
     handleChangeCurrentCategory,
   } = usePlaceOfferCategory();
-
-  const { watch } = useFormContext();
-
-  console.log(watch());
 
   const renderItem = useCallback(
     ({ item, index }) => (
@@ -46,7 +42,10 @@ const PlaceOfferCategory = () => {
       {currentCategory ? (
         <BottomSheetModalLocal
           open={!!currentCategory.length}
-          height={bottomSheetLength(currentCategory.length, 55)}
+          height={bottomSheetLength(
+            currentCategory.length + category2Length,
+            55
+          )}
           onClose={handleChangeCurrentCategory(false)}
         >
           <BottomSheetCategory category={currentCategory} />

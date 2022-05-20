@@ -15,4 +15,5 @@ export type AppLocation =
   | 'MainScreen'
   | 'PlaceOfferScreen'
   | 'FavoriteScreen'
-  | 'AccountScreen';
+  | 'AccountScreen'
+  | 'PlaceOfferAdditionalFields';

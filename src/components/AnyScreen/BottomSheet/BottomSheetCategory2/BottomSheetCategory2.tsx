@@ -9,9 +9,7 @@ interface IBottomSheetCategory2Props {
 }
 
 const BottomSheetCategory2: FC<IBottomSheetCategory2Props> = ({ category }) => {
-  const { keyExtractor, getItemLayout } = useBottomSheetCategory2();
-
-  console.log(category);
+  const { keyExtractor, getItemLayout } = useBottomSheetCategory2(category);
 
   const renderItem = useCallback(
     ({ item }) => (
