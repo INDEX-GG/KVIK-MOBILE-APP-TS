@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Pressable, PressableProps, StyleProp, ViewStyle } from 'react-native';
+import { Pressable, PressableProps, StyleProp } from 'react-native';
 
 interface ActivePressable {
   activeStyles: StyleProp<any>;

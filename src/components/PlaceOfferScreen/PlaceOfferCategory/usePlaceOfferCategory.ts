@@ -16,7 +16,7 @@ import ServicesIcon from '../../../assets/ServicesIcon.svg';
 import HobbyIcon from '../../../assets/HobbyIcon.svg';
 import { useSize } from '../../../hooks/useSize';
 import { useFormContext } from 'react-hook-form';
-import { bottomSheetCategoryLength } from '../../../services/services';
+import { generateBottomSheetHeight } from '../../../services/services';
 import { usePlaceOfferStore } from '../../../hooks/useReducerHook/usePlaceOfferStore';
 import { useRouter } from '../../../hooks/useRouter';
 
@@ -81,8 +81,8 @@ export const usePlaceOfferCategory = () => {
     []
   );
 
-  const bottomSheetLength = (allElement: number, sizeOneElement: number) => {
-    return bottomSheetCategoryLength(allElement, sizeOneElement, deviceHeight);
+  const bottomSheetHeight = (allElement: number, sizeOneElement: number) => {
+    return generateBottomSheetHeight(allElement, sizeOneElement, deviceHeight);
   };
 
   const getItemLayout = useCallback(
@@ -130,7 +130,7 @@ export const usePlaceOfferCategory = () => {
     category2Length,
     getItemLayout,
     currentCategory,
-    bottomSheetLength,
+    bottomSheetHeight,
     handleChangeCurrentCategory,
   };
 };

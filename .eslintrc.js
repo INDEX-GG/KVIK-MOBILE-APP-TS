@@ -8,6 +8,7 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       plugins: ['react-hooks'],
       rules: {
+        'prettier/prettier': 0,
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': 'off',
         'no-undef': 'off',

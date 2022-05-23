@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IAdditionalFieldsItem } from '../../../models/IAdditionalFieldsModel';
+import { IAdditionalFieldsFetchJSON, IAdditionalFieldsItem } from '../../../models/IAdditionalFieldsModel';
+import { fetchMoreAdditionalFields } from './asyncThunk/placeOferApi';
 
 interface IInitialState {
   aliasOne: null | string;
@@ -8,6 +9,7 @@ interface IInitialState {
   aliasFull: null | string;
   aliasName: null | string;
   additionFields: IAdditionalFieldsItem[];
+  jsonInfo: null |IAdditionalFieldsFetchJSON[];
 }
 
 interface IChangeInitialState {
@@ -26,6 +28,7 @@ const initialState: IInitialState = {
   aliasFull: null,
   aliasName: null,
   additionFields: [],
+  jsonInfo: null,
 };
 
 export const placeOfferSlice = createSlice({
@@ -39,6 +42,11 @@ export const placeOfferSlice = createSlice({
       state.aliasFull = action.payload.aliasFull;
       state.aliasName = action.payload.aliasName;
       state.additionFields = action.payload.additionFields;
+    },
+  },
+  extraReducers: {
+    [fetchMoreAdditionalFields.fulfilled.type]: (state, action: PayloadAction<IAdditionalFieldsFetchJSON[]>) => {
+      state.jsonInfo = action.payload;
     },
   },
 });

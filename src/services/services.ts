@@ -194,10 +194,10 @@ export const regionExcludesAds = (
   }
 };
 
-export const bottomSheetCategoryLength = (
+export const generateBottomSheetHeight = (
   allElement: number,
   sizeOneElement: number,
-  deviceHeight: number
+  deviceHeight: number,
 ) => {
   const height = allElement * sizeOneElement;
   const maxHeight = deviceHeight - 150;
@@ -206,7 +206,27 @@ export const bottomSheetCategoryLength = (
     return maxHeight;
   }
   if (height < minHeight) {
-    return minHeight;
+    return minHeight + 10;
   }
   return height;
+};
+
+export const getDynamicTittle = (title: string, value: string | undefined | null) => (
+  value ? value : title
+);
+
+export const findDependenciesInFormValues = (dependencies: string[], formValues: any) => {
+  if (Array.isArray(dependencies)) {
+    let isVisible = true;
+    for (let i = 0; i < dependencies.length; i++) {
+      const key = dependencies[i];
+      const item = formValues[key];
+      if (!item) {
+        isVisible = false;
+        break;
+      }
+    }
+    return isVisible;
+  }
+  return false;
 };
