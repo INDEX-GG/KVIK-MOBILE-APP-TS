@@ -1,3 +1,5 @@
+import { IAdditionalFieldsFetchJSON } from '../models/IAdditionalFieldsModel';
+
 export type AppLocation =
   | 'PlaceOfferNewAd'
   | 'Product'

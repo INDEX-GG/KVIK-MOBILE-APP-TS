@@ -7,7 +7,7 @@ export type PlaceOfferAdditionalFields =
 
 export interface IAdditionalFieldsFetchJSON {
   alias: string;
-  children?: IAdditionalFieldsFetchJSON;
+  children?: IAdditionalFieldsFetchJSON[];
   name: string;
   value: string;
 }
@@ -25,6 +25,7 @@ export interface IAdditionalFieldsItem {
   alias: string;
   type: PlaceOfferAdditionalFields;
   title: string;
+  dependencies?: string[];
   filter_title?: string;
   default_value?: null | string;
   required?: {

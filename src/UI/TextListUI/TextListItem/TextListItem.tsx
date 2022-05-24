@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { useTextListItemStyles } from './style';
 import RobotoText from '../../RobotoText';
@@ -7,21 +7,26 @@ import CheckBoxUI from '../../CheckBoxUI/CheckBoxUI';
 interface ITextListUIItemProps {
   title: string;
   value: string;
-  onChange: (state: string) => void;
+  onChange: () => void;
 }
 
 const TextListItem: FC<ITextListUIItemProps> = ({ title, value, onChange }) => {
+
+  const isActive = useMemo(() => (
+    value === title
+  ), [value, title]);
+
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => onChange(title)}
+      onPress={onChange}
       activeOpacity={0.5}
     >
       <RobotoText weight="r" style={styles.text}>
         {title}
       </RobotoText>
       <CheckBoxUI
-        active={value === title}
+        active={isActive}
       />
     </TouchableOpacity>
   );

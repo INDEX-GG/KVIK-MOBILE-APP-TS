@@ -16,9 +16,18 @@ const TextListUIStyles = () => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      position: 'relative',
     },
     containerList: {
       width: '100%',
+    },
+    label: {
+      fontSize: 11,
+      fontWeight: 'normal',
+      color: '#FFFFFF',
+      position: 'absolute',
+      top: 0,
+      left: 20,
     },
     arrowDefault: {
       transform: [{rotate: '0deg'}],

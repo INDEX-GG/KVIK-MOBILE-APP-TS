@@ -9,7 +9,7 @@ interface IInitialState {
   aliasFull: null | string;
   aliasName: null | string;
   additionFields: IAdditionalFieldsItem[];
-  jsonInfo: null |IAdditionalFieldsFetchJSON[];
+  jsonInfo: null |IAdditionalFieldsFetchJSON;
 }
 
 interface IChangeInitialState {
@@ -45,7 +45,7 @@ export const placeOfferSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchMoreAdditionalFields.fulfilled.type]: (state, action: PayloadAction<IAdditionalFieldsFetchJSON[]>) => {
+    [fetchMoreAdditionalFields.fulfilled.type]: (state, action: PayloadAction<IAdditionalFieldsFetchJSON>) => {
       state.jsonInfo = action.payload;
     },
   },
