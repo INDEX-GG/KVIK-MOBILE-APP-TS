@@ -83,6 +83,10 @@ export const dynamicPhotosArr = (
   }
 };
 
+export const getOnlyNumberString = (str: string) => {
+  return str.replace(/[^0-9.]/g, '')
+};
+
 export const ToRusDate = (date: string) => {
   const adDate = new Date(date),
     options = {
@@ -208,17 +212,18 @@ export const generateBottomSheetHeight = (
   allElement: number,
   sizeOneElement: number,
   deviceHeight: number,
+  moreHeight = 0,
 ) => {
   const height = allElement * sizeOneElement;
   const maxHeight = deviceHeight - 150;
-  const minHeight = 140;
+  const minHeight = 150;
   if (height > maxHeight) {
     return maxHeight;
   }
   if (height < minHeight) {
-    return minHeight + 10;
+    return minHeight + 10 + moreHeight;
   }
-  return height;
+  return height + moreHeight;
 };
 
 export const getDynamicTittle = (title: string, value: string | undefined | null) => (
@@ -240,6 +245,13 @@ export const findDependenciesInFormValues = (dependencies: string[], formValues:
   }
   return false;
 };
+
+export const filterArrayString = (arr: any[], searchString: string) => {
+  if (Array.isArray(arr)) {
+    return arr.filter(item => item.toLowerCase().includes(searchString.toLowerCase()));
+  }
+};
+
 // Получение финальных полей (тип двигателя, мощность)
 const getFourChildren = (childrenArray: IAdditionalFieldsFetchJSON[], alias: string) => {
   const currentChildren = childrenArray.find(item => item.alias === alias);
