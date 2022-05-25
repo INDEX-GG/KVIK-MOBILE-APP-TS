@@ -18,9 +18,6 @@ const TextListUIStyles = () => {
       justifyContent: 'space-between',
       position: 'relative',
     },
-    containerList: {
-      width: '100%',
-    },
     label: {
       fontSize: 11,
       fontWeight: 'normal',

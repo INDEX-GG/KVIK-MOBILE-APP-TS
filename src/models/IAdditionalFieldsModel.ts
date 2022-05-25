@@ -12,6 +12,27 @@ export interface IAdditionalFieldsFetchJSON {
   value: string;
 }
 
+export interface ITextNumberAdditionalFields {
+  filter_render_type: number;
+  filter_title: string;
+  filter_type: string;
+  number_max_value: number;
+  number_min_value: number;
+  number_rendering_type: number;
+  number_step: {};
+  number_unit_of_measure: string;
+  number_version: 'int' | 'float';
+  placeholder: ''
+}
+
+export interface ITextAdditionalFields {
+  text_excludes_symbols: string[],
+  text_includes_symbols: string[],
+  text_max_len: number,
+  text_min_len: number,
+  view_product: boolean,
+}
+
 export interface ITextListAdditionalFields {
   text_list_search_type?: number;
   text_list_filter_type?: number;
@@ -33,6 +54,8 @@ export interface IAdditionalFieldsItem {
     value: string;
   };
 }
+
+export type ITextNumberUIProps = IAdditionalFieldsItem & ITextNumberAdditionalFields
 
 export type ITextListUIProps = ITextListAdditionalFields &
   IAdditionalFieldsItem;

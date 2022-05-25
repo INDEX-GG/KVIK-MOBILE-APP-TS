@@ -7,6 +7,7 @@ const TextListSearchStyles = () => {
       width: '100%',
       height: 48,
       paddingHorizontal: 20,
+      position: 'relative',
     },
     input: {
       backgroundColor: '#2C2C2C',
@@ -18,8 +19,14 @@ const TextListSearchStyles = () => {
       fontWeight: 'normal',
       lineHeight: 16,
     },
+    icon: {
+      position: 'absolute',
+      left: 41,
+      top: 17,
+      zIndex: 1,
+    },
     placeholderTextColor: {
-      color: '#C7C7C7'
+      color: '#C7C7C7',
     },
   });
 };

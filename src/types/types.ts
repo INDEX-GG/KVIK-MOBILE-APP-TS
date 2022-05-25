@@ -1,4 +1,3 @@
-import { IAdditionalFieldsFetchJSON } from '../models/IAdditionalFieldsModel';
 
 export type AppLocation =
   | 'PlaceOfferNewAd'
@@ -19,3 +18,5 @@ export type AppLocation =
   | 'FavoriteScreen'
   | 'AccountScreen'
   | 'PlaceOfferAdditionalFields';
+
+export type onChangeText = (text: string) => void;
