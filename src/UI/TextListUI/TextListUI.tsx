@@ -13,7 +13,18 @@ import TextListBottomSheet from './TextListBottomSheet/TextListBottomSheet';
 
 const TextListUI: FC<ITextListUIProps> = (props) => {
   const styles = useTextListUIStyles();
-  const { title, alias, text_list_values, dependencies, default_value, json } = props;
+  const {
+    title,
+    alias,
+    text_list_values,
+    dependencies,
+    default_value,
+    json,
+    isCheckList,
+    isPeriod,
+    isTime,
+  } = props;
+
   const {
     control,
     arrowStyle,
@@ -22,7 +33,15 @@ const TextListUI: FC<ITextListUIProps> = (props) => {
     isSingleFlatListData,
     handleToggleBottomSheet,
   } =
-    useTextListUI(text_list_values, dependencies, json, alias);
+    useTextListUI(
+      text_list_values,
+      dependencies,
+      json,
+      alias,
+      isCheckList,
+      isPeriod,
+      isTime
+    );
 
   return (
     <Controller
@@ -43,7 +62,7 @@ const TextListUI: FC<ITextListUIProps> = (props) => {
             ) : null}
             <View>
               <RobotoText style={styles.text} weight="r">
-                {getDynamicTittle(title, value)}
+                {getDynamicTittle(title, value, isCheckList)}
               </RobotoText>
             </View>
             {value && !isSingleFlatListData ? (
@@ -61,6 +80,7 @@ const TextListUI: FC<ITextListUIProps> = (props) => {
           <TextListBottomSheet
             alias={alias}
             title={title}
+            isCheckList={isCheckList}
             fieldValue={value}
             onChangeFieldValue={onChange}
             flatListData={flatListData}

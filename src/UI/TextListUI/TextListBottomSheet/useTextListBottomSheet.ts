@@ -4,7 +4,7 @@ import { useSize } from '../../../hooks/useSize';
 import { usePlaceOfferStore } from '../../../hooks/useReducerHook/usePlaceOfferStore';
 import { useFormContext } from 'react-hook-form';
 
-export const useTextListBottomSheet = (flatListData: any[], alias:string) => {
+export const useTextListBottomSheet = (flatListData: any[], alias:string, isCheckList: boolean | undefined) => {
   const { deviceHeight } = useSize();
   const { setValue } = useFormContext();
   const { additionFields } = usePlaceOfferStore();
@@ -25,7 +25,7 @@ export const useTextListBottomSheet = (flatListData: any[], alias:string) => {
       textListValueLength,
       60,
       deviceHeight,
-      moreHeight + 70
+      moreHeight + 55
     );
   };
 
@@ -34,19 +34,38 @@ export const useTextListBottomSheet = (flatListData: any[], alias:string) => {
   };
 
 
-  const handleSelectItem = (onChange: (state: string) => void, newState: string) => {
+  const handleSelectItem = (
+    onChange: (state: string | string[] | undefined) => void,
+    newState: string,
+    currentState: string | string[] | null | undefined,
+  ) => {
     return () => {
-      onChange(newState);
-      // Очистка зависимых полей
-      const additionFieldsLength = additionFields ? additionFields.length : 0;
-      for (let i = 0; i < additionFieldsLength; i++) {
-        const dependenciesArray = additionFields[i]?.dependencies;
-        if (dependenciesArray) {
-          const findDependencies = dependenciesArray.find((item: any) => item === alias);
-          if (findDependencies) {
-            setValue(additionFields[i].alias, undefined);
+      if (!isCheckList) {
+        onChange(newState);
+        // Очистка зависимых полей
+        const additionFieldsLength = additionFields ? additionFields.length : 0;
+        for (let i = 0; i < additionFieldsLength; i++) {
+          const dependenciesArray = additionFields[i]?.dependencies;
+          if (dependenciesArray) {
+            const findDependencies = dependenciesArray.find((item: any) => item === alias);
+            if (findDependencies) {
+              setValue(additionFields[i].alias, undefined);
+            }
           }
         }
+      }
+      if (isCheckList) {
+        if (Array.isArray(currentState)) {
+          const isPushState = !!currentState.find(item => item === newState);
+          if (!isPushState) {
+            onChange([...currentState, newState]);
+          } else {
+            const filterArray = currentState.filter(item => item !== newState);
+            onChange(filterArray.length ? filterArray : undefined);
+          }
+          return;
+        }
+        onChange([newState]);
       }
     };
   };

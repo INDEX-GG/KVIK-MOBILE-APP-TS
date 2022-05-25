@@ -27,6 +27,7 @@ const TextListBottomSheetStyles = () => {
     },
     containerList: {
       width: '100%',
+      marginBottom: 5,
     },
   });
 };

@@ -12,6 +12,7 @@ import TextListItem from '../TextListItem/TextListItem';
 interface ITextListBottomSheetProps {
   alias: string;
   title: string;
+  isCheckList?: boolean;
   fieldValue: string | undefined | null;
   onChangeFieldValue: () => void;
   flatListData: any[],
@@ -22,6 +23,7 @@ interface ITextListBottomSheetProps {
 const TextListBottomSheet: FC<ITextListBottomSheetProps> = ({
   alias,
   title,
+  isCheckList,
   fieldValue,
   flatListData,
   onChangeFieldValue,
@@ -38,7 +40,7 @@ const TextListBottomSheet: FC<ITextListBottomSheetProps> = ({
     handleSelectItem,
     handleChangeSearch,
     bottomSheetItemHeight,
-  } = useTextListBottomSheet(flatListData, alias);
+  } = useTextListBottomSheet(flatListData, alias, isCheckList);
 
   const renderItem = useCallback(({ item, index }) => {
     const value = fieldValue ? fieldValue : '';
@@ -47,10 +49,12 @@ const TextListBottomSheet: FC<ITextListBottomSheetProps> = ({
         key={item + index}
         title={item}
         value={value}
-        onChange={handleSelectItem(onChangeFieldValue, item)}
+        isCheckList={isCheckList}
+        onChange={handleSelectItem(onChangeFieldValue, item, fieldValue)}
       />
     );
   }, [flatListData, fieldValue]);
+
 
   return (
     <BottomSheetModalLocal

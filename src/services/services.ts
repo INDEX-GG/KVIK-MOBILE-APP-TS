@@ -1,5 +1,4 @@
-import { IAdditionalFieldsFetchJSON } from '../models/IAdditionalFieldsModel';
-import { FieldValues, UseFormGetValues } from 'react-hook-form';
+import { NumberType } from '../types/types';
 
 export const checkArray = (arr: any[]) => {
   return Array.isArray(arr) && arr?.length;
@@ -83,8 +82,9 @@ export const dynamicPhotosArr = (
   }
 };
 
-export const getOnlyNumberString = (str: string) => {
-  return str.replace(/[^0-9.]/g, '')
+export const getOnlyNumberString = (str: string, type: NumberType ) => {
+  const regExp = type === 'int' ? /[^0-9]/g : /[^0-9.]/g;
+  return str.replace(regExp, '');
 };
 
 export const ToRusDate = (date: string) => {
@@ -226,9 +226,16 @@ export const generateBottomSheetHeight = (
   return height + moreHeight;
 };
 
-export const getDynamicTittle = (title: string, value: string | undefined | null) => (
-  value ? value : title
-);
+export const getDynamicTittle = (
+  title: string,
+  value: string | string[] | undefined | null,
+  isArray: boolean | undefined
+) => {
+  if (isArray && Array.isArray(value)) {
+    return value?.length ? value.join(', ') : title;
+  }
+  return value ? value : title;
+};
 
 export const findDependenciesInFormValues = (dependencies: string[], formValues: any) => {
   if (Array.isArray(dependencies)) {
@@ -250,67 +257,4 @@ export const filterArrayString = (arr: any[], searchString: string) => {
   if (Array.isArray(arr)) {
     return arr.filter(item => item.toLowerCase().includes(searchString.toLowerCase()));
   }
-};
-
-// Получение финальных полей (тип двигателя, мощность)
-const getFourChildren = (childrenArray: IAdditionalFieldsFetchJSON[], alias: string) => {
-  const currentChildren = childrenArray.find(item => item.alias === alias);
-  if (currentChildren) {
-    return Array.from(currentChildren.value);
-  }
-  return [];
-};
-
-export const getPlaceOfferJsonChildren = (
-  jsonObject: IAdditionalFieldsFetchJSON,
-  dependencies: string[],
-  getValue: UseFormGetValues<FieldValues>,
-  alias: string,
-) => {
-  let returnArray = [];
-  const dependenciesLength = dependencies.length;
-  if (jsonObject && dependenciesLength) {
-    const innerChildrenOne = jsonObject?.children;
-    // Первая вложенность
-    if (dependenciesLength === 1 && innerChildrenOne) {
-      returnArray = getStringArrayInObjectArray(innerChildrenOne, 'value');
-    }
-    // Вторая вложенность
-    if (dependenciesLength > 1 && innerChildrenOne) {
-      const twoDependencies = dependencies[1];
-      const findValueTwo = getValue(twoDependencies);
-      if (findValueTwo) {
-        const innerChildrenTwo = innerChildrenOne.find(item => item.value === findValueTwo)?.children;
-        if (innerChildrenTwo) {
-          // Возвращаем вторую вложенность
-          if (dependenciesLength === 2) {
-            returnArray = getStringArrayInObjectArray(innerChildrenTwo, 'value');
-          }
-          // Третья вложенность
-          if (dependenciesLength > 2) {
-            const threeDependencies = dependencies[2];
-            const findValueThree = getValue(threeDependencies);
-            if (findValueThree) {
-              const innerChildrenThree = innerChildrenTwo.find(item => item.value === findValueThree)?.children;
-              if (innerChildrenThree) {
-                returnArray = getStringArrayInObjectArray(innerChildrenThree, 'value');
-                // Четвертая вложенность
-                if (dependenciesLength > 3) {
-                  const fourDependencies = dependencies[3];
-                  const findValueFour = getValue(fourDependencies);
-                  if (findValueFour) {
-                    const innerChildrenFour = innerChildrenThree.find(item => item.value === findValueFour)?.children;
-                    if (innerChildrenFour) {
-                      returnArray = getFourChildren(innerChildrenFour, alias);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  return returnArray;
 };
