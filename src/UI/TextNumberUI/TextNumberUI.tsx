@@ -13,6 +13,7 @@ const TextNumberUI: FC<ITextNumberUIProps> = (props) => {
   const {alias, default_value} = props;
 
   const { control, handleChangeText, placeholderTitle } = useTextNumber(props);
+  console.log(123);
 
   return (
     <Controller
