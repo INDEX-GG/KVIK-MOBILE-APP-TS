@@ -1,8 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { useCurrentTheme } from '../../../hooks/useTheme';
 
 const TextListSearchStyles = () => {
-  const { isDark } = useCurrentTheme();
   return StyleSheet.create({
     container: {
       marginBottom: 17,
@@ -12,17 +10,14 @@ const TextListSearchStyles = () => {
       position: 'relative',
     },
     input: {
-      backgroundColor: isDark ? '#2C2C2C' : '#FFFFFF',
-      borderStyle: 'solid',
-      borderColor: '#E9E9E9',
-      borderWidth: isDark ? 0 : 2,
-      paddingVertical: 15,
+      backgroundColor: '#2C2C2C',
+      paddingVertical: 16,
       borderRadius: 30,
       paddingLeft: 56,
-      color: isDark ? '#FFFFFF' : '#000000',
-      fontSize: 16,
+      color: '#FFFFFF',
+      fontSize: 14,
       fontWeight: 'normal',
-      lineHeight: 19,
+      lineHeight: 16,
     },
     icon: {
       position: 'absolute',
