@@ -8,10 +8,16 @@ const TextListUIStyles = () => {
 
   return StyleSheet.create({
     container: {
-      backgroundColor: isDark ? '#2C2C2C' : '',
-      marginBottom: 15,
-      paddingVertical: 15,
-      paddingHorizontal: 20,
+      // backgroundColor: isDark ? '#2C2C2C' : '',
+      // marginBottom: 15,
+      paddingVertical: 20,
+      // paddingHorizontal: 20,
+      // paddingLeft
+      borderBottomWidth: 2,
+      borderBottomColor: '#5A5A5A',
+      borderStyle: 'solid',
+      marginLeft: 11,
+      marginRight: 21,
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
