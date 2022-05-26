@@ -8,23 +8,29 @@ const TextListUIStyles = () => {
 
   return StyleSheet.create({
     container: {
-      backgroundColor: isDark ? '#2C2C2C' : '',
-      marginBottom: 15,
-      paddingVertical: 15,
       paddingHorizontal: 20,
+      position: 'relative',
+    },
+    innerContainer: {
+      borderBottomWidth: 2,
+      borderStyle: 'solid',
+      borderBottomColor: isDark ? '#A5A5A5' : '#E4E4E4',
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      position: 'relative',
+      paddingVertical: 20,
+
     },
     label: {
-      fontSize: 11,
-      fontWeight: 'normal',
-      color: '#FFFFFF',
+      fontSize: 13,
+      color: isDark ? '#FFFFFF' : '#8F8F8F',
       position: 'absolute',
-      top: 0,
-      left: 20,
+      top: 2,
+      left: 0,
+    },
+    iconContainer: {
+      marginRight: 15,
     },
     arrowDefault: {
       transform: [{rotate: '0deg'}],
@@ -34,8 +40,7 @@ const TextListUIStyles = () => {
     },
     text: {
       color: isDark ? '#FFFFFF' : '#151515',
-      fontSize: 16,
-      fontWeight: 'normal',
+      fontSize: 18,
       lineHeight: 19,
     },
   });

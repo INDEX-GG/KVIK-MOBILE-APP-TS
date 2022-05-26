@@ -1,8 +1,8 @@
 import React, { FC, useMemo } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { useTextListItemStyles } from './style';
-import RobotoText from '../../RobotoText';
 import CheckBoxUI from '../../CheckBoxUI/CheckBoxUI';
+import UbuntuTextUI from '../../UbuntuTextUI/UbuntuTextUI';
 
 interface ITextListUIItemProps {
   title: string;
@@ -12,6 +12,7 @@ interface ITextListUIItemProps {
 }
 
 const TextListItem: FC<ITextListUIItemProps> = ({ title, value, onChange, isCheckList }) => {
+  const styles = useTextListItemStyles();
 
   const isActive = useMemo(() => {
     if (!isCheckList) {
@@ -29,9 +30,9 @@ const TextListItem: FC<ITextListUIItemProps> = ({ title, value, onChange, isChec
       onPress={onChange}
       activeOpacity={0.5}
     >
-      <RobotoText weight="r" style={styles.text}>
+      <UbuntuTextUI fontWeight={500} textProps={{style: styles.text}}>
         {title}
-      </RobotoText>
+      </UbuntuTextUI>
       <CheckBoxUI
         active={isActive}
       />
@@ -39,6 +40,5 @@ const TextListItem: FC<ITextListUIItemProps> = ({ title, value, onChange, isChec
   );
 };
 
-const styles = useTextListItemStyles();
 
 export default React.memo(TextListItem);

@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { fetchMoreAdditionalFields } from '../../store/reducers/placeOfferSlice/asyncThunk/placeOferApi';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { usePlaceOfferStore } from '../../hooks/useReducerHook/usePlaceOfferStore';
+import { KVIK_COLOR } from '../../constants/constants';
 
 type booleanType = boolean | undefined
 
@@ -42,12 +43,19 @@ export const useTextListUI = (
   }, [flatListData]);
 
   const arrowStyle = useMemo(() => (
-    {transform: [{rotate: `${openBottomSheet ? 270 : 0}deg`}]}
+    {
+      transform: {transform: [{rotate: `${openBottomSheet ? 270 : 0}deg`}]},
+      color: {color: openBottomSheet ? KVIK_COLOR : '#8F8F8F'},
+    }
   ), [openBottomSheet]);
 
   const handleToggleBottomSheet = () => {
     setOpenBottomSheet((prevState) => !prevState);
   };
+
+  const getDynamicColor = useCallback((item) => (
+    openBottomSheet ? KVIK_COLOR : item
+  ), [openBottomSheet]);
 
   // Поиск внешнего json
   useEffect(() => {
@@ -78,6 +86,7 @@ export const useTextListUI = (
     control,
     arrowStyle,
     flatListData,
+    getDynamicColor,
     openBottomSheet,
     isSingleFlatListData,
     handleToggleBottomSheet,
