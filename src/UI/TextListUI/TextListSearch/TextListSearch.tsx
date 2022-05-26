@@ -10,6 +10,7 @@ interface ITextListSearchProps {
 }
 
 const TextListSearch: FC<ITextListSearchProps> = ({value, handleChangeText}) => {
+  const styles = useTextListSearchStyles();
 
   return (
     <View style={styles.container}>
@@ -27,6 +28,5 @@ const TextListSearch: FC<ITextListSearchProps> = ({value, handleChangeText}) => 
   );
 };
 
-const styles = useTextListSearchStyles();
 
 export default React.memo(TextListSearch);

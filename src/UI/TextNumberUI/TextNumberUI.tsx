@@ -6,7 +6,6 @@ import {
 import { useTextNumberUIStyles } from './style';
 import { useTextNumber } from './useTextNumberUI';
 import { Controller } from 'react-hook-form';
-import RobotoText from '../RobotoText';
 
 const TextNumberUI: FC<ITextNumberUIProps> = (props) => {
   const styles = useTextNumberUIStyles();

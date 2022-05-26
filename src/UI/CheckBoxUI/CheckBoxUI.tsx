@@ -7,6 +7,7 @@ interface ICheckBoxUIProps {
 }
 
 const CheckBoxUI: FC<ICheckBoxUIProps> = ({active}) => {
+  const styles = useCheckBoxUIStyles();
   const checkboxActiveStyles = useMemo(() => (
     active ? styles.checkboxActive : {}
   ), [active]);
@@ -19,7 +20,6 @@ const CheckBoxUI: FC<ICheckBoxUIProps> = ({active}) => {
   );
 };
 
-const styles = useCheckBoxUIStyles();
 
 
 export default React.memo(CheckBoxUI);
