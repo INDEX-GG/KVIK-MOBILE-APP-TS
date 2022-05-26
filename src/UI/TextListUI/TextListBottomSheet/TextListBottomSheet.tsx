@@ -8,7 +8,6 @@ import BottomSheetModalLocal from '../../BottomSheetLocalUI/BottomSheetModalLoca
 import { useTextListBottomSheetStyles } from './style';
 import { useTextListBottomSheet } from './useTextListBottomSheet';
 import TextListItem from '../TextListItem/TextListItem';
-import UbuntuTextUI from '../../UbuntuTextUI/UbuntuTextUI';
 
 interface ITextListBottomSheetProps {
   alias: string;
@@ -91,9 +90,9 @@ const TextListBottomSheet: FC<ITextListBottomSheetProps> = ({
           style={styles.buttonContainer}
           onPress={handleToggleBottomSheet}
         >
-          <UbuntuTextUI fontWeight={500} textProps={{style: styles.buttonTitle}}>
+          <RobotoText weight="m" style={styles.buttonTitle}>
             Выбрать
-          </UbuntuTextUI>
+          </RobotoText>
         </TouchableOpacity>
       ) : null}
     </BottomSheetModalLocal>

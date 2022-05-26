@@ -21,8 +21,9 @@ const TextListBottomSheetStyles = () => {
     },
     buttonTitle: {
       color: '#FFFFFF',
-      fontSize: 20,
-      lineHeight: 22,
+      fontSize: 16,
+      lineHeight: 18,
+      fontWeight: 'normal',
     },
     containerList: {
       width: '100%',
