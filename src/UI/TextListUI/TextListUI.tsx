@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { ITextListUIProps } from '../../models/IAdditionalFieldsModel';
 import { useTextListUIStyles } from './style';
+import RobotoText from '../RobotoText';
+import PressableElement from '../PressableElement';
 import ArrowRightIcon from '../../assets/ArrowRightIcon.svg';
 import CloseIcon from '../../assets/CloseIcon.svg';
 import { useTextListUI } from './useTextListUI';
@@ -8,7 +10,6 @@ import { Controller } from 'react-hook-form';
 import { TouchableOpacity, View } from 'react-native';
 import { getDynamicTittle } from '../../services/services';
 import TextListBottomSheet from './TextListBottomSheet/TextListBottomSheet';
-import UbuntuTextUI from '../UbuntuTextUI/UbuntuTextUI';
 
 const TextListUI: FC<ITextListUIProps> = (props) => {
   const styles = useTextListUIStyles();
@@ -30,7 +31,6 @@ const TextListUI: FC<ITextListUIProps> = (props) => {
     flatListData,
     openBottomSheet,
     isSingleFlatListData,
-    getDynamicColor,
     handleToggleBottomSheet,
   } =
     useTextListUI(
@@ -50,47 +50,33 @@ const TextListUI: FC<ITextListUIProps> = (props) => {
       defaultValue={default_value}
       render={({ field: { value, onChange } }) => (
         <>
-          <TouchableOpacity
+          <PressableElement
             onPress={handleToggleBottomSheet}
             style={styles.container}
-            // activeStyles={styles.containerActive}
+            activeStyles={styles.containerActive}
           >
-            <View
-              style={{
-                ...styles.innerContainer,
-                borderBottomColor: getDynamicColor(styles.innerContainer.borderBottomColor),
-            }}>
-              {value ? (
-                <UbuntuTextUI
-                  textProps={{style: styles.label}}
-                  fontWeight={400}
-                >
-                  {title}
-                </UbuntuTextUI>
-              ) : null}
-              <View>
-                <UbuntuTextUI
-                  fontWeight={400}
-                  textProps={{style: {...styles.text, color: getDynamicColor(styles.text.color)}}}
-                >
-                  {getDynamicTittle(title, value, isCheckList)}
-                </UbuntuTextUI>
-              </View>
-              <View style={styles.iconContainer}>
-                {value && !isSingleFlatListData ? (
-                  <TouchableOpacity onPress={() => onChange('')}>
-                    <CloseIcon />
-                  </TouchableOpacity>
-                ) : !value ? (
-                  (
-                    <View style={arrowStyle.transform}>
-                      <ArrowRightIcon style={arrowStyle.color as {}} />
-                    </View>
-                  )
-                ) : null}
-              </View>
+            {value ? (
+              <RobotoText style={styles.label} weight="r">
+                {title}
+              </RobotoText>
+            ) : null}
+            <View>
+              <RobotoText style={styles.text} weight="r">
+                {getDynamicTittle(title, value, isCheckList)}
+              </RobotoText>
             </View>
-          </TouchableOpacity>
+            {value && !isSingleFlatListData ? (
+              <TouchableOpacity onPress={() => onChange('')}>
+                <CloseIcon />
+              </TouchableOpacity>
+            ) : !value ? (
+              (
+                <View style={arrowStyle}>
+                  <ArrowRightIcon />
+                </View>
+              )
+            ) : null}
+          </PressableElement>
           <TextListBottomSheet
             alias={alias}
             title={title}

@@ -23,7 +23,7 @@ const generateFontFamily = (weight: 'b' | 'm' | 'r') => {
 const RobotoText: FC<TextProps & IRobotTextProps> = (props) => {
   const { children, weight, style } = props;
   const textStyle = style as {};
-  const fontFamily = `Ubuntu-${generateFontFamily(weight)}`;
+  const fontFamily = `Roboto-${generateFontFamily(weight)}`;
 
   return (
     <Text style={{ fontFamily: fontFamily, ...textStyle }}>{children}</Text>

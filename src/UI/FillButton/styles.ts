@@ -16,7 +16,7 @@ export const FillButtonStyles = () => {
     titleStyle: {
       color: '#FFFFFF',
       fontSize: fontSize.little,
-      fontFamily: 'Ubuntu-Medium',
+      fontFamily: 'Roboto-Medium',
     },
     disabledButton: {
       backgroundColor: theme.colorDisabledButton.color,
@@ -24,7 +24,7 @@ export const FillButtonStyles = () => {
     disabledTitleStyle: {
       color: '#FFFFFF',
       fontSize: fontSize.little,
-      fontFamily: 'Ubuntu-Medium',
+      fontFamily: 'Roboto-Medium',
     },
   });
 };
