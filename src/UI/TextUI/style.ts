@@ -1,27 +1,32 @@
 import { StyleSheet } from 'react-native';
+import { useCurrentTheme } from '../../hooks/useTheme';
 
 const TextUIStyles = () => {
+  const { isDark } = useCurrentTheme();
   return StyleSheet.create({
-    inputContainer: {
-      backgroundColor: '#2C2C2C',
-      marginBottom: 15,
-      paddingVertical: 15,
-      paddingHorizontal: 20,
+    container: {
       position: 'relative',
-      color: '#FFFFFF',
-      fontSize: 16,
-      fontWeight: 'normal',
-      lineHeight: 18,
+      marginHorizontal: 20,
     },
-    inputColor: {color: '#8F8F8F'},
+    inputContainer: {
+      paddingVertical: 20,
+      position: 'relative',
+      color: isDark ? '#FFFFFF' : '#000000',
+      fontSize: 18,
+      fontWeight: 'normal',
+      lineHeight: 22,
+      borderBottomWidth: 2,
+      borderStyle: 'solid',
+      borderBottomColor: isDark ? '#A5A5A5' : '#E4E4E4',
+    },
+    inputColor: { color: isDark ? '#E9E9E9' : '#8F8F8F' },
     label: {
-      fontSize: 11,
-      fontWeight: 'normal',
-      color: '#FFFFFF',
+      fontSize: 13,
+      color: isDark ? '#FFFFFF' : '#8F8F8F',
       position: 'absolute',
-      top: 0,
-      left: 20,
-    },
+      top: 2,
+      left: 0,
+    }
   });
 };
 

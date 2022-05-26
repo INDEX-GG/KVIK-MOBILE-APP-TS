@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
-import { FlatList } from 'react-native';
+import React from 'react';
+import { ScrollView } from 'react-native';
 import ScreenScroll from '../../AnyScreen/ScreenScroll';
 import { usePlaceOfferAdditionalFieldsStyles } from './style';
 import { usePlaceOfferAdditionalFields } from './usePlaceOfferAdditionalFields';
@@ -9,36 +9,21 @@ import { FormProvider } from 'react-hook-form';
 const PlaceOfferAdditionalFields = () => {
   const { additionFields, isAdditionFieldsArray, methods } =
     usePlaceOfferAdditionalFields();
-
-  const keyExtractor = useCallback(
-    (item, index) => `${item.title}${item.alias}${index}`,
-    []
-  );
-
-  const renderItem = useCallback(
-    ({ item }) => (
-      <AdditionFieldsItem
-        key={item.alias}
-        {...item}
-      />
-    ),
-    []
-  );
-
   return (
     <ScreenScroll scroll={true}>
       <FormProvider {...methods}>
-        {/*<ScrollView style={styles.container}>*/}
+        <ScrollView style={styles.container}>
           {isAdditionFieldsArray ? (
-            <FlatList
-              data={additionFields}
-              contentContainerStyle={styles.container}
-              keyExtractor={keyExtractor}
-              renderItem={renderItem}
-              // ListFooterComponent={}
-            />
+            <>
+              {additionFields.map((additionalItem) => (
+                <AdditionFieldsItem
+                  key={additionalItem.alias}
+                  {...additionalItem}
+                />
+              ))}
+            </>
           ) : null}
-        {/*</ScrollView>*/}
+        </ScrollView>
       </FormProvider>
     </ScreenScroll>
   );

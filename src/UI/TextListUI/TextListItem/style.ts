@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
+import { useCurrentTheme } from '../../../hooks/useTheme';
 
 const TextListItemStyles = () => {
+  const {isDark} = useCurrentTheme();
   return StyleSheet.create({
     container: {
       width: '100%',
@@ -13,8 +15,7 @@ const TextListItemStyles = () => {
     text: {
       fontSize: 18,
       lineHeight: 21,
-      fontWeight: 'normal',
-      color: '#FFFFFF',
+      color: isDark ? '#FFFFFF' : '#000000',
     },
   });
 };

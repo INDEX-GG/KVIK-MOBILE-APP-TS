@@ -78,6 +78,11 @@
 		<string>Roboto-Bold.otf</string>
 		<string>Roboto-Medium.otf</string>
 		<string>Roboto-Regular.otf</string>
+		<string>Ubuntu-BoldItalic.otf</string>
+		<string>Ubuntu-Italic.otf</string>
+		<string>Ubuntu-Light.otf</string>
+		<string>Ubuntu-LightItalic.otf</string>
+		<string>Ubuntu-MediumItalic.otf</string>
 	</array>
 </dict>
 </plist>
