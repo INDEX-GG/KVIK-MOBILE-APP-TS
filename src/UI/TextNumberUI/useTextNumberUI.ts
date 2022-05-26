@@ -1,23 +1,28 @@
 import { useFormContext } from 'react-hook-form';
-import { onChangeText } from '../../types/types';
+import { NumberType, onChangeText } from '../../types/types';
 import { getOnlyNumberString } from '../../services/services';
-import { ITextNumberUIProps } from '../../models/IAdditionalFieldsModel';
-import { useMemo } from 'react';
+import { useSize } from '../../hooks/useSize';
 
-export const useTextNumber = (data: ITextNumberUIProps) => {
+export const useTextNumber = (number_version: NumberType) => {
   const { control } = useFormContext();
-  const { number_version, title, number_unit_of_measure } = data;
+  const { deviceWidth }  = useSize();
   const handleChangeText = (text: string, onChange: onChangeText,) => {
     onChange(getOnlyNumberString(text, number_version));
   };
-
-  const placeholderTitle = useMemo(() => (
-    `${title}${number_unit_of_measure ? `, ${number_unit_of_measure}` : ''}`
-  ), [title, number_unit_of_measure]);
-
+  const generateAfterString = (stringLength: number | undefined) => {
+    if (typeof stringLength === 'number') {
+      const defaultLeft = 30;
+      const dynamicLength = 9.5 * stringLength;
+      const finalLength = defaultLeft + dynamicLength;
+      if (finalLength < deviceWidth - 20) {
+        return finalLength;
+      }
+      return deviceWidth - 25;
+    }
+  };
   return {
     control,
-    placeholderTitle,
+    generateAfterString,
     handleChangeText,
   };
 };
