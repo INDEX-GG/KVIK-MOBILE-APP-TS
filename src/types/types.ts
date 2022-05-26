@@ -20,3 +20,5 @@ export type AppLocation =
   | 'PlaceOfferAdditionalFields';
 
 export type onChangeText = (text: string) => void;
+
+export type NumberType = 'int' | 'float'

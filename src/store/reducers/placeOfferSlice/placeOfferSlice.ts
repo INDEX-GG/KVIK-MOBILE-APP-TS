@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IAdditionalFieldsFetchJSON, IAdditionalFieldsItem } from '../../../models/IAdditionalFieldsModel';
+import {
+  IAdditionalFieldsFetchJSON,
+  IAdditionalFieldsItem,
+  ILastJsonChildren,
+} from '../../../models/IAdditionalFieldsModel';
 import { fetchMoreAdditionalFields } from './asyncThunk/placeOferApi';
 
 interface IInitialState {
@@ -10,6 +14,7 @@ interface IInitialState {
   aliasName: null | string;
   additionFields: IAdditionalFieldsItem[];
   jsonInfo: null |IAdditionalFieldsFetchJSON;
+  lastJsonInfo: ILastJsonChildren[] | null;
 }
 
 interface IChangeInitialState {
@@ -29,12 +34,17 @@ const initialState: IInitialState = {
   aliasName: null,
   additionFields: [],
   jsonInfo: null,
+  lastJsonInfo: null,
 };
 
 export const placeOfferSlice = createSlice({
   name: 'placeOfferSlice',
   initialState,
   reducers: {
+    reset: () => initialState,
+    handleChangeLastChildJson(state, action: PayloadAction<ILastJsonChildren[]>) {
+      state.lastJsonInfo = action.payload;
+    },
     handleChangeState(state, action: PayloadAction<IChangeInitialState>) {
       state.aliasOne = action.payload.aliasOne;
       state.aliasTwo = action.payload.aliasTwo;

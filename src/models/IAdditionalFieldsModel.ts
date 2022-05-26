@@ -2,14 +2,28 @@ export type PlaceOfferAdditionalFields =
   | 'text_list'
   | 'number'
   | 'check_list'
-  | 'text';
+  | 'text'
+  | 'boolean'
+  | 'period'
+  | 'text_list_time';
 
+export interface ILastJsonChildren {
+  alias: string,
+  name: string,
+  value: string | string[],
+}
 
 export interface IAdditionalFieldsFetchJSON {
   alias: string;
   children?: IAdditionalFieldsFetchJSON[];
   name: string;
   value: string;
+}
+
+export interface ICheckListAdditionalFields {
+  check_list_values: string[],
+  filter_view: false,
+  dependencies: string[],
 }
 
 export interface ITextNumberAdditionalFields {
@@ -55,7 +69,15 @@ export interface IAdditionalFieldsItem {
   };
 }
 
+export type IPeriodUIProps = ICheckListUIProps
+
+export type ITextListIsCheckList = {isCheckList?: boolean}
+export type ITextListIsPeriod = {isPeriod?: boolean}
+export type ITextListIsTime = {isTime?: boolean}
+
+export type ICheckListUIProps = IAdditionalFieldsItem & ICheckListAdditionalFields
+
 export type ITextNumberUIProps = IAdditionalFieldsItem & ITextNumberAdditionalFields
 
 export type ITextListUIProps = ITextListAdditionalFields &
-  IAdditionalFieldsItem;
+  IAdditionalFieldsItem & ITextListIsCheckList & ITextListIsPeriod & ITextListIsTime;

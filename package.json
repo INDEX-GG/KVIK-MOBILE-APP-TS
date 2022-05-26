@@ -25,6 +25,7 @@
     "axios": "^0.26.0",
     "crypto-js": "^3.3.0",
     "imask": "^6.4.2",
+    "moment": "^2.29.3",
     "react": "17.0.2",
     "react-hook-form": "^7.26.1",
     "react-native": "0.67.1",

@@ -7,14 +7,21 @@ import CheckBoxUI from '../../CheckBoxUI/CheckBoxUI';
 interface ITextListUIItemProps {
   title: string;
   value: string;
+  isCheckList?: boolean,
   onChange: () => void;
 }
 
-const TextListItem: FC<ITextListUIItemProps> = ({ title, value, onChange }) => {
+const TextListItem: FC<ITextListUIItemProps> = ({ title, value, onChange, isCheckList }) => {
 
-  const isActive = useMemo(() => (
-    value === title
-  ), [value, title]);
+  const isActive = useMemo(() => {
+    if (!isCheckList) {
+      return  value === title;
+    }
+    if (isCheckList && Array.isArray(value)) {
+      return !!value.find(item => item === title);
+    }
+    return false;
+  }, [value, title, isCheckList]);
 
   return (
     <TouchableOpacity
