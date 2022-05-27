@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TextInput, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 import {
   ITextNumberUIProps,
 } from '../../models/IAdditionalFieldsModel';
@@ -13,7 +13,8 @@ const TextNumberUI: FC<ITextNumberUIProps> = (props) => {
   const {alias, default_value} = props;
 
   const { control, handleChangeText, placeholderTitle } = useTextNumber(props);
-  console.log(123);
+  const test = 1231;
+  console.log(test);
 
   return (
     <Controller
@@ -22,6 +23,9 @@ const TextNumberUI: FC<ITextNumberUIProps> = (props) => {
       defaultValue={default_value}
       render={({field: {value, onChange}} ) => (
         <View style={styles.container}>
+          <Text>
+            23
+          </Text>
           {value ? (
             <UbuntuTextUI fontWeight={400} textProps={{style: styles.label}} >
               {placeholderTitle}
