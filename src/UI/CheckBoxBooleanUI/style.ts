@@ -1,24 +1,20 @@
 import { StyleSheet } from 'react-native';
-import { useCurrentTheme } from '../../hooks/useTheme';
 
 const CheckBoxBooleanStyles = () => {
-  const { isDark } = useCurrentTheme();
   return StyleSheet.create({
     container: {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
-      marginHorizontal: 20,
-      paddingVertical: 20,
-      borderBottomWidth: 2,
-      borderStyle: 'solid',
-      borderBottomColor: isDark ? '#A5A5A5' : '#E4E4E4',
+      marginBottom: 15,
+      paddingLeft: 15,
+      paddingVertical: 5,
     },
     text: {
-      color: isDark ? '#FFFFFF' : '#151515',
-      fontSize: 18,
+      color: '#FFFFFF',
+      fontSize: 16,
       lineHeight: 21,
-      marginLeft: 9,
+      marginLeft: 10,
     },
     test: {
       color: 'red',
