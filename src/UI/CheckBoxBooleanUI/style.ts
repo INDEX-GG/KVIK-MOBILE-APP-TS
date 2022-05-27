@@ -20,6 +20,9 @@ const CheckBoxBooleanStyles = () => {
       lineHeight: 21,
       marginLeft: 9,
     },
+    test: {
+      color: 'red',
+    },
   });
 };
 

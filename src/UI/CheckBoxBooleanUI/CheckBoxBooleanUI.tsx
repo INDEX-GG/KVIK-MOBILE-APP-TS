@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import CheckBoxUI from '../CheckBoxUI/CheckBoxUI';
 import { Controller, useFormContext } from 'react-hook-form';
 import RobotoText from '../RobotoText';
@@ -23,6 +23,7 @@ const CheckBoxBooleanUI: FC<ICheckBoxBooleanUI> = ({ title, alias}) => {
       render={({ field: {value, onChange}}) => (
         <TouchableOpacity style={styles.container} onPress={() => onChange(!value)}>
           <CheckBoxUI active={value}/>
+          <Text>23</Text>
           <UbuntuTextUI fontWeight={400} textProps={{style: styles.text}}>
             {title}
           </UbuntuTextUI>

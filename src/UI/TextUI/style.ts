@@ -26,7 +26,8 @@ const TextUIStyles = () => {
       position: 'absolute',
       top: 2,
       left: 0,
-    }
+    },
+    test: {},
   });
 };
 

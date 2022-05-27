@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react';
-import { Text, TextProps } from 'react-native';
+import { Text, TextProps, TouchableOpacity } from 'react-native';
 
 interface IUbuntuTextUIProps {
   children: React.ReactChildren | React.ReactNode;

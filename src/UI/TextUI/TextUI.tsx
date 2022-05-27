@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useTextUIStyles } from './style';
 import { IAdditionalFieldsItem, ITextAdditionalFields } from '../../models/IAdditionalFieldsModel';
-import { TextInput, View } from 'react-native';
+import { TextInput, View, TouchableOpacity } from 'react-native';
 import { Controller } from 'react-hook-form';
 import { useTextUI } from './useTextUI';
 import UbuntuTextUI from '../UbuntuTextUI/UbuntuTextUI';
