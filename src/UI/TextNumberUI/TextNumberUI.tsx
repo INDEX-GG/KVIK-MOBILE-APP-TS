@@ -1,20 +1,25 @@
 import React, { FC } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { TextInput, View } from 'react-native';
 import {
   ITextNumberUIProps,
 } from '../../models/IAdditionalFieldsModel';
-import { useTextUIStyles } from './../TextUI/style';
+import { useTextNumberUIStyles } from './style';
 import { useTextNumber } from './useTextNumberUI';
 import { Controller } from 'react-hook-form';
-import UbuntuTextUI from '../UbuntuTextUI/UbuntuTextUI';
+import RobotoText from '../RobotoText';
 
 const TextNumberUI: FC<ITextNumberUIProps> = (props) => {
-  const styles = useTextUIStyles();
-  const {alias, default_value} = props;
+  const styles = useTextNumberUIStyles();
+  const {
+    alias,
+    title,
+    number_version,
+    default_value,
+    number_max_value,
+    // number_unit_of_measure,
+  } = props;
 
   const { control, handleChangeText, placeholderTitle } = useTextNumber(props);
-  const test = 1231;
-  console.log(test);
 
   return (
     <Controller
@@ -23,9 +28,6 @@ const TextNumberUI: FC<ITextNumberUIProps> = (props) => {
       defaultValue={default_value}
       render={({field: {value, onChange}} ) => (
         <View style={styles.container}>
-          <Text>
-            23
-          </Text>
           {value ? (
             <UbuntuTextUI fontWeight={400} textProps={{style: styles.label}} >
               {placeholderTitle}

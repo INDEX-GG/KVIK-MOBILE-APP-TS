@@ -4,7 +4,6 @@ import CheckBoxUI from '../CheckBoxUI/CheckBoxUI';
 import { Controller, useFormContext } from 'react-hook-form';
 import RobotoText from '../RobotoText';
 import { useCheckBoxBooleanStyles } from './style';
-import UbuntuTextUI from '../UbuntuTextUI/UbuntuTextUI';
 
 interface ICheckBoxBooleanUI {
   alias: string;
@@ -23,9 +22,9 @@ const CheckBoxBooleanUI: FC<ICheckBoxBooleanUI> = ({ title, alias}) => {
       render={({ field: {value, onChange}}) => (
         <TouchableOpacity style={styles.container} onPress={() => onChange(!value)}>
           <CheckBoxUI active={value}/>
-          <UbuntuTextUI fontWeight={400} textProps={{style: styles.text}}>
+          <RobotoText weight="m" style={styles.text}>
             {title}
-          </UbuntuTextUI>
+          </RobotoText>
         </TouchableOpacity>
       )}
     />
