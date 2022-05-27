@@ -19,40 +19,31 @@ const TextNumberUI: FC<ITextNumberUIProps> = (props) => {
     // number_unit_of_measure,
   } = props;
 
-  const {
-    control,
-    handleChangeText,
-    // generateAfterString
-  } = useTextNumber(number_version);
+  const { control, handleChangeText, placeholderTitle } = useTextNumber(props);
 
   return (
-    <View style={styles.container}>
-      <Controller
-        name={alias}
-        control={control}
-        defaultValue={default_value}
-        render={({field: {value, onChange}} ) => (
-          <>
-            <TextInput
-              value={value}
-              maxLength={number_max_value}
-              keyboardType="numeric"
-              onChangeText={(text) => handleChangeText(text, onChange)}
-              placeholder={title}
-              placeholderTextColor={styles.inputColor.color}
-              style={styles.inputContainer}
-            />
-            {/*{value ? (*/}
-            {/*  <View style={{...styles.placeholderContainer, left: generateAfterString(value?.length)}}>*/}
-            {/*    <RobotoText weight="m" style={styles.inputPlaceholder}>*/}
-            {/*      {number_unit_of_measure}*/}
-            {/*    </RobotoText>*/}
-            {/*  </View>*/}
-            {/*) : null}*/}
-          </>
-        )}
-      />
-    </View>
+    <Controller
+      name={alias}
+      control={control}
+      defaultValue={default_value}
+      render={({field: {value, onChange}} ) => (
+        <View style={styles.container}>
+          {value ? (
+            <UbuntuTextUI fontWeight={400} textProps={{style: styles.label}} >
+              {placeholderTitle}
+            </UbuntuTextUI>
+          ) : null}
+          <TextInput
+            value={value}
+            keyboardType="numeric"
+            onChangeText={(text) => handleChangeText(text, onChange)}
+            placeholder={placeholderTitle}
+            placeholderTextColor={styles.inputColor.color}
+            style={styles.inputContainer}
+          />
+        </View>
+      )}
+    />
   );
 };
 
